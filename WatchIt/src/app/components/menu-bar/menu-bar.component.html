@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-faded">
+  <div class="row">
+    <div class="col-8">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/icons/movie.png" width="30" height="30" class="d-inline-block align-top" alt=""> WatchIt
+      </a>
+    </div>
+    <div class="col-3">
+      <input [(ngModel)]="query" class="form-control mr-sm-2" type="text" placeholder="Search">
+    </div>
+    <div class="col-1">
+      <button (click)="onSearch()" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+    </div>
+  </div>
+</nav>
