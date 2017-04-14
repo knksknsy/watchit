@@ -1,7 +1,8 @@
-import { Response } from '@angular/http/src/static_response';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Http, Response } from '@angular/http';
+import { apiKey } from '../../../../config/globals';
+import { ISearchMovies } from '../../interfaces/search-movies';
+import 'rxjs/Rx';
 
 @Injectable()
 export class APIService {
@@ -12,18 +13,6 @@ export class APIService {
   private _region: string;
 
   constructor(private http: Http) {
-    this.http.get('../config/api-key.json')
-      .subscribe((next) => {
-        this.key = JSON.parse(next.text()).key;
-      });
-  }
-
-  get key() {
-    return this._key;
-  }
-
-  set key(key: string) {
-    this._key = key
   }
 
   get language() {
@@ -42,8 +31,11 @@ export class APIService {
     this._region = region;
   }
 
-  searchMovie(query: string) {
-    return this.http.get(this.url + 'search/movie?api_key=' + this.key + '&language=' + this.language + '&query=' + query + '&region=' + this.region);
+  searchMovies(query: string) {
+    return this.http.get(this.url + 'search/movie?api_key=' + apiKey + '&language=' + this.language + '&query=' + query + '&region=' + this.region)
+      .map((res) => {
+        return <ISearchMovies>res.json();
+      });
   }
 
 }

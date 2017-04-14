@@ -8,14 +8,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class MenuBarComponent implements OnInit {
   query: string;
   @Output()
-  search: EventEmitter<any> =  new EventEmitter<any>();
+  search: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   onSearch() {
-    if (this.query.length) {
-      this.search.emit(this.query);
-    }
+    this.search.emit(this.query);
   }
 
   ngOnInit() {

@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { APIService } from './services/api/api.service';
+import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
 
 const appRoutes: Routes = [
   // { 
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    SearchMoviesViewComponent
   ],
   imports: [
     BrowserModule,

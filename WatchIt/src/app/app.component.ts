@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { APIService } from './services/api/api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +6,13 @@ import { APIService } from './services/api/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  query: any;
+  hasQuery: boolean;
+  query: string;
 
-  constructor(private apiService: APIService) { }
+  constructor() { }
 
   searchQuery(query) {
-    this.apiService.searchMovie(query)
-      .subscribe((next) => {
-        this.query = JSON.stringify(next.text(), null, 4);
-      },
-      (err) => {
-        this.query = err;
-      },
-      () => {
-        console.log('complete');
-      });
+    this.hasQuery = query.length > 0;
+    this.hasQuery ? this.query = query : this.query = undefined;
   }
 }
