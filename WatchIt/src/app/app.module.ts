@@ -1,40 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RouterModule, Routes } from '@angular/router';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { RatingModule } from 'ngx-bootstrap/rating';
+
+// modules
+import { AppRoutingModule } from './app-routing.module';
+
+// components
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
-import { APIService } from './services/api/api.service';
 import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
-const appRoutes: Routes = [
-  // { 
-  //   path: '',
-  //   redirectTo: '/component_name',
-  //   pathMatch: 'full'
-  // }
-  // {
-  //   path: '/component_name',
-  //   component: ComponentName,
-  //   data: { property: 'idk' }
-  // }
-]
+// services
+import { APIService } from './services/api/api.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MenuBarComponent,
-    SearchMoviesViewComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    RatingModule.forRoot(),
+    AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    MenuBarComponent,
+    SearchMoviesViewComponent,
+    MovieCardComponent,
+    MovieDetailsComponent
   ],
   providers: [APIService],
   bootstrap: [AppComponent]

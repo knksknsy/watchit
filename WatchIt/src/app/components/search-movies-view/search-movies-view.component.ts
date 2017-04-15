@@ -1,9 +1,9 @@
+import { Component, Input, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
-import { Component, Input, OnChanges } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
-import { ISearchMovies } from '../../interfaces/search-movies';
+import { ISearchMovies, ISearchMoviesResult } from '../../interfaces/search-movies';
 import { Observable } from 'rxjs/Observable';
-import { ISearchMoviesResult } from '../../interfaces/search-movies';
 import 'rxjs/Rx';
 
 @Component({
@@ -11,25 +11,26 @@ import 'rxjs/Rx';
   templateUrl: './search-movies-view.component.html',
   styleUrls: ['./search-movies-view.component.scss']
 })
-export class SearchMoviesViewComponent implements OnChanges {
+export class SearchMoviesViewComponent implements OnInit {
   private _query: string;
   private _response: ISearchMovies;
   private _results: Array<ISearchMoviesResult>;
 
-  constructor(private apiService: APIService) { }
+  constructor(private apiService: APIService, private route: ActivatedRoute) { }
 
-  ngOnChanges() {
-    this.apiService.searchMovies(this.query)
+  ngOnInit() {
+    this.route.params.switchMap((params: Params) => 
+      this.apiService.searchMovies(params['query']))
       .subscribe((next) => {
         this.results = next.results;
       });
+
   }
 
   get query(): string {
     return this._query;
   }
 
-  @Input()
   set query(query: string) {
     this._query = query;
   }

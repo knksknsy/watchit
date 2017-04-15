@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { apiKey } from '../../../../config/globals';
 import { ISearchMovies } from '../../interfaces/search-movies';
+import { IDetailsMovie } from '../../interfaces/details-movie';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -37,5 +38,13 @@ export class APIService {
         return <ISearchMovies>res.json();
       });
   }
+
+  detailsMovie(id: number) {
+    return this.http.get(this.url + 'movie/' + id + '?api_key=' + apiKey + '&language=' + this.language)
+      .map((res) => {
+        return <IDetailsMovie>res.json();
+      });
+  }
+
 
 }

@@ -1,16 +1,5 @@
 <div class="container-fluid">
-  <div class="card-deck">
-
-    <div class="card" *ngFor="let movie of results">
-      <!--<img class="card-img-top" src="..." alt="Card image cap">-->
-      <div class="card-block">
-        <h4 class="card-title">{{movie.title}}</h4>
-        <p class="card-text">{{movie.overview}}</p>
-        <div class="card-footer">
-          <small class="text-muted">{{movie.vote_average}}</small>
-        </div>
-      </div>
-    </div>
-
+  <div class="card-columns">
+    <app-movie-card *ngFor="let movie of results" [data]="movie"></app-movie-card>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,11 @@ export class AppComponent {
   hasQuery: boolean;
   query: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   searchQuery(query) {
     this.hasQuery = query.length > 0;
     this.hasQuery ? this.query = query : this.query = undefined;
+    this.router.navigate(['/search', query]);
   }
 }
