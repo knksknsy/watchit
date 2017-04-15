@@ -1,13 +1,13 @@
 <div class="card">
-  <img *ngIf="data.backdrop_path" class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/original{{data.backdrop_path}}"
-    alt="Card Responsive image cap" (click)="openDetails(data.id)">
+  <img *ngIf="data.backdrop_path" class="card-img-top img-fluid" src="{{imgPath}}{{data.backdrop_path}}" alt="Card Responsive image cap"
+    (click)="openDetails(data.id)">
   <div class="card-block">
     <h4 class="card-title" (click)="openDetails(data.id)">{{data.title}}</h4>
     <h6 *ngIf="data.release_date" class="card-subtitle mb-2 text-muted">{{data.release_date | date : 'y'}}</h6>
     <p class="card-text">{{data.overview}}</p>
   </div>
   <div *ngIf="data.vote_average > 0" class="card-footer text-muted">
-    <rating [(ngModel)]="data.vote_average" max="10" readonly="true"></rating>
-    {{data.vote_average}}
+    <rating [(ngModel)]="data.vote_average" max="10" stateOn="fa fa-star" stateOff="fa fa-star-o" [readonly]="true"></rating>
+    {{data.vote_average | number : '1.1-2'}}
   </div>
 </div>

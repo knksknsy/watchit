@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ISearchMoviesResult } from '../../interfaces/search-movies';
 
@@ -9,6 +9,7 @@ import { ISearchMoviesResult } from '../../interfaces/search-movies';
 })
 export class MovieCardComponent {
   private _data: ISearchMoviesResult
+  private _imgPath = 'https://image.tmdb.org/t/p/original';
 
   constructor(private router: Router) { }
 
@@ -19,6 +20,14 @@ export class MovieCardComponent {
   @Input()
   set data(data: ISearchMoviesResult) {
     this._data = data;
+  }
+
+  get imgPath(): string {
+    return this._imgPath;
+  }
+
+  set imgPath(imgPath: string) {
+    this._imgPath = imgPath;
   }
 
   openDetails(id: number) {

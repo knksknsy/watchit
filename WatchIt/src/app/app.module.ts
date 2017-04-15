@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { RatingModule } from 'ngx-bootstrap/rating';
+import { RatingModule } from 'ngx-bootstrap';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
