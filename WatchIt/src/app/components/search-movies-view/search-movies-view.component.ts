@@ -12,7 +12,6 @@ import 'rxjs/Rx';
   styleUrls: ['./search-movies-view.component.scss']
 })
 export class SearchMoviesViewComponent implements OnInit {
-  private _query: string;
   private _response: ISearchMovies;
   private _results: Array<ISearchMoviesResult>;
 
@@ -25,14 +24,6 @@ export class SearchMoviesViewComponent implements OnInit {
         this.results = next.results;
       });
 
-  }
-
-  get query(): string {
-    return this._query;
-  }
-
-  set query(query: string) {
-    this._query = query;
   }
 
   get response(): ISearchMovies {
