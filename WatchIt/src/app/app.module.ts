@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RatingModule } from 'ngx-bootstrap';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { APIService } from './services/api/api.service';
     HttpModule,
     BsDropdownModule.forRoot(),
     RatingModule.forRoot(),
+    PopoverModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [

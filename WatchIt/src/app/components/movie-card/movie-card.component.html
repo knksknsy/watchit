@@ -5,9 +5,42 @@
     <h4 class="card-title" (click)="openDetails(data.id)">{{data.title}}</h4>
     <h6 *ngIf="data.release_date" class="card-subtitle mb-2 text-muted">{{data.release_date | date : 'y'}}</h6>
     <p class="card-text">{{data.overview}}</p>
+    <p *ngIf="data.vote_average > 0" class="card-text">
+      <rating [(ngModel)]="data.vote_average" max="10" stateOn="fa fa-star" stateOff="fa fa-star-o" [readonly]="true"></rating>
+      {{data.vote_average | number : '1.1-2'}}
+    </p>
   </div>
-  <div *ngIf="data.vote_average > 0" class="card-footer text-muted">
-    <rating [(ngModel)]="data.vote_average" max="10" stateOn="fa fa-star" stateOff="fa fa-star-o" [readonly]="true"></rating>
-    {{data.vote_average | number : '1.1-2'}}
+  <div class="card-footer text-muted">
+    <div class="container footer">
+      <div class="row">
+        <div class="col">
+          <button class="btn" (click)="toggleFavorite()">
+            <span class="fa fa-heart-o"></span>
+          </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="left" #pop="bs-popover" popoverCloseOnClickOutside="true">
+            <span class="fa fa-list-ul"></span>
+          </button>
+        </div>
+        <div *ngIf="!removable" class="col">
+          <button class="btn" (click)="removeFromList()">
+            <span class="fa fa-trash"></span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<template #listPopover>
+  <!--User registration necessary + DB models for lists-->
+  <div class="input-group">
+    <input [(ngModel)]="listName" type="text" class="form-control">
+    <span class="input-group-btn">
+      <button (click)="addToList()" class="btn btn-outline" type="button">
+        <span class="fa fa-plus" aria-hidden="true"></span>
+      </button>
+    </span>
+  </div>
+</template>
