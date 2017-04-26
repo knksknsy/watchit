@@ -1,3 +1,4 @@
+import {IPopularMovies} from '../../interfaces/popular-movies';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { apiKey } from '../../../../config/globals';
@@ -35,14 +36,28 @@ export class APIService {
   searchMovies(query: string): Observable<ISearchMovies> {
     return this.http.get(this.url + 'search/movie?api_key=' + apiKey + '&language=' + this.language + '&query=' + query + '&region=' + this.region)
       .map((res) => {
-        return <ISearchMovies>res.json();
+        return res.json();
       });
   }
 
   detailsMovie(id: number): Observable<IDetailsMovie> {
     return this.http.get(this.url + 'movie/' + id + '?api_key=' + apiKey + '&language=' + this.language)
       .map((res) => {
-        return <IDetailsMovie>res.json();
+        return res.json();
+      });
+  }
+
+  getUpcomingMovies(): Observable<any> {
+    return this.http.get(this.url + 'movie/upcoming?api_key' + apiKey + '&language=' + this.language + '&region=' + this.region)
+      .map((res) => {
+        return res.json();
+      });
+  }
+
+  getPopularMovies(): Observable<IPopularMovies> {
+    return this.http.get(this.url + 'movie/popular?api_key' + apiKey + '&language=' + this.language + '&region=' + this.region)
+      .map((res) => {
+        return res.json();
       });
   }
 

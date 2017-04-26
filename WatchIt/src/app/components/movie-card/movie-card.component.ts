@@ -10,7 +10,7 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
-  private _data: ISearchMoviesResult
+  private _data: ISearchMoviesResult;
   private _imgPath = 'https://image.tmdb.org/t/p/original';
   private _removable: boolean;
   private _listName: string;

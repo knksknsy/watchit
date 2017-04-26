@@ -20,6 +20,10 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 
 // services
 import { APIService } from './services/api/api.service';
+import { HomeViewComponent } from './components/home-view/home-view.component';
+import { PopularMovieCardComponent } from './components/popular-movie-card/popular-movie-card.component';
+import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
+import { PopularMoviesViewComponent } from './components/popular-movies-view/popular-movies-view.component';
 
 @NgModule({
   imports: [
@@ -36,7 +40,11 @@ import { APIService } from './services/api/api.service';
     MenuBarComponent,
     SearchMoviesViewComponent,
     MovieCardComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    HomeViewComponent,
+    PopularMovieCardComponent,
+    UpcomingMoviesComponent,
+    PopularMoviesViewComponent
   ],
   providers: [APIService],
   bootstrap: [AppComponent]

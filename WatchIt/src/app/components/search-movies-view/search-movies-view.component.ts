@@ -2,9 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
-import { ISearchMovies, ISearchMoviesResult } from '../../interfaces/search-movies';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
+
+import { ISearchMovies } from '../../interfaces/search-movies';
+import { ISearchMoviesResult } from '../../interfaces/search-movies';
 
 @Component({
   selector: 'app-search-movies-view',
@@ -18,7 +20,7 @@ export class SearchMoviesViewComponent implements OnInit {
   constructor(private apiService: APIService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.switchMap((params: Params) => 
+    this.route.params.switchMap((params: Params) =>
       this.apiService.searchMovies(params['query']))
       .subscribe((next) => {
         this.results = next.results;
