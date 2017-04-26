@@ -1,5 +1,5 @@
 <div class="container-fluid">
   <div class="card-columns">
-    <app-popular-movie-card *ngFor="let movie of response?.results" [data]="movie"></app-popular-movie-card>
+    <app-popular-movie-card *ngFor="let movie of response?.results" [data]="movie" removable="false"></app-popular-movie-card>
   </div>
 </div>

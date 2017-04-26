@@ -1,0 +1,34 @@
+.popular-movie-card{
+	height: 35vh;
+	overflow: hidden;
+}
+
+.popular-movie-card img{
+	height: 35vh;
+}
+
+.popular-movie-card .card-img-overlay{
+	padding: 0;
+}
+
+.popular-movie-card .card-img-overlay .row{
+	position: absolute;
+	right: 25px;
+	top: 10px;
+}
+
+.popular-movie-card .bg-blur{
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+}
+
+.popular-movie-card .bg-blur small, .popular-movie-card .bg-blur p{
+	color: rgba(255,255,255,.8)!important;
+}
+
+.popular-movie-card .bg-blur h4{
+	margin-bottom: 0;
+}
