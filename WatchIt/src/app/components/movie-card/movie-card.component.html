@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="data.overview">
   <img *ngIf="data.backdrop_path" class="card-img-top img-fluid" src="{{imgPath}}{{data.backdrop_path}}" alt="Card Responsive image cap"
     (click)="openDetails(data.id)">
   <div class="card-block">

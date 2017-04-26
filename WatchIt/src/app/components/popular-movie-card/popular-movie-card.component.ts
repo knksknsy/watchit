@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IPopularMoviesResult } from '../../interfaces/popular-movies';
+import { IMovieResult } from '../../interfaces/movie-response';
 
 @Component({
   selector: 'app-popular-movie-card',
@@ -8,17 +8,17 @@ import { IPopularMoviesResult } from '../../interfaces/popular-movies';
   styleUrls: ['./popular-movie-card.component.scss']
 })
 export class PopularMovieCardComponent {
-  private _data: IPopularMoviesResult;
+  private _data: IMovieResult;
   private _imgPath = 'https://image.tmdb.org/t/p/original';
 
   constructor(private router: Router) { }
 
-  get data(): IPopularMoviesResult {
+  get data(): IMovieResult {
     return this._data;
   }
 
   @Input()
-  set data(data: IPopularMoviesResult) {
+  set data(data: IMovieResult) {
     this._data = data;
   }
 

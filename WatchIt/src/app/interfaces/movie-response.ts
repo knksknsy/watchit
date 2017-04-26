@@ -1,11 +1,11 @@
-export interface ISearchMovies {
+export interface IMovieResponse {
     page: number;
-    results: Array<ISearchMoviesResult>;
+    results: Array<IMovieResult>;
     total_results: number;
     total_pages: number;
 }
 
-export interface ISearchMoviesResult {
+export interface IMovieResult {
     poster_path: string;
     adult: boolean;
     overview: string;

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ISearchMoviesResult } from '../../interfaces/search-movies';
+import { IMovieResult } from '../../interfaces/movie-response';
 
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
@@ -10,7 +10,7 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
-  private _data: ISearchMoviesResult;
+  private _data: IMovieResult;
   private _imgPath = 'https://image.tmdb.org/t/p/original';
   private _removable: boolean;
   private _listName: string;
@@ -19,12 +19,12 @@ export class MovieCardComponent {
 
   constructor(private router: Router) { }
 
-  get data(): ISearchMoviesResult {
+  get data(): IMovieResult {
     return this._data;
   }
 
   @Input()
-  set data(data: ISearchMoviesResult) {
+  set data(data: IMovieResult) {
     this._data = data;
   }
 

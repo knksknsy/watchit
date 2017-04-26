@@ -1,4 +1,4 @@
-export interface IDetailsMovie {
+export interface IMovieDetails {
     adult: boolean;
     backdrop_path: string;
     belongs_to_collection: Array<ICollection>;
@@ -12,12 +12,12 @@ export interface IDetailsMovie {
     overview: string;
     popularity: number;
     poster_path: string;
-    production_companies: Array<IProductionCompanies>;
-    production_countries: Array<IProductionCountries>;
+    production_companies: Array<IProductionCompanie>;
+    production_countries: Array<IProductionCountrie>;
     release_date: string;
     revenue: number;
     runtime: number;
-    spoken_languages: Array<any>;
+    spoken_languages: Array<ISpokenLanguage>;
     status: string;
     tagline: string;
     title: string;
@@ -38,17 +38,17 @@ export interface IGenre {
     name: string;
 }
 
-export interface IProductionCompanies {
+export interface IProductionCompanie {
     id: number;
     name: string;
 }
 
-export interface IProductionCountries {
+export interface IProductionCountrie {
     iso_3166_1: string;
     name: string;
 }
 
-export interface ISpokenLanguages {
+export interface ISpokenLanguage {
     iso_639_1: string;
     name: string;
 }

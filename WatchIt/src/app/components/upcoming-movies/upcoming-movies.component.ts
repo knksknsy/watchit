@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../services/api/api.service';
-import { IUpcomingMovies } from '../../interfaces/upcoming-movies';
+import { IMovieResponse } from '../../interfaces/movie-response';
 
 @Component({
   selector: 'app-upcoming-movies',
@@ -8,8 +8,7 @@ import { IUpcomingMovies } from '../../interfaces/upcoming-movies';
   styleUrls: ['./upcoming-movies.component.scss']
 })
 export class UpcomingMoviesComponent implements OnInit {
-
-  public _response: IUpcomingMovies;
+  public _response: IMovieResponse;
 
   constructor(private apiService: APIService) { }
 
@@ -20,11 +19,11 @@ export class UpcomingMoviesComponent implements OnInit {
       })
   }
 
-  get response(): IUpcomingMovies {
+  get response(): IMovieResponse {
     return this._response;
   }
 
-  set response(response: IUpcomingMovies) {
+  set response(response: IMovieResponse) {
     this._response = response;
   }
 

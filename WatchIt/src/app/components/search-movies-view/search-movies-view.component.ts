@@ -5,8 +5,7 @@ import { APIService } from '../../services/api/api.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-import { ISearchMovies } from '../../interfaces/search-movies';
-import { ISearchMoviesResult } from '../../interfaces/search-movies';
+import { IMovieResponse, IMovieResult } from '../../interfaces/movie-response';
 
 @Component({
   selector: 'app-search-movies-view',
@@ -14,8 +13,7 @@ import { ISearchMoviesResult } from '../../interfaces/search-movies';
   styleUrls: ['./search-movies-view.component.scss']
 })
 export class SearchMoviesViewComponent implements OnInit {
-  private _response: ISearchMovies;
-  private _results: Array<ISearchMoviesResult>;
+  private _response: IMovieResponse;
 
   constructor(private apiService: APIService, private route: ActivatedRoute) { }
 
@@ -23,24 +21,17 @@ export class SearchMoviesViewComponent implements OnInit {
     this.route.params.switchMap((params: Params) =>
       this.apiService.searchMovies(params['query']))
       .subscribe((next) => {
-        this.results = next.results;
+        this._response = next;
       });
 
   }
 
-  get response(): ISearchMovies {
+  get response(): IMovieResponse {
     return this._response;
   }
 
-  set response(response: ISearchMovies) {
+  set response(response: IMovieResponse) {
     this._response = response;
   }
 
-  get results(): Array<ISearchMoviesResult> {
-    return this._results;
-  }
-
-  set results(results: Array<ISearchMoviesResult>) {
-    this._results = results;
-  }
 }

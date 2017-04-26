@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
-import { IDetailsMovie } from '../../interfaces/details-movie';
+import { IMovieDetails } from '../../interfaces/movie-details';
 import 'rxjs/Rx';
 
 @Component({
@@ -10,7 +10,7 @@ import 'rxjs/Rx';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  private _results: IDetailsMovie;
+  private _results: IMovieDetails;
 
   constructor(private apiService: APIService, private route: ActivatedRoute) { }
 
@@ -22,11 +22,11 @@ export class MovieDetailsComponent implements OnInit {
       });
   }
 
-  get results(): IDetailsMovie {
+  get results(): IMovieDetails {
     return this._results;
   }
 
-  set results(results: IDetailsMovie) {
+  set results(results: IMovieDetails) {
     this._results = results;
   }
 

@@ -1,10 +1,9 @@
-import {IPopularMovies} from '../../interfaces/popular-movies';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { apiKey } from '../../../../config/globals';
-import { ISearchMovies } from '../../interfaces/search-movies';
-import { IDetailsMovie } from '../../interfaces/details-movie';
 import { Observable } from 'rxjs/Observable';
+import { IMovieDetails } from '../../interfaces/movie-details';
+import { IMovieResponse } from '../../interfaces/movie-response';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -33,33 +32,32 @@ export class APIService {
     this._region = region;
   }
 
-  searchMovies(query: string): Observable<ISearchMovies> {
+  searchMovies(query: string): Observable<IMovieResponse> {
     return this.http.get(this.url + 'search/movie?api_key=' + apiKey + '&language=' + this.language + '&query=' + query + '&region=' + this.region)
       .map((res) => {
         return res.json();
       });
   }
 
-  detailsMovie(id: number): Observable<IDetailsMovie> {
+  getUpcomingMovies(): Observable<IMovieResponse> {
+    return this.http.get(this.url + 'movie/upcoming?api_key=' + apiKey + '&language=' + this.language + '&region=' + this.region)
+      .map((res) => {
+        return res.json();
+      });
+  }
+
+  getPopularMovies(): Observable<IMovieResponse> {
+    return this.http.get(this.url + 'movie/popular?api_key=' + apiKey + '&language=' + this.language + '&region=' + this.region)
+      .map((res) => {
+        return res.json();
+      });
+  }
+
+  detailsMovie(id: number): Observable<IMovieDetails> {
     return this.http.get(this.url + 'movie/' + id + '?api_key=' + apiKey + '&language=' + this.language)
       .map((res) => {
         return res.json();
       });
   }
-
-  getUpcomingMovies(): Observable<any> {
-    return this.http.get(this.url + 'movie/upcoming?api_key' + apiKey + '&language=' + this.language + '&region=' + this.region)
-      .map((res) => {
-        return res.json();
-      });
-  }
-
-  getPopularMovies(): Observable<IPopularMovies> {
-    return this.http.get(this.url + 'movie/popular?api_key' + apiKey + '&language=' + this.language + '&region=' + this.region)
-      .map((res) => {
-        return res.json();
-      });
-  }
-
 
 }

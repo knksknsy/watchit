@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../services/api/api.service';
-import { IPopularMoviesResult } from '../../interfaces/popular-movies';
-import { IPopularMovies } from '../../interfaces/popular-movies';
 
 @Component({
   selector: 'app-home-view',
