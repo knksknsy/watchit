@@ -20,7 +20,6 @@ ngOnInit() {
 	this.apiService.getUpcomingMovies()
 		.subscribe((next) => {
 		this._response = next;
-		console.log(next);
 	})
 }
 
