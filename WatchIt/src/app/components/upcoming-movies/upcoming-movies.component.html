@@ -1,3 +1,10 @@
-<p>
-  upcoming-movies works!
-</p>
+<div class="container-fluid show-grid-top-sm show-grid-bottom-sm">
+	<!--<p>{{response?.results[2].title}}</p>-->
+<h2 class="show-grid-bottom-sm">Upcoming Movies</h2>
+	<carousel *ngIf="response" class="upcoming-movies-carousel">
+		<slide *ngFor="let movie of response?.results"  removable="false">
+			<img *ngIf="movie.backdrop_path" src="{{imgPath}}{{movie.backdrop_path}}" class="img-responsive" alt="movie.title">
+		</slide>
+	</carousel>
+
+</div>

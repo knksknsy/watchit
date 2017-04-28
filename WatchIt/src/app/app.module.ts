@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RatingModule } from 'ngx-bootstrap';
 import { PopoverModule } from 'ngx-bootstrap/popover';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { PopularMoviesViewComponent } from './components/popular-movies-view/pop
     BsDropdownModule.forRoot(),
     RatingModule.forRoot(),
     PopoverModule.forRoot(),
+	CarouselModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
