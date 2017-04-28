@@ -1,19 +1,21 @@
 // carosuel height
 /deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
-	height: 50vh;
+	height: 60vh;
 	border-radius: 0.25rem;
 }
 .upcoming-movies-carousel slide{
-	height: 50vh;
+	height: 60vh;
 }
 .upcoming-movies-carousel img{
 	width: 100%;
+	cursor: pointer;
 }
 
 .carousel-caption{
 	width: 100%;
 	left: 0;
 	background-color: rgba(0,0,0,.5);
+	cursor: pointer;
 }
 
 // carosuel control bg´s
@@ -25,8 +27,8 @@
 	height: 60px;
 	border-radius: 100%;
 	position: absolute;
-	left: 43px;
-	bottom: 163px;
+	left: 75px;
+	bottom: 219px;
 }
 
 /deep/ span.icon-next.carousel-control-next-icon:after{
@@ -37,12 +39,57 @@
 	height: 60px;
 	border-radius: 100%;
 	position: absolute;
-	right: 49px;
-	bottom: 163px;
+	right: 80px;
+	bottom: 219px;
 }
 
+// btn´s
+.upcoming-movies-carousel .row{
+	position: absolute;
+	right: 25px;
+	top: 10px;
+}
+
+// carousel control height
+/deep/ a.right.carousel-control.carousel-control-next{
+	height: 90%;
+	position: absolute;
+	top: 10%;
+}
+/deep/ span.icon-next.carousel-control-next-icon{
+	margin-bottom: 49px;
+}
 
 /* media queries
+*  tablet landscape
+*/
+@media (min-width: 1024px) and (max-width: 1200px){
+	// carosuel control bg´s
+	/deep/ span.icon-prev.carousel-control-prev-icon:after{
+		content: '';
+		background-color: rgba(0,0,0,.2);
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+		position: absolute;
+		left: 43px;
+		bottom: 202px;
+	}
+
+	/deep/ span.icon-next.carousel-control-next-icon:after{
+		content: '';
+		background-color: rgba(0,0,0,.2);
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+		position: absolute;
+		right: 49px;
+		bottom: 202px;
+	}
+}
+/* 
 *  tablet portrait
 */
 @media (min-width: 768px) and (max-width: 1023px){
@@ -54,7 +101,7 @@
 	.upcoming-movies-carousel slide{
 		height: 35vh;
 	}
-	
+
 	// carosuel control bg´s
 	/deep/ span.icon-prev.carousel-control-prev-icon:after{
 		left: 25px;
@@ -64,6 +111,11 @@
 	/deep/ span.icon-next.carousel-control-next-icon:after{
 		right: 30px;
 		bottom: 148px;
+	}
+
+	// carousel control height
+	/deep/ span.icon-next.carousel-control-next-icon{
+		margin-bottom: 36px;
 	}
 }
 /* 
@@ -102,6 +154,11 @@
 		position: absolute;
 		bottom: 55px;
 	}
+	
+	// carousel control height
+	/deep/ span.icon-next.carousel-control-next-icon{
+		margin-bottom: 0px;
+	}
 }
 /* 
 *  phone portrait
@@ -112,11 +169,11 @@
 		height: 30vh;
 		border-radius: 0.25rem;
 	}
-	
+
 	.upcoming-movies-carousel slide{
 		height: 30vh;
 	}
-	
+
 	// carosuel control bg´s
 	/deep/ span.icon-prev.carousel-control-prev-icon:after{
 		background-color: transparent;
@@ -135,9 +192,14 @@
 		position: absolute;
 		bottom: 55px;
 	}
-	
+
 	.carousel-caption h3{
 		font-size: 1rem;
+	}
+	
+	// carousel control height
+	/deep/ span.icon-next.carousel-control-next-icon{
+		margin-bottom: 0px;
 	}
 }
 

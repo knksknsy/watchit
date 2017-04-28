@@ -2,9 +2,21 @@
 
 	<h2 class="show-grid-bottom-sm upcoming-movies-heading">Upcoming Movies</h2>
 	<carousel *ngIf="response" class="upcoming-movies-carousel">
-		<slide *ngFor="let movie of response?.results"  removable="false">
-			<img *ngIf="movie.backdrop_path" src="{{imgPath}}{{movie.backdrop_path}}" class="img-responsive" alt="movie.title">
-			<div class="carousel-caption">
+		<slide *ngFor="let movie of response?.results">
+			<div class="row">
+				<div class="col-xs-3 btn-margin-right">
+					<button class="btn" (click)="toggleFavorite()">
+						<span class="fa fa-heart-o"></span>
+					</button>
+				</div>
+				<div class="col-xs-3">
+					<button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="left" #pop="bs-popover" popoverCloseOnClickOutside="true">
+						<span class="fa fa-list-ul"></span>
+					</button>
+				</div>
+			</div>
+			<img *ngIf="movie.backdrop_path" src="{{imgPath}}{{movie.backdrop_path}}" class="img-responsive" alt="movie.title" (click)="openDetails(movie.id)">
+			<div class="carousel-caption" (click)="openDetails(movie.id)">
 				<h3>{{movie.title}}</h3>
 				<small>{{movie.release_date | date: 'y'}}</small>
 			</div>
@@ -12,3 +24,16 @@
 	</carousel>
 
 </div>
+
+
+<ng-template #listPopover>
+	<!--User registration necessary + DB models for lists-->
+	<div class="input-group">
+		<input [(ngModel)]="listName" type="text" class="form-control">
+		<span class="input-group-btn">
+			<button (click)="addToList()" class="btn btn-outline" type="button">
+				<span class="fa fa-plus" aria-hidden="true"></span>
+			</button>
+		</span>
+	</div>
+</ng-template>
