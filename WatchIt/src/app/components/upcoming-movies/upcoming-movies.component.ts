@@ -17,7 +17,7 @@ export class UpcomingMoviesComponent implements OnInit {
 	constructor(private apiService: APIService, private router: Router) { }
 
 ngOnInit() {
-	this.apiService.getPopularMovies()
+	this.apiService.getUpcomingMovies()
 		.subscribe((next) => {
 		this._response = next;
 		console.log(next);

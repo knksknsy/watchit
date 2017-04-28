@@ -40,7 +40,7 @@ export class APIService {
   }
 
   getUpcomingMovies(): Observable<IMovieResponse> {
-    return this.http.get(this.url + 'movie/upcoming?api_key=' + apiKey + '&language=' + this.language + '&region=' + this.region)
+	  return this.http.get(this.url + 'movie/upcoming?api_key=' + apiKey + '&language=' + this.language + '&region=DE')
       .map((res) => {
         return res.json();
       });
