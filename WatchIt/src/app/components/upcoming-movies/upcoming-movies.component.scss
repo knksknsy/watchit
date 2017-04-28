@@ -1,6 +1,146 @@
+// carosuel height
 /deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
+	height: 50vh;
+	border-radius: 0.25rem;
+}
+.upcoming-movies-carousel slide{
 	height: 50vh;
 }
 .upcoming-movies-carousel img{
 	width: 100%;
 }
+
+.carousel-caption{
+	width: 100%;
+	left: 0;
+	background-color: rgba(0,0,0,.5);
+}
+
+// carosuel control bg´s
+/deep/ span.icon-prev.carousel-control-prev-icon:after{
+	content: '';
+	background-color: rgba(0,0,0,.2);
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 100%;
+	position: absolute;
+	left: 43px;
+	bottom: 163px;
+}
+
+/deep/ span.icon-next.carousel-control-next-icon:after{
+	content: '';
+	background-color: rgba(0,0,0,.2);
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	border-radius: 100%;
+	position: absolute;
+	right: 49px;
+	bottom: 163px;
+}
+
+
+/* media queries
+*  tablet portrait
+*/
+@media (min-width: 768px) and (max-width: 1023px){
+	// carosuel height
+	/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
+		height: 35vh;
+		border-radius: 0.25rem;
+	}
+	.upcoming-movies-carousel slide{
+		height: 35vh;
+	}
+	
+	// carosuel control bg´s
+	/deep/ span.icon-prev.carousel-control-prev-icon:after{
+		left: 25px;
+		bottom: 148px;
+	}
+
+	/deep/ span.icon-next.carousel-control-next-icon:after{
+		right: 30px;
+		bottom: 148px;
+	}
+}
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+	// carosuel height
+	/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
+		height: 60vh;
+		border-radius: 0.25rem;
+	}
+	.upcoming-movies-carousel slide{
+		height: 60vh;
+	}
+	h2.upcoming-movies-heading{
+		font-size: 1rem;
+	}
+	.carousel-caption h3{
+		font-size: 1rem;
+	}
+	// carosuel control bg´s
+	/deep/ span.icon-prev.carousel-control-prev-icon:after{
+		background-color: transparent;
+	}
+
+	/deep/ span.icon-next.carousel-control-next-icon:after{
+		background-color: transparent;
+	}
+	// carousel control icons
+	/deep/ span.icon-prev.carousel-control-prev-icon{
+		position: absolute;
+		bottom: 55px;
+	}
+
+	/deep/ span.icon-next.carousel-control-next-icon{
+		position: absolute;
+		bottom: 55px;
+	}
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	// carosuel height
+	/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
+		height: 30vh;
+		border-radius: 0.25rem;
+	}
+	
+	.upcoming-movies-carousel slide{
+		height: 30vh;
+	}
+	
+	// carosuel control bg´s
+	/deep/ span.icon-prev.carousel-control-prev-icon:after{
+		background-color: transparent;
+	}
+
+	/deep/ span.icon-next.carousel-control-next-icon:after{
+		background-color: transparent;
+	}
+	// carousel control icons
+	/deep/ span.icon-prev.carousel-control-prev-icon{
+		position: absolute;
+		bottom: 55px;
+	}
+
+	/deep/ span.icon-next.carousel-control-next-icon{
+		position: absolute;
+		bottom: 55px;
+	}
+	
+	.carousel-caption h3{
+		font-size: 1rem;
+	}
+}
+
+
+
+
