@@ -15,11 +15,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private apiService: APIService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.switchMap((params: Params) =>
-      this.apiService.detailsMovie(params['id']))
-      .subscribe((next) => {
-        this.results = next;
-      });
+    this.results = this.route.snapshot.data['details'];
   }
 
   get results(): IMovieDetails {
