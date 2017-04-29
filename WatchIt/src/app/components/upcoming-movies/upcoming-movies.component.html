@@ -15,7 +15,7 @@
 					</button>
 				</div>
 			</div>
-			<img *ngIf="movie.backdrop_path" src="{{imgPath}}{{movie.backdrop_path}}" class="img-responsive" alt="movie.title" (click)="openDetails(movie.id)">
+			<img *ngIf="movie.backdrop_path" [src]="apiService.getImgUrlOriginal(movie.backdrop_path)" class="img-responsive" [alt]="movie.title" (click)="openDetails(movie.id)">
 			<div class="carousel-caption" (click)="openDetails(movie.id)">
 				<h3>{{movie.title}}</h3>
 				<small>{{movie.release_date | date: 'y'}}</small>

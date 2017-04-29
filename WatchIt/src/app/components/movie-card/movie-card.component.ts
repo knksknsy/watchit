@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMovieResult } from '../../interfaces/movie-response';
+import { APIService } from '../../services/api/api.service';
 
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
@@ -11,13 +12,12 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
 })
 export class MovieCardComponent {
   private _data: IMovieResult;
-  private _imgPath = 'https://image.tmdb.org/t/p/original';
   private _removable: boolean;
   private _listName: string;
 
   @ViewChild('pop') pop: PopoverDirective;
 
-  constructor(private router: Router) { }
+  constructor(private apiService: APIService, private router: Router) { }
 
   get data(): IMovieResult {
     return this._data;
@@ -26,14 +26,6 @@ export class MovieCardComponent {
   @Input()
   set data(data: IMovieResult) {
     this._data = data;
-  }
-
-  get imgPath(): string {
-    return this._imgPath;
-  }
-
-  set imgPath(imgPath: string) {
-    this._imgPath = imgPath;
   }
 
   get removable(): boolean {

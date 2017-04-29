@@ -1,5 +1,5 @@
 <div class="card" *ngIf="data.overview">
-  <img *ngIf="data.backdrop_path" class="card-img-top img-fluid" src="{{imgPath}}{{data.backdrop_path}}" alt="{{data.title}}"
+  <img *ngIf="data.backdrop_path" class="card-img-top img-fluid" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title"
     (click)="openDetails(data.id)">
   <div class="card-block">
     <h4 class="card-title" (click)="openDetails(data.id)">{{data.title}}</h4>
