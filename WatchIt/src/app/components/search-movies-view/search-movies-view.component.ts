@@ -18,12 +18,7 @@ export class SearchMoviesViewComponent implements OnInit {
   constructor(private apiService: APIService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.switchMap((params: Params) =>
-      this.apiService.searchMovies(params['query']))
-      .subscribe((next) => {
-        this._response = next;
-      });
-
+    this.response = this.route.snapshot.data['response'];
   }
 
   get response(): IMovieResponse {

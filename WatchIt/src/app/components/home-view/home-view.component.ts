@@ -10,7 +10,6 @@ export class HomeViewComponent implements OnInit {
 
   constructor(private apiService: APIService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
