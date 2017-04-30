@@ -14,8 +14,7 @@ export class APIService {
   private _language = navigator.language;
   private _region: string;
 
-  constructor(private http: Http) {
-  }
+  constructor(private http: Http) { }
 
   get url() {
     return this._url;
@@ -42,11 +41,19 @@ export class APIService {
   }
 
   get region() {
-    return this.language.split('-')[1];
+    return this._region;
   }
 
   set region(region: string) {
     this._region = region;
+  }
+
+  appendRegion(url: string): string {
+    // TODO: get region information of user
+    if (this.region) {
+      url += '&region=' + this.region;
+    }
+    return url;
   }
 
   getImgUrlOriginal(path: string) {
@@ -58,21 +65,24 @@ export class APIService {
   }
 
   searchMovies(query: string): Observable<IMovieResponse> {
-    return this.http.get(this.url + 'search/movie?api_key=' + apiKey + '&language=' + this.language + '&query=' + query + '&region=' + this.region)
+    let url = this.url + 'search/movie?api_key=' + apiKey + '&language=' + this.language + '&query=' + query;
+    return this.http.get(this.appendRegion(url))
       .map((res) => {
         return res.json();
       });
   }
 
   getUpcomingMovies(): Observable<IMovieResponse> {
-	  return this.http.get(this.url + 'movie/upcoming?api_key=' + apiKey + '&language=' + this.language + '&region=DE')
+    let url = this.url + 'movie/upcoming?api_key=' + apiKey + '&language=' + this.language;
+    return this.http.get(this.appendRegion(url))
       .map((res) => {
         return res.json();
       });
   }
 
   getPopularMovies(): Observable<IMovieResponse> {
-    return this.http.get(this.url + 'movie/popular?api_key=' + apiKey + '&language=' + this.language + '&region=' + this.region)
+    let url = this.url + 'movie/popular?api_key=' + apiKey + '&language=' + this.language;
+    return this.http.get(this.appendRegion(url))
       .map((res) => {
         return res.json();
       });
