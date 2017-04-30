@@ -19,7 +19,7 @@
           </button>
         </div>
         <div class="col">
-          <button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="left" #pop="bs-popover" popoverCloseOnClickOutside="true">
+          <button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
             <span class="fa fa-list-ul"></span>
           </button>
         </div>
@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<template #listPopover>
+<ng-template #listPopover>
   <!--User registration necessary + DB models for lists-->
   <div class="input-group">
     <input [(ngModel)]="listName" type="text" class="form-control">
@@ -43,4 +43,4 @@
       </button>
     </span>
   </div>
-</template>
+</ng-template>

@@ -25,6 +25,7 @@ import { HomeViewComponent } from './components/home-view/home-view.component';
 import { PopularMovieCardComponent } from './components/popular-movie-card/popular-movie-card.component';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { PopularMoviesViewComponent } from './components/popular-movies-view/popular-movies-view.component';
+import { MovieDetailsCardComponent } from './components/movie-details-card/movie-details-card.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { PopularMoviesViewComponent } from './components/popular-movies-view/pop
     HomeViewComponent,
     PopularMovieCardComponent,
     UpcomingMoviesComponent,
-    PopularMoviesViewComponent
+    PopularMoviesViewComponent,
+    MovieDetailsCardComponent
   ],
   providers: [APIService],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
 import { IMovieDetails } from '../../interfaces/movie-details';
+import { ICredit } from '../../interfaces/credit';
 import 'rxjs/Rx';
 
 @Component({
@@ -11,11 +13,14 @@ import 'rxjs/Rx';
 })
 export class MovieDetailsComponent implements OnInit {
   private _results: IMovieDetails;
+  private _credit: ICredit;
 
-  constructor(private apiService: APIService, private route: ActivatedRoute) { }
+  constructor(private apiService: APIService, private route: ActivatedRoute, private el: ElementRef) { }
 
   ngOnInit() {
-    this.results = this.route.snapshot.data['details'];
+    this.route.params.forEach(params => {
+      this.results = this.route.snapshot.data['details'];
+    });
   }
 
   get results(): IMovieDetails {
@@ -24,6 +29,14 @@ export class MovieDetailsComponent implements OnInit {
 
   set results(results: IMovieDetails) {
     this._results = results;
+  }
+
+  get credit(): ICredit {
+    return this._credit;
+  }
+
+  set credit(credit: ICredit) {
+    this._credit = credit;
   }
 
 }

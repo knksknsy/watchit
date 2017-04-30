@@ -1,0 +1,67 @@
+div.card-img-overlay .row {
+    // height: 100%;   
+    div.col-md-4 {
+        // margin: auto;
+    }
+}
+
+.header {
+
+}
+
+.buttons {
+
+}
+
+.overview {
+
+}
+
+.crew {
+    
+}
+
+.tagline .card-text {
+    font-style: italic;
+    text-align: center;
+}
+
+.background-alpha {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.background {
+    background-color: black;
+}
+
+.poster-mobile {
+    background-size: cover;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.image-background {
+  background: #000;
+  display: table;
+  width: 100%;
+  height: 100%;  
+  position: relative;
+}
+
+.image-container {
+  display: table-cell;  
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+
+
