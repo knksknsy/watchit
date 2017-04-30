@@ -1,4 +1,4 @@
-div.card-img-overlay .row {
+div.card-img-overlay.row {
     // height: 100%;   
     div.col-md-4 {
         // margin: auto;
@@ -32,6 +32,12 @@ div.card-img-overlay .row {
 
 .background {
     background-color: black;
+}
+
+.background-cover {
+    height: 100%;
+    width: auto;
+    overflow: hidden;
 }
 
 .poster-mobile {

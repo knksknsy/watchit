@@ -1,61 +1,57 @@
 <div class="card card-inverse" (window:resize)="onResize($event)">
 
-    <div class="image-background">
+    <div *ngIf="!isMobile" class="image-background">
         <div class="image-container">
-            <img *ngIf="!isMobile" class="card-img img-fluid rounded" [src]="apiService.getImgUrlOriginal(details.backdrop_path)" />
+            <img class="card-img img-fluid rounded" [src]="apiService.getImgUrlOriginal(details.backdrop_path)"/>
         </div>
     </div>
 
-    <div class="card-img-overlay" [ngClass]="{'background-alpha': !isMobile }">
-        <div class="row">
-
-            <div class="col-md-4" [ngClass]="{'poster-mobile': isMobile}" [ngStyle]="isMobile ? {'background-image': 'url(' + apiService.getImgUrlOriginal(details.backdrop_path) + ')'} : ''">
-                <div class="row">
-                    <div class="col-md">
-                        <img *ngIf="details.poster_path" class="img-fluid rounded" [src]="apiService.getImgUrlW300(details.poster_path)" />
-                    </div>
+    <div class="row" [ngClass]="{'background-alpha': !isMobile, 'card-img-overlay': !isMobile }">
+        <div class="col-md-4" [ngClass]="{'poster-mobile': isMobile}" [ngStyle]="isMobile ? {'background-image': 'url(' + apiService.getImgUrlOriginal(details.backdrop_path) + ')'} : ''">
+            <div class="row">
+                <div class="col-md">
+                    <img *ngIf="details.poster_path" class="img-fluid rounded" [src]="apiService.getImgUrlW300(details.poster_path)" />
                 </div>
-                <div *ngIf="details.tagline" class="row tagline">
-                    <div class="col-md card-text">
-                        "{{details.tagline}}"
-                    </div>
+            </div>
+            <div *ngIf="details.tagline" class="row tagline">
+                <div class="col-md card-text">
+                    "{{details.tagline}}"
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8" [ngClass]="{'background': isMobile }">
+            <div class="header">
+                <h4 class="card-title">{{details.title}}</h4>
+                <h6 class="card-title">{{details.release_date | date : 'y'}}</h6>
+                <div *ngIf="details.vote_average > 0" class="card-title">
+                    <rating [(ngModel)]="details.vote_average" max="10" stateOn="fa fa-star" stateOff="fa fa-star-o" [readonly]="true"></rating>
+                    {{details.vote_average | number : '1.1-2'}}
                 </div>
             </div>
 
-            <div class="col-md-8" [ngClass]="{'background': isMobile }">
-                <div class="header">
-                    <h4 class="card-title">{{details.title}}</h4>
-                    <h6 class="card-title">{{details.release_date | date : 'y'}}</h6>
-                    <div *ngIf="details.vote_average > 0" class="card-title">
-                        <rating [(ngModel)]="details.vote_average" max="10" stateOn="fa fa-star" stateOff="fa fa-star-o" [readonly]="true"></rating>
-                        {{details.vote_average | number : '1.1-2'}}
-                    </div>
-                </div>
-
-                <div class="card-title buttons">
-                    <button class="btn" (click)="toggleFavorite()">
+            <div class="card-title buttons">
+                <button class="btn" (click)="toggleFavorite()">
                         <span class="fa fa-heart-o"></span>
                     </button>
-                    <button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
+                <button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
                         <span class="fa fa-list-ul"></span>
                     </button>
-                </div>
+            </div>
 
-                <div class="card-title overview">
-                    <h6 class="card-title">Overview</h6>
-                    <div class="card-text">{{details.overview}}</div>
-                </div>
+            <div class="card-title overview">
+                <h6 class="card-title">Overview</h6>
+                <div class="card-text">{{details.overview}}</div>
+            </div>
 
-                <div class="card-title crew">
-                    <h6 class="card-title">Featured Crew</h6>
-                    <div class="row">
-                        <div *ngFor="let member of result" class="col-md-4">
-                            <div class="card-text"><strong>{{member.name}}</strong></div>
-                            <div class="card-text">{{member.job}}</div>
-                        </div>
+            <div class="card-title crew">
+                <h6 class="card-title">Featured Crew</h6>
+                <div class="row">
+                    <div *ngFor="let member of result" class="col-md-4">
+                        <div class="card-text"><strong>{{member.name}}</strong></div>
+                        <div class="card-text">{{member.job}}</div>
                     </div>
                 </div>
-
             </div>
 
         </div>
