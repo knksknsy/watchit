@@ -56,6 +56,10 @@ export class APIService {
     return url;
   }
 
+  appendToResponse(url: string, namespace: string): string {
+    return url += "&append_to_response=" + namespace;
+  }
+
   getImgUrlOriginal(path: string) {
     return this._imgUrl + 'original' + path;
   }
@@ -95,8 +99,12 @@ export class APIService {
       });
   }
 
-  getMovieDetails(id: number): Observable<IMovieDetails> {
-    return this.http.get(this.url + 'movie/' + id + '?api_key=' + apiKey + '&language=' + this.language)
+  getMovieDetails(id: number, append?: string): Observable<IMovieDetails> {
+    let url = this.url + 'movie/' + id + '?api_key=' + apiKey + '&language=' + this.language;
+    if (append) {
+      url = this.appendToResponse(url, append);
+    }
+    return this.http.get(url)
       .map((res) => {
         return res.json();
       });

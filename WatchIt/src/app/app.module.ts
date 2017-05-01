@@ -18,14 +18,16 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-
-// services
-import { APIService } from './services/api/api.service';
 import { HomeViewComponent } from './components/home-view/home-view.component';
 import { PopularMovieCardComponent } from './components/popular-movie-card/popular-movie-card.component';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { PopularMoviesViewComponent } from './components/popular-movies-view/popular-movies-view.component';
 import { MovieDetailsCardComponent } from './components/movie-details-card/movie-details-card.component';
+import { MovieDetailsCastComponent } from './components/movie-details-cast/movie-details-cast.component';
+import { MovieDetailsFactsComponent } from './components/movie-details-facts/movie-details-facts.component';
+
+// services
+import { APIService } from './services/api/api.service';
 
 @NgModule({
   imports: [
@@ -35,7 +37,7 @@ import { MovieDetailsCardComponent } from './components/movie-details-card/movie
     BsDropdownModule.forRoot(),
     RatingModule.forRoot(),
     PopoverModule.forRoot(),
-	CarouselModule.forRoot(),
+    CarouselModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
@@ -48,7 +50,9 @@ import { MovieDetailsCardComponent } from './components/movie-details-card/movie
     PopularMovieCardComponent,
     UpcomingMoviesComponent,
     PopularMoviesViewComponent,
-    MovieDetailsCardComponent
+    MovieDetailsCardComponent,
+    MovieDetailsCastComponent,
+    MovieDetailsFactsComponent
   ],
   providers: [APIService],
   bootstrap: [AppComponent]

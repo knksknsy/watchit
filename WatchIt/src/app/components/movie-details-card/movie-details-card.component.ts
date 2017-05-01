@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { APIService } from '../../services/api/api.service';
 import { IMovieDetails } from '../../interfaces/movie-details';
-import { ICredit } from '../../interfaces/credit';
+import { ICrew } from '../../interfaces/credit';
 import { PopoverDirective } from 'ngx-bootstrap/popover/popover.directive';
 import 'rxjs/Rx';
 
@@ -13,23 +13,14 @@ import 'rxjs/Rx';
 })
 export class MovieDetailsCardComponent implements OnInit {
   private _details: IMovieDetails;
-  private _credits: ICredit;
-  public directing = [];
-  public writing = [];
-  public result = [];
-  public isMobile: boolean;
-  public mobileWidth = 767;
+  private _crew: Array<ICrew>;
+  private _isMobile: boolean;
   @ViewChild('pop') pop: PopoverDirective;
 
   constructor(private apiService: APIService, private el: ElementRef) { }
 
   ngOnInit() {
-    this.isMobile = window.document.body.offsetWidth <= this.mobileWidth;
-    this.apiService.getCredits(this.details.id)
-      .subscribe((next) => {
-        this.credits = next;
-        this.filterCrew(this.credits);
-      });
+    this.crew = this.filterCrew(this.details.credits.crew);
   }
 
   get details(): IMovieDetails {
@@ -41,29 +32,40 @@ export class MovieDetailsCardComponent implements OnInit {
     this._details = details;
   }
 
-  get credits(): ICredit {
-    return this._credits;
+  get crew(): Array<ICrew> {
+    return this._crew;
   }
 
-  set credits(credits: ICredit) {
-    this._credits = credits;
+  set crew(crew: Array<ICrew>) {
+    this._crew = crew;
   }
 
-  onResize(event) {
-    this.isMobile = event.target.innerWidth <= this.mobileWidth;
+  get isMobile(): boolean {
+    return this._isMobile;
   }
 
-  filterCrew(credits: ICredit) {
-    this.directing = credits.crew.filter((director) => {
-      return director.department === 'Directing'
-    });
-    this.writing = credits.crew.filter((writer) => {
-      return writer.department === 'Writing'
-    });
-    this.result.push(this.directing[0]);
-    this.writing.slice(0, 2).forEach((writer) => {
-      this.result.push(writer);
-    });
+  @Input()
+  set isMobile(isMobile: boolean) {
+    this._isMobile = isMobile;
+  }
+
+  filterCrew(crew: Array<ICrew>): Array<ICrew> {
+    let directing = [];
+    let writing = [];
+    let result = [];
+    if (crew) {
+      directing = crew.filter((director) => {
+        return director.department === 'Directing'
+      });
+      writing = crew.filter((writer) => {
+        return writer.department === 'Writing'
+      });
+      result.push(directing[0]);
+      writing.slice(0, 2).forEach((writer) => {
+        result.push(writer);
+      });
+    }
+    return result;
   }
 
   toggleFavorite() {

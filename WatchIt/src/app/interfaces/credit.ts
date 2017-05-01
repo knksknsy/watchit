@@ -1,5 +1,5 @@
 export interface ICredit {
-    id: number;
+    id?: number;
     cast: Array<ICast>;
     crew: Array<ICrew>;
 }

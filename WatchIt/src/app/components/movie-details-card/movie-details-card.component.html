@@ -1,4 +1,4 @@
-<div class="card card-inverse" (window:resize)="onResize($event)">
+<div class="card card-inverse">
 
     <div *ngIf="!isMobile" class="image-background">
         <div class="image-container">
@@ -47,7 +47,7 @@
             <div class="card-title crew">
                 <h6 class="card-title">Featured Crew</h6>
                 <div class="row">
-                    <div *ngFor="let member of result" class="col-md-4">
+                    <div *ngFor="let member of crew" class="col-md-4">
                         <div class="card-text"><strong>{{member.name}}</strong></div>
                         <div class="card-text">{{member.job}}</div>
                     </div>

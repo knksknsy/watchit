@@ -10,7 +10,7 @@ export class MovieDetailsResolverService implements Resolve<IMovieDetails> {
   constructor(private apiService: APIService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IMovieDetails> {
-    return this.apiService.getMovieDetails(route.params.id);
+    return this.apiService.getMovieDetails(route.params.id, 'credits');
   }
 
 }

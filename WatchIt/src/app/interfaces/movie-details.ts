@@ -1,3 +1,4 @@
+import { ICredit } from './credit';
 export interface IMovieDetails {
     adult: boolean;
     backdrop_path: string;
@@ -12,8 +13,8 @@ export interface IMovieDetails {
     overview: string;
     popularity: number;
     poster_path: string;
-    production_companies: Array<IProductionCompanie>;
-    production_countries: Array<IProductionCountrie>;
+    production_companies: Array<IProductionCompany>;
+    production_countries: Array<IProductionCountry>;
     release_date: string;
     revenue: number;
     runtime: number;
@@ -24,6 +25,7 @@ export interface IMovieDetails {
     video: boolean;
     vote_average: number;
     vote_count: number;
+    credits?: ICredit;
 }
 
 export interface ICollection {
@@ -38,12 +40,12 @@ export interface IGenre {
     name: string;
 }
 
-export interface IProductionCompanie {
+export interface IProductionCompany {
     id: number;
     name: string;
 }
 
-export interface IProductionCountrie {
+export interface IProductionCountry {
     iso_3166_1: string;
     name: string;
 }
