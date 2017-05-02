@@ -1,7 +1,9 @@
 <h4>Top Billed Cast</h4>
 <div class="card-group">
   <div class="card" *ngFor="let member of cast">
-    <img class="card-img-top img-fluid" [src]="apiService.getImgUrlOriginal(member.profile_path)" [alt]="member.name">
+    <div class="profile-image">
+      <img class="card-img-top img-fluid" [src]="apiService.getImgUrlOriginal(member.profile_path)" [alt]="member.name" height="200px">
+    </div>
     <div class="card-block">
       <p class="card-title">{{member.name}}</p>
       <p class="card-text"><small>{{member.character}}</small></p>
