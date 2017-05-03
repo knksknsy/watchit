@@ -1,4 +1,5 @@
 <div class="container-fluid">
+ <h2 class="show-grid-top show-grid-bottom-sm">Recent Movies</h2>
   <div class="card-columns">
     <app-popular-movie-card *ngFor="let movie of response?.results" [data]="movie" removable="false"></app-popular-movie-card>
   </div>
