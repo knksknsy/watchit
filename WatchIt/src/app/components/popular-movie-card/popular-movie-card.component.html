@@ -1,6 +1,6 @@
 <div class="card card-inverse popular-movie-card">
-	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title" (click)="openDetails(data.id)">
-	<div class="card-img-overlay">
+	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title">
+	<div class="card-img-overlay" (click)="openDetails(data.id)">
 		<div class="row">
 			<div class="col-xs-3 btn-margin-right">
 				<button class="btn" (click)="toggleFavorite()">
