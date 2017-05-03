@@ -1,0 +1,16 @@
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+	h2.show-grid-top.show-grid-bottom-sm{
+		font-size: 1rem;
+	}
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	h2.show-grid-top.show-grid-bottom-sm{
+		font-size: 1rem;
+	}
+}

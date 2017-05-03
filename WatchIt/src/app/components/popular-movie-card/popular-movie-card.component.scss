@@ -32,3 +32,61 @@
 .popular-movie-card .bg-blur h4{
 	margin-bottom: 0;
 }
+
+/* 
+*  tablet portrait
+*/
+@media (min-width: 768px) and (max-width: 1023px){
+	.popular-movie-card{
+		height: 18vh;
+		overflow: hidden;
+	}
+
+	.popular-movie-card img{
+		height: 18vh;
+	}
+
+	p.card-text{
+		font-size: 0.8rem;
+	}
+
+	h4.card-title{
+		font-size: 1rem;
+	}
+}
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+	.popular-movie-card{
+		height: 45vh;
+		overflow: hidden;
+	}
+
+	.popular-movie-card img{
+		height: 45vh;
+	}
+
+	p.card-text{
+		font-size: 0.8rem;
+	}
+
+	h4.card-title{
+		font-size: 1rem;
+	}
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	.popular-movie-card{
+		margin-bottom: 15px;
+	}
+	p.card-text{
+		font-size: 0.8rem;
+	}
+
+	h4.card-title{
+		font-size: 1rem;
+	}
+}
