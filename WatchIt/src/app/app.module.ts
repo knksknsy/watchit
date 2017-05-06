@@ -25,6 +25,7 @@ import { PopularMoviesViewComponent } from './components/popular-movies-view/pop
 import { MovieDetailsCardComponent } from './components/movie-details-card/movie-details-card.component';
 import { MovieDetailsCastComponent } from './components/movie-details-cast/movie-details-cast.component';
 import { MovieDetailsFactsComponent } from './components/movie-details-facts/movie-details-facts.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 // services
 import { APIService } from './services/api/api.service';
@@ -52,7 +53,8 @@ import { APIService } from './services/api/api.service';
     PopularMoviesViewComponent,
     MovieDetailsCardComponent,
     MovieDetailsCastComponent,
-    MovieDetailsFactsComponent
+    MovieDetailsFactsComponent,
+    MenuComponent
   ],
   providers: [APIService],
   bootstrap: [AppComponent]
