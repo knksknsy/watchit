@@ -6,6 +6,9 @@
 .upcoming-movies-carousel slide{
 	height: 60vh;
 }
+/deep/ .upcoming-movies-carousel slide .item{
+	width: 100%;
+}
 .upcoming-movies-carousel img{
 	width: 100%;
 	cursor: pointer;
