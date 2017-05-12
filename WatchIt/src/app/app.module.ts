@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RatingModule } from 'ngx-bootstrap';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +40,7 @@ import { APIService } from './services/api/api.service';
     RatingModule.forRoot(),
     PopoverModule.forRoot(),
     CarouselModule.forRoot(),
+	CollapseModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [

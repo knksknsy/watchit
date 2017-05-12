@@ -1,6 +1,7 @@
 <nav class="navbar navbar-light bg-faded">
   <div class="row">
     <div class="col-md-8">
+     <a role="button" (click)="isCollapsed = !isCollapsed" class="menu-button btn-margin-right"><span class="fa fa-bars"></span></a>
       <a class="navbar-brand" href="#">
         <img src="/assets/icons/movie.png" width="30" height="30" class="d-inline-block align-top" alt=""> WatchIt
       </a>
@@ -15,3 +16,9 @@
     </div>
   </div>
 </nav>
+<div (collapsed)="collapsed($event)"
+     (expanded)="expanded($event)"
+     [collapse]="isCollapsed"
+     class="card card-block card-header">
+	<app-menu></app-menu>
+</div>

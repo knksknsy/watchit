@@ -1,0 +1,55 @@
+.menu-content{
+	h3{
+		color: rgba(255,255,255,.7);
+		position: absolute;
+		top: 20vh;
+
+		&.left{
+			right: 60px;
+		}
+
+		&.right{
+			left: 60px;
+		}
+
+		span{
+			position: relative;
+			display: block;
+			font-size: 4rem;
+			margin-bottom: 20px;
+			text-shadow: 2px 2px 7px grey;
+
+			&.fa-search{
+				left: 30px;
+			}
+			&.fa-heart{
+				left: 45px;
+			}
+		}
+	}
+
+	&.below{
+		h3{
+			top: 50vh;
+
+			&.left{
+				right: 20px;
+			}
+			&.right{
+				left: 65px;
+			}
+
+			span{
+				position: relative;
+
+				&.fa-list-ul{
+					left: 65px;
+				}
+				&.fa-star{
+					left: 45px;
+				}
+			}
+		}
+	}
+
+}

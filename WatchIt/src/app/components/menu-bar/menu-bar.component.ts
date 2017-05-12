@@ -9,6 +9,7 @@ export class MenuBarComponent implements OnInit {
   query: string;
   @Output()
   search: EventEmitter<any> = new EventEmitter<any>();
+  public isCollapsed:boolean = false;
 
   constructor() { }
 
@@ -17,6 +18,14 @@ export class MenuBarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public collapsed(event:any):void {
+    console.log(event);
+  }
+ 
+  public expanded(event:any):void {
+    console.log(event);
   }
 
 }
