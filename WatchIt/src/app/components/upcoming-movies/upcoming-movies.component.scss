@@ -1,69 +1,40 @@
-// carosuel height
-/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
-	height: 60vh;
-	border-radius: 0.25rem;
-}
-.upcoming-movies-carousel slide{
-	height: 60vh;
-}
-.upcoming-movies-carousel img{
-	width: 100%;
-	cursor: pointer;
-}
+.upcoming-movies-carousel{
+	// carosuel height
+	/deep/ div.carousel > div.carousel-inner{
+		height: 60vh;
+		border-radius: 0.25rem;
 
-.carousel-caption{
-	width: 100%;
-	left: 0;
-	background-color: rgba(0,0,0,.5);
-	cursor: pointer;
-}
+		slide{
+			height: 60vh;
 
-// carosuel control bg´s
-/deep/ span.icon-prev.carousel-control-prev-icon:after{
-	content: '';
-	background-color: rgba(0,0,0,.2);
-	display: inline-block;
-	width: 60px;
-	height: 60px;
-	border-radius: 100%;
-	position: absolute;
-	left: 75px;
-	bottom: 219px;
-}
 
-/deep/ span.icon-next.carousel-control-next-icon:after{
-	content: '';
-	background-color: rgba(0,0,0,.2);
-	display: inline-block;
-	width: 60px;
-	height: 60px;
-	border-radius: 100%;
-	position: absolute;
-	right: 80px;
-	bottom: 219px;
-}
+			// btn´s
+			.row{
+				position: absolute;
+				right: 25px;
+				top: 10px;
+			}
 
-// btn´s
-.upcoming-movies-carousel .row{
-	position: absolute;
-	right: 25px;
-	top: 10px;
-}
+			.item{
+				width: 100%;
 
-// carousel control height
-/deep/ a.right.carousel-control.carousel-control-next{
-	height: 90%;
-	position: absolute;
-	top: 10%;
-}
-/deep/ span.icon-next.carousel-control-next-icon{
-	margin-bottom: 49px;
-}
+				img{
+					width: 100%;
+					cursor: pointer;
+				}
 
-/* media queries
-*  tablet landscape
-*/
-@media (min-width: 1024px) and (max-width: 1200px){
+				.carousel-caption{
+					width: 100%;
+					left: 0;
+					background-color: rgba(0,0,0,.5);
+					cursor: pointer;
+				}
+
+			}
+
+		}
+	}
+
 	// carosuel control bg´s
 	/deep/ span.icon-prev.carousel-control-prev-icon:after{
 		content: '';
@@ -73,10 +44,9 @@
 		height: 60px;
 		border-radius: 100%;
 		position: absolute;
-		left: 43px;
-		bottom: 202px;
+		left: 75px;
+		bottom: 219px;
 	}
-
 	/deep/ span.icon-next.carousel-control-next-icon:after{
 		content: '';
 		background-color: rgba(0,0,0,.2);
@@ -85,126 +55,221 @@
 		height: 60px;
 		border-radius: 100%;
 		position: absolute;
-		right: 49px;
-		bottom: 202px;
+		right: 80px;
+		bottom: 219px;
+	}
+
+	// carousel control height
+	/deep/ a.right.carousel-control.carousel-control-next{
+		height: 90%;
+		position: absolute;
+		top: 10%;
+	}
+	/deep/ span.icon-next.carousel-control-next-icon{
+		margin-bottom: 49px;
+	}
+
+}
+
+
+/* media queries
+*  tablet landscape
+*/
+@media (min-width: 1024px) and (max-width: 1200px){
+
+	.upcoming-movies-carousel{
+		// carosuel control bg´s
+		/deep/ span.icon-prev.carousel-control-prev-icon:after{
+			content: '';
+			background-color: rgba(0,0,0,.2);
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+			border-radius: 100%;
+			position: absolute;
+			left: 43px;
+			bottom: 202px;
+		}
+
+		/deep/ span.icon-next.carousel-control-next-icon:after{
+			content: '';
+			background-color: rgba(0,0,0,.2);
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+			border-radius: 100%;
+			position: absolute;
+			right: 49px;
+			bottom: 202px;
+		}
 	}
 }
 /* 
 *  tablet portrait
 */
 @media (min-width: 768px) and (max-width: 1023px){
-	// carosuel height
-	/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
-		height: 35vh;
-		border-radius: 0.25rem;
-	}
-	.upcoming-movies-carousel slide{
-		height: 35vh;
-	}
 
-	// carosuel control bg´s
-	/deep/ span.icon-prev.carousel-control-prev-icon:after{
-		left: 25px;
-		bottom: 148px;
-	}
+	.upcoming-movies-carousel{
+		// carosuel height
+		/deep/ div.carousel > div.carousel-inner{
+			height: 35vh;
+			border-radius: 0.25rem;
 
-	/deep/ span.icon-next.carousel-control-next-icon:after{
-		right: 30px;
-		bottom: 148px;
-	}
+			slide{
+				height: 35vh;
+			}
+		}
 
-	// carousel control height
-	/deep/ span.icon-next.carousel-control-next-icon{
-		margin-bottom: 36px;
+		// carosuel control bg´s
+		/deep/ span.icon-prev.carousel-control-prev-icon:after{
+			left: 25px;
+			bottom: 148px;
+		}
+
+		/deep/ span.icon-next.carousel-control-next-icon:after{
+			right: 30px;
+			bottom: 148px;
+		}
+
+		// carousel control height
+		/deep/ a.right.carousel-control.carousel-control-next{
+			height: 87%;
+			position: absolute;
+			top: 13%;
+		}
+		/deep/ span.icon-next.carousel-control-next-icon{
+			margin-bottom: 45px;
+		}
+
 	}
 }
 /* 
 *  phone landscape
 */
 @media (min-width: 667px) and (max-width: 767px){
-	// carosuel height
-	/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
-		height: 60vh;
-		border-radius: 0.25rem;
-	}
-	.upcoming-movies-carousel slide{
-		height: 60vh;
-	}
+
 	h2.upcoming-movies-heading{
 		font-size: 1rem;
 	}
-	.carousel-caption h3{
-		font-size: 1rem;
-	}
-	// carosuel control bg´s
-	/deep/ span.icon-prev.carousel-control-prev-icon:after{
-		background-color: transparent;
-	}
 
-	/deep/ span.icon-next.carousel-control-next-icon:after{
-		background-color: transparent;
-	}
-	// carousel control icons
-	/deep/ span.icon-prev.carousel-control-prev-icon{
-		position: absolute;
-		bottom: 55px;
-	}
+	.upcoming-movies-carousel{
+		// carosuel height
+		/deep/ div.carousel > div.carousel-inner{
+			height: 60vh;
+			border-radius: 0.25rem;
 
-	/deep/ span.icon-next.carousel-control-next-icon{
-		position: absolute;
-		bottom: 55px;
-	}
-	
-	// carousel control height
-	/deep/ span.icon-next.carousel-control-next-icon{
-		margin-bottom: 0px;
+			slide{
+				height: 60vh;
+				
+				//.btn-sm styles
+				button{
+					padding: 0.25rem 0.5rem;
+					font-size: 0.875rem;
+					border-radius: 0.2rem;
+				}
+			}
+
+			.carousel-caption h3{
+				font-size: 1rem;
+			}
+
+		}
+
+		// carosuel control bg´s
+		/deep/ span.icon-prev.carousel-control-prev-icon:after{
+			background-color: transparent;
+		}
+		/deep/ span.icon-next.carousel-control-next-icon:after{
+			background-color: transparent;
+		}
+
+		// carousel control icons
+		/deep/ span.icon-prev.carousel-control-prev-icon{
+			position: absolute;
+			bottom: 55px;
+		}
+		
+		// carousel control height
+		/deep/ a.right.carousel-control.carousel-control-next{
+			height: 84%;
+			position: absolute;
+			top: 16%;
+		}
+		
+		/deep/ span.icon-next.carousel-control-next-icon{
+			position: absolute;
+			bottom: 55px;
+
+			// carousel control height
+			margin-bottom: 0px;
+		}
+
 	}
 }
 /* 
 *  phone portrait
 */
 @media (max-width: 375px){
-	// carosuel height
-	/deep/ .upcoming-movies-carousel div.carousel > div.carousel-inner{
-		height: 30vh;
-		border-radius: 0.25rem;
-	}
 
 	h2.upcoming-movies-heading{
 		font-size: 1rem;
 	}
-	
-	.upcoming-movies-carousel slide{
-		height: 30vh;
+
+	.upcoming-movies-carousel{
+		// carosuel height
+		/deep/ div.carousel > div.carousel-inner{
+			height: 30vh;
+			border-radius: 0.25rem;
+
+			slide{
+				height: 30vh;
+				
+				//.btn-sm styles
+				button{
+					padding: 0.25rem 0.5rem;
+					font-size: 0.875rem;
+					border-radius: 0.2rem;
+				}
+
+				.carousel-caption h3{
+					font-size: 1rem;
+				}
+
+			}
+
+		}
+
+		// carosuel control bg´s
+		/deep/ span.icon-prev.carousel-control-prev-icon:after{
+			background-color: transparent;
+		}
+		/deep/ span.icon-next.carousel-control-next-icon:after{
+			background-color: transparent;
+		}
+
+		// carousel control icons
+		/deep/ span.icon-prev.carousel-control-prev-icon{
+			position: absolute;
+			bottom: 55px;
+		}
+		
+		// carousel control height
+		/deep/ a.right.carousel-control.carousel-control-next{
+			height: 82%;
+			position: absolute;
+			top: 18%;
+		}
+		
+		/deep/ span.icon-next.carousel-control-next-icon{
+			position: absolute;
+			bottom: 55px;
+
+			// carousel control height
+			margin-bottom: 0px;
+		}
+		
 	}
 
-	// carosuel control bg´s
-	/deep/ span.icon-prev.carousel-control-prev-icon:after{
-		background-color: transparent;
-	}
-
-	/deep/ span.icon-next.carousel-control-next-icon:after{
-		background-color: transparent;
-	}
-	// carousel control icons
-	/deep/ span.icon-prev.carousel-control-prev-icon{
-		position: absolute;
-		bottom: 55px;
-	}
-
-	/deep/ span.icon-next.carousel-control-next-icon{
-		position: absolute;
-		bottom: 55px;
-	}
-
-	.carousel-caption h3{
-		font-size: 1rem;
-	}
-	
-	// carousel control height
-	/deep/ span.icon-next.carousel-control-next-icon{
-		margin-bottom: 0px;
-	}
 }
 
 
