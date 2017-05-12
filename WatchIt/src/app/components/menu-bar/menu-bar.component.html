@@ -18,7 +18,7 @@
 </nav>
 <div (collapsed)="collapsed($event)"
      (expanded)="expanded($event)"
-     [collapse]="isCollapsed"
+     [collapse]="!isCollapsed"
      class="card card-block card-header">
 	<app-menu></app-menu>
 </div>
