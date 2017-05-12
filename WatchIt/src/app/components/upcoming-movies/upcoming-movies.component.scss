@@ -132,9 +132,15 @@
 		}
 
 		// carousel control height
-		/deep/ span.icon-next.carousel-control-next-icon{
-			margin-bottom: 36px;
+		/deep/ a.right.carousel-control.carousel-control-next{
+			height: 87%;
+			position: absolute;
+			top: 13%;
 		}
+		/deep/ span.icon-next.carousel-control-next-icon{
+			margin-bottom: 45px;
+		}
+
 	}
 }
 /* 
@@ -154,6 +160,13 @@
 
 			slide{
 				height: 60vh;
+				
+				//.btn-sm styles
+				button{
+					padding: 0.25rem 0.5rem;
+					font-size: 0.875rem;
+					border-radius: 0.2rem;
+				}
 			}
 
 			.carousel-caption h3{
@@ -175,13 +188,19 @@
 			position: absolute;
 			bottom: 55px;
 		}
+		
+		// carousel control height
+		/deep/ a.right.carousel-control.carousel-control-next{
+			height: 84%;
+			position: absolute;
+			top: 16%;
+		}
+		
 		/deep/ span.icon-next.carousel-control-next-icon{
 			position: absolute;
 			bottom: 55px;
-		}
 
-		// carousel control height
-		/deep/ span.icon-next.carousel-control-next-icon{
+			// carousel control height
 			margin-bottom: 0px;
 		}
 
@@ -204,6 +223,13 @@
 
 			slide{
 				height: 30vh;
+				
+				//.btn-sm styles
+				button{
+					padding: 0.25rem 0.5rem;
+					font-size: 0.875rem;
+					border-radius: 0.2rem;
+				}
 
 				.carousel-caption h3{
 					font-size: 1rem;
@@ -226,15 +252,22 @@
 			position: absolute;
 			bottom: 55px;
 		}
+		
+		// carousel control height
+		/deep/ a.right.carousel-control.carousel-control-next{
+			height: 82%;
+			position: absolute;
+			top: 18%;
+		}
+		
 		/deep/ span.icon-next.carousel-control-next-icon{
 			position: absolute;
 			bottom: 55px;
-		}
 
-		// carousel control height
-		/deep/ span.icon-next.carousel-control-next-icon{
+			// carousel control height
 			margin-bottom: 0px;
 		}
+		
 	}
 
 }
