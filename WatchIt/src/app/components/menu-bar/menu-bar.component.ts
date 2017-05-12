@@ -10,6 +10,7 @@ export class MenuBarComponent implements OnInit {
   @Output()
   search: EventEmitter<any> = new EventEmitter<any>();
   public isCollapsed:boolean = false;
+  public icon = 'bars';
 
   constructor() { }
 
@@ -27,5 +28,14 @@ export class MenuBarComponent implements OnInit {
   public expanded(event:any):void {
     console.log(event);
   }
+	
+   //change icon when collapsing menu
+   toggleIcon() {
+     if(this.icon == 'bars') {
+       this.icon = 'times';
+     } else {
+       this.icon = 'bars';
+     }
+   }
 
 }
