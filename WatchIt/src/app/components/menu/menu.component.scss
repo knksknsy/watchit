@@ -53,3 +53,99 @@
 	}
 
 }
+
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+	.menu-content{
+		h3{
+			top: 7vh;
+
+			span{
+				font-size: 2rem;
+
+				&.fa-search{
+					left: 45px;
+				}
+				&.fa-heart{
+					left: 60px;
+				}
+			}
+		}
+
+		&.below{
+			h3{
+				top: 37vh;
+
+				span{
+
+					&.fa-list-ul{
+						left: 75px;
+					}
+					&.fa-star{
+						left: 55px;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	.menu-content{
+		h3{
+			top: 15vh;
+			font-size: 1rem;
+
+
+			&.left{
+				right: auto;
+				left: 65px;
+			}
+
+			&.right{
+				left: auto !important;
+				right: 45px;
+			}
+
+			span{
+				font-size: 2rem;
+
+				&.fa-search{
+					left: 23px;
+				}
+				&.fa-heart{
+					left: 33px;
+				}
+			}
+		}
+
+		&.below{
+			h3{
+				top: 37vh;
+
+				&.left{
+					left: 45px;
+				}
+				&.right{
+					right: 45px;
+				}
+
+
+				span{
+
+					&.fa-list-ul{
+						left: 45px;
+					}
+					&.fa-star{
+						left: 35px;
+					}
+				}
+			}
+		}
+	}
+}
