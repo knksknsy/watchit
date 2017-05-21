@@ -1,0 +1,8 @@
+.recommendations {
+    display:flex;
+    width: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    flex-flow: inherit;
+}

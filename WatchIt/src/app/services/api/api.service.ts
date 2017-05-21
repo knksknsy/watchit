@@ -110,4 +110,12 @@ export class APIService {
       });
   }
 
+  getRecommendedMovies(id: number): Observable<IMovieResponse> {
+    let url = this.url + 'movie/' + id + '/recommendations?api_key=' + apiKey + '&language=' + this.language;
+    return this.http.get(url)
+      .map((res) => {
+        return res.json();
+      })
+  }
+
 }
