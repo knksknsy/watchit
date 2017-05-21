@@ -30,7 +30,8 @@ export class MovieDetailsComponent implements OnInit {
       this.apiService.getRecommendedMovies(this.results.id)
         .subscribe((next) => {
           this.recommendations = next.results;
-        })
+        });
+      window.scrollTo(0,0);
     });
   }
 
