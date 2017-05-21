@@ -30,6 +30,7 @@ import { MenuComponent } from './components/menu/menu.component';
 
 // services
 import { APIService } from './services/api/api.service';
+import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { APIService } from './services/api/api.service';
     MovieDetailsCardComponent,
     MovieDetailsCastComponent,
     MovieDetailsFactsComponent,
-    MenuComponent
+    MenuComponent,
+    DiscoverViewComponent
   ],
   providers: [APIService],
   bootstrap: [AppComponent]
