@@ -34,10 +34,18 @@ div.card-img-overlay.row {
     background-color: black;
 }
 
+.poster {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .poster-mobile {
     background-size: cover;
     padding-top: 12px;
     padding-bottom: 12px;
+    width: 100%;
 }
 
 .image-background {

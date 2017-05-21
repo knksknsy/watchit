@@ -7,10 +7,10 @@
     </div>
 
     <div class="row" [ngClass]="{'background-alpha': !isMobile, 'card-img-overlay': !isMobile }">
-        <div class="col-md-4" [ngClass]="{'poster-mobile': isMobile}" [ngStyle]="isMobile ? {'background-image': 'url(' + apiService.getImgUrlOriginal(details.backdrop_path) + ')'} : ''">
+        <div class="col-md-4" class="poster" [ngClass]="{'poster-mobile': isMobile}" [ngStyle]="isMobile ? {'background-image': 'url(' + apiService.getImgUrlOriginal(details.backdrop_path) + ')'} : ''">
             <div class="row">
                 <div class="col-md">
-                    <img *ngIf="details.poster_path" class="img-fluid rounded" [src]="apiService.getImgUrlW300(details.poster_path)" />
+                    <img *ngIf="details.poster_path" width="300" class="img-fluid rounded" [src]="apiService.getImgUrlW300(details.poster_path)" />
                 </div>
             </div>
             <div *ngIf="details.tagline" class="row tagline">
