@@ -1,0 +1,15 @@
+/deep/ .discover-view{
+	.panel.card.panel-default{
+		border: none;
+		
+		.panel-heading.card-header{
+			color: rgba(255, 255, 255, 0.8);
+			background-color: rgba(0, 0, 0, 0.7);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+				
+		}
+	}
+	.panel-body.card-block{
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+}
