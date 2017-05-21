@@ -14,6 +14,7 @@ import 'rxjs/Rx';
 export class MovieDetailsComponent implements OnInit {
   private _results: IMovieDetails;
   private _cast: Array<ICast>;
+  public recommendations;
   public isMobile: boolean;
   public mobileWidth = 767;
 
@@ -26,6 +27,10 @@ export class MovieDetailsComponent implements OnInit {
       if (this.results.credits.cast) {
         this.cast = this.results.credits.cast.slice(0, 5);
       }
+      this.apiService.getRecommendedMovies(this.results.id)
+        .subscribe((next) => {
+          this.recommendations = next.results;
+        })
     });
   }
 

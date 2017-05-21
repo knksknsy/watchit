@@ -3,6 +3,7 @@
         <app-movie-details-card [details]="results" [isMobile]="isMobile"></app-movie-details-card>
     </div>
 </div>
+
 <div class="row">
 
     <div class="col-md-8" [ngClass]="{'flex-last': isMobile}">
@@ -11,5 +12,15 @@
 
     <div class="col-md-4">
         <app-movie-details-facts [details]="results"></app-movie-details-facts>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md">
+        <h4>Recommended Movies</h4>
+        <div class="recommendations">
+            <app-popular-movie-card *ngFor="let movie of recommendations" [data]="movie" removable="false"></app-popular-movie-card>
+        </div>
     </div>
 </div>
