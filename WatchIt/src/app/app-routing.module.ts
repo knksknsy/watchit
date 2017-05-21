@@ -6,6 +6,7 @@ import { SearchMoviesViewComponent } from './components/search-movies-view/searc
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieDetailsResolverService } from './services/resolver/movie-details-resolver.service';
 import { SearchMoviesResolverService } from './services/resolver/search-movies-resolver.service';
+import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
 
 const appRoutes: Routes = [
     {
@@ -25,7 +26,11 @@ const appRoutes: Routes = [
         resolve: {
             details: MovieDetailsResolverService
         }
-    }
+    },
+	{
+		path: 'discover-view',
+		component: DiscoverViewComponent
+	}
     // { 
     //   path: '',
     //   redirectTo: '/component_name',

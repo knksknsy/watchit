@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./discover-view.component.scss']
 })
 export class DiscoverViewComponent implements OnInit {
+	
+  public oneAtATime: boolean = true;
 
   constructor() { }
 

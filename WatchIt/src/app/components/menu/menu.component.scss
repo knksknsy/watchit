@@ -1,4 +1,8 @@
 .menu-content{
+	> div{
+		cursor: pointer;
+	}
+	
 	h3{
 		color: rgba(255,255,255,.7);
 		position: absolute;

@@ -9,6 +9,7 @@ import { RatingModule } from 'ngx-bootstrap';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { DiscoverViewComponent } from './components/discover-view/discover-view.
     PopoverModule.forRoot(),
     CarouselModule.forRoot(),
 	CollapseModule.forRoot(),
+	AccordionModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
