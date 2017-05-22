@@ -3,8 +3,55 @@
 	<h2 class="show-grid-bottom-sm">Discover Movies</h2>
 
 	<accordion [closeOthers]="oneAtATime">
-		<accordion-group heading="Genre">
-			This content is straight in the template.
+		<accordion-group heading="Genre" [isOpen]="isFirstOpen">
+			<div class="row">
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Abenteuer</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Action</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Animation</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Dokumentarfilm</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Drama</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Familie</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Fantasy</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Historie</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Horror</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Komödie</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Kriegsfilm</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Krimi</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Liebesfilm</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Musik</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Mystery</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Science Fiction</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">TV-Film</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Thriller</p>
+				</div>
+				<div class="col-xs-6 col-md-3">						<p class="genre-item">Western</p>
+				</div>
+			</div>
 		</accordion-group>
 		<accordion-group heading="Content 1">
 			<p>Content 1</p>

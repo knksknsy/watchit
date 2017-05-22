@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DiscoverViewComponent implements OnInit {
 	
   public oneAtATime: boolean = true;
+  public isFirstOpen: boolean = true;
 
   constructor() { }
 
