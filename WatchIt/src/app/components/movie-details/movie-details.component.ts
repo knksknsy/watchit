@@ -16,7 +16,7 @@ export class MovieDetailsComponent implements OnInit {
   private _cast: Array<ICast>;
   public recommendations;
   public isMobile: boolean;
-  public mobileWidth = 767;
+  public mobileWidth = 765;
 
   constructor(private apiService: APIService, private route: ActivatedRoute, private el: ElementRef) { }
 
