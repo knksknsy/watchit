@@ -1,0 +1,122 @@
+// .container.footer {
+//     display: flex;
+//     justify-content: flex-end;
+// }
+
+.search-movie-card{
+	height: 35vh;
+	overflow: hidden;
+
+	img{
+		height: 35vh;
+	}
+
+	.card-img-overlay{
+		padding: 0;
+	}
+
+	.card-img-overlay .row{
+		position: absolute;
+		right: 25px;
+		top: 10px;
+	}
+
+	.bg-blur{
+		background-color: rgba(0,0,0,0.5);
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 10px;
+		cursor: pointer;
+
+		small, p{
+			color: rgba(255,255,255,.8)!important;
+		}
+
+		h4{
+			margin-bottom: 0;
+		}
+	}
+
+    .overview{
+        font-size: 0.7vw;
+    }
+}
+
+
+/* 
+*  tablet portrait
+*/
+@media (min-width: 768px) and (max-width: 1023px){
+
+	.search-movie-card{
+		height: 18vh;
+		overflow: hidden;
+
+		img{
+			height: 18vh;
+		}
+
+		p.card-text{
+			font-size: 0.8rem;
+		}
+
+		h4.card-title{
+			font-size: 1rem;
+		}
+
+        .overview{
+            font-size: 0.7vw;
+        }
+	}
+
+}
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+
+	.search-movie-card{
+		height: 45vh;
+		overflow: hidden;
+
+		img{
+			height: 45vh;
+		}
+
+		p.card-text{
+			font-size: 0.8rem;
+		}
+
+		h4.card-title{
+			font-size: 0.8rem;
+		}
+
+        .overview{
+            font-size: 0.7vw;
+        }
+	}
+
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+
+	.search-movie-card{
+		margin-bottom: 15px;
+
+		p.card-text{
+			font-size: 0.8rem;
+		}
+
+		h4.card-title{
+			font-size: 1rem;
+		}
+
+        .overview{
+            font-size: 0.7vw;
+        }
+	}
+
+}

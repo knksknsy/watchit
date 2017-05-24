@@ -6,14 +6,15 @@ import { APIService } from '../../services/api/api.service';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
-  selector: 'app-movie-card',
-  templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss']
+  selector: 'app-search-movie-card',
+  templateUrl: './search-movie-card.component.html',
+  styleUrls: ['./search-movie-card.component.scss']
 })
-export class MovieCardComponent {
+export class SearchMovieCardComponent {
   private _data: IMovieResult;
   private _removable: boolean;
   private _listName: string;
+  public showOverview: boolean = false;
 
   @ViewChild('pop') pop: PopoverDirective;
 

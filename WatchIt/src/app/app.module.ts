@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { SearchMovieCardComponent } from './components/search-movie-card/search-movie-card.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { HomeViewComponent } from './components/home-view/home-view.component';
 import { PopularMovieCardComponent } from './components/popular-movie-card/popular-movie-card.component';
@@ -50,7 +50,7 @@ import { DiscoverViewComponent } from './components/discover-view/discover-view.
     AppComponent,
     MenuBarComponent,
     SearchMoviesViewComponent,
-    MovieCardComponent,
+    SearchMovieCardComponent,
     MovieDetailsComponent,
     HomeViewComponent,
     PopularMovieCardComponent,
