@@ -9,8 +9,7 @@ export class MenuBarComponent implements OnInit {
   query: string;
   @Output()
   search: EventEmitter<any> = new EventEmitter<any>();
-  public isCollapsed:boolean = false;
-  public icon = 'bars';
+  public isCollapsed: boolean = false;
 
   constructor() { }
 
@@ -28,15 +27,6 @@ export class MenuBarComponent implements OnInit {
   public expanded(event:any):void {
     console.log(event);
   }
-	
-   //change icon when collapsing menu
-   toggleIcon() {
-     if(this.icon == 'bars') {
-       this.icon = 'times';
-     } else {
-       this.icon = 'bars';
-     }
-   }
 
 	// make body position fixed (no scrolling) when menu is opened
 	lockBodyScroll(){
@@ -47,9 +37,5 @@ export class MenuBarComponent implements OnInit {
 			body.classList.remove("stopScrolling");
 		}
 	}
-
-  onSelected() {
-    this.isCollapsed = !this.isCollapsed;
-  }
 
 }

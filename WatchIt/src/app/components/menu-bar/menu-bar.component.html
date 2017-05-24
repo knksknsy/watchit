@@ -20,5 +20,5 @@
      (expanded)="expanded($event)"
      [collapse]="!isCollapsed"
      class="card card-block card-header">
-	<app-menu (onMenuItemSelected)="onSelected()"></app-menu>
+	<app-menu (onMenuItemSelected)="this.isCollapsed = !this.isCollapsed"></app-menu>
 </div>
