@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,12 +8,15 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  @Output() onMenuItemSelected: EventEmitter<any> = new EventEmitter();
+
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   openDiscoverView() {
+    this.onMenuItemSelected.emit();
 		this.router.navigate(['/discover-view']);
   }
 

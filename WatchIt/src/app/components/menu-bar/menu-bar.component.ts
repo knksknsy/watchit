@@ -48,4 +48,8 @@ export class MenuBarComponent implements OnInit {
 		}
 	}
 
+  onSelected() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
 }
