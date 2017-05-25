@@ -48,7 +48,7 @@
 <div *ngIf="data.backdrop_path" class="card card-inverse search-movie-card">
 	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title">
 	<div class="card-img-overlay">
-		<div class="row">
+		<div *ngIf="!showOverview" class="row">
 			<div class="col-xs-3 btn-margin-right">
 				<button class="btn" (click)="toggleFavorite()">
 					<span class="fa fa-heart-o"></span>
@@ -65,14 +65,15 @@
 				</button>
 			</div>
 		</div>
-		<div class="bg-blur">
+		<div class="bg-blur" [ngClass]="{'overview-blur': showOverview}">
 			<p *ngIf="data.vote_average > 0 && !showOverview" class="card-text">
 				<rating [(ngModel)]="data.vote_average" max="10" stateOn="fa fa-star" stateOff="fa fa-star-o" [readonly]="true"></rating>
 				{{data.vote_average | number : '1.1-2'}}
 			</p>
 			<h4 class="card-title" (click)="openDetails(data.id)">{{data.title}}</h4>
 			<small *ngIf="!showOverview" class="text-muted">{{data.release_date | date: 'y'}}</small>
-      <small class="text-muted" (click)="showOverview = !showOverview">{{!showOverview ? 'Overview...' : 'Hide...'}}</small>
+      <small *ngIf="!showOverview" class="text-muted" (click)="showOverview = !showOverview">Overview...</small>
+      <small *ngIf="showOverview" class="fa fa-times" (click)="showOverview = !showOverview"></small>
       <small *ngIf="showOverview" class="text-muted overview">{{data.overview}}</small>
 		</div>
 	</div>
