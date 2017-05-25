@@ -28,7 +28,9 @@ export class MovieDetailsFactsComponent implements OnInit {
     let language = this.details.spoken_languages.find((language) => {
       return language.iso_639_1 === this.details.original_language;
     });
-    return language.name;
+    if (language && language.name) {
+      return language.name;
+    }
   }
 
 }

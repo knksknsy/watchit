@@ -1,50 +1,40 @@
-<!--
-Facts
-
-Status
-Released
-
-Release Information
-November 11, 1999
-18, Theatrical
-Original Language
-English
-
-Runtime
-2h 19m
-
-Budget
-$63,000,000.00
-
-Revenue
-$100,853,753.00
-
-Homepage
-http://www.foxmovies.com/movies/fight-club
-
-Genres
-
-DRAMA
--->
-
 <h4>Facts</h4>
-<h6>Original Title</h6>
-<p>{{details.original_title}}</p>
-<h6>Status</h6>
-<p>{{details.status}}</p>
-<h6>Release Information</h6>
-<p>{{details.release_date | date: 'longDate'}}</p>
-<h6>Original Language</h6>
-<p>{{details.original_language}}</p>
-<h6>Runtime</h6>
-<p>{{details.runtime}} min</p>
-<h6>Budget</h6>
-<p>{{details.budget !== 0 ? (details.budget | currency: 'USD': true: '1.2-2') : '-'}}</p>
-<h6>Revenue</h6>
-<p>{{details.revenue !== 0 ? (details.revenue | currency: 'USD': true: '1.2-2') : '-'}}</p>
-<h6>Homepage</h6>
-<p><a target="_blank" [href]="details.homepage">{{details.homepage}}</a></p>
-<h6>Genres</h6>
-<ul class="list-inline">
-  <li class="list-inline-item" *ngFor="let genre of details.genres">{{genre.name}}</li>
-</ul>
+<div>
+  <h6>Original Title</h6>
+  <p>{{details.original_title}}</p>
+</div>
+<div>
+  <h6>Status</h6>
+  <p>{{details.status}}</p>
+</div>
+<div>
+  <h6>Release Information</h6>
+  <p>{{details.release_date | date: 'longDate'}}</p>
+</div>
+<div>
+  <h6>Original Language</h6>
+  <p>{{details.original_language ? details.original_language : '-'}}</p>
+</div>
+<div>
+  <h6>Runtime</h6>
+  <p>{{details.runtime}} min</p>
+</div>
+<div>
+  <h6>Budget</h6>
+  <p>{{details.budget !== 0 ? (details.budget | currency: 'USD': true: '1.2-2') : '-'}}</p>
+</div>
+<div>
+  <h6>Revenue</h6>
+  <p>{{details.revenue !== 0 ? (details.revenue | currency: 'USD': true: '1.2-2') : '-'}}</p>
+</div>
+<div>
+  <h6>Homepage</h6>
+  <p><a *ngIf="details.homepage" target="_blank" [href]="details.homepage">{{details.homepage}}</a></p>
+  <p *ngIf="!details.homepage">-</p>
+</div>
+<div>
+  <h6>Genres</h6>
+  <ul class="list-inline">
+    <li class="list-inline-item" *ngFor="let genre of details.genres">{{genre.name}}</li>
+  </ul>
+</div>

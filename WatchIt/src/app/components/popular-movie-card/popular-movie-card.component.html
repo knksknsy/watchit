@@ -1,5 +1,6 @@
 <div class="card card-inverse popular-movie-card">
-	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title">
+	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title"/>
+	<img *ngIf="!data.backdrop_path" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" [alt]="data.title"/>
 	<div class="card-img-overlay">
 		<div class="row">
 			<div class="col-xs-3 btn-margin-right">
