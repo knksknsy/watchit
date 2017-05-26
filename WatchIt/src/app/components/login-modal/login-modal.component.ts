@@ -21,7 +21,6 @@ export class LoginModalComponent implements OnInit {
   });
 
   public registerForm = this.formBuilder.group({
-    registerName: ["", Validators.required],
     registerEmail: ["", Validators.required],
     registerPassword: ["", Validators.required]
   });
@@ -56,7 +55,7 @@ export class LoginModalComponent implements OnInit {
   }
 
   onRegister(event) {
-    this.authenticationService.register({ name: this.registerForm.value.registerName, email: this.registerForm.value.registerEmail, password: this.registerForm.value.registerPassword })
+    this.authenticationService.register({ email: this.registerForm.value.registerEmail, password: this.registerForm.value.registerPassword })
       .subscribe((next) => {
         console.log(next);
         this.hideModal();

@@ -4,43 +4,59 @@
 
 <div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade"
   tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
-
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true" class="fa fa-times"></span>
+        </button>
+      </div>
       <div class="modal-body">
         <tabset #staticTabs>
 
           <tab heading="Login">
-            <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onLogin()">
-              <label class="sr-only">Email address</label>
-              <input formControlName="loginEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
-              <label class="sr-only">Password</label>
-              <input formControlName="loginPassword" type="password" class="form-control" placeholder="Password" required>
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <div class="form-group row first-row">
+                <label class="sr-only">Email address</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon"><span class="fa fa-at"></span></div>
+                  <input formControlName="loginEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="sr-only">Password</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon"><span class="fa fa-unlock-alt"></span></div>
+                  <input formControlName="loginPassword" type="password" class="form-control" placeholder="Password" required>
+                </div>
+              </div>
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-lg btn-secondary btn-block" aria-label="Cancel" type="button" (click)="hideModal()">Cancel</button>
-                </div>
-                <div class="col">
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                  <button class="btn btn-outline btn-block" type="submit">Sign in</button>
                 </div>
               </div>
             </form>
           </tab>
 
           <tab heading="Register">
-            <form [formGroup]="registerForm" class="form-signin" (ngSubmit)="onRegister()">
-              <label class="sr-only">Name</label>
-              <input formControlName="registerName" class="form-control" placeholder="Name" required autofocus>
-              <label class="sr-only">Email address</label>
-              <input formControlName="registerEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
-              <label class="sr-only">Password</label>
-              <input formControlName="registerPassword" type="password" class="form-control" placeholder="Password" required>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+              <div class="form-group row first-row">
+                <label class="sr-only">Email address</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon"><span class="fa fa-at"></span></div>
+                  <input formControlName="registerEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="sr-only">Password</label>
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                  <div class="input-group-addon"><span class="fa fa-unlock-alt"></span></div>
+                  <input formControlName="registerPassword" type="password" class="form-control" placeholder="Password" required>
+                </div>
+              </div>
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-lg btn-secondary btn-block" aria-label="Cancel" type="button" (click)="hideModal()">Cancel</button>
-                </div>
-                <div class="col">
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                  <button class="btn btn-outline btn-block" type="submit">Register</button>
                 </div>
               </div>
             </form>
