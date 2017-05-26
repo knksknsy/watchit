@@ -1,24 +1,33 @@
 <nav class="navbar navbar-light bg-faded">
   <div class="row">
+
     <div class="col-md-8">
-     <a role="button" (click)="isCollapsed = !isCollapsed; lockBodyScroll()" class="menu-button btn-margin-right"><span class="{{!isCollapsed ? 'fa fa-bars' : 'fa fa-times'}}"></span></a>
+      <a role="button" (click)="isCollapsed = !isCollapsed; lockBodyScroll()" class="menu-button btn-margin-right"><span class="{{!isCollapsed ? 'fa fa-bars' : 'fa fa-times'}}"></span></a>
       <a class="navbar-brand" href="#">
         <img src="/assets/icons/movie.png" width="30" height="30" class="d-inline-block align-top" /> WatchIt
       </a>
     </div>
-    <div class="col-md-4">
-      <div class="input-group">
-        <input [(ngModel)]="query" type="search" class="form-control">
-        <span class="input-group-btn">
+
+    <div class="row">
+
+      <div class="col-10">
+        <div class="input-group">
+          <input [(ngModel)]="query" type="search" class="form-control">
+          <span class="input-group-btn">
           <button (click)="onSearch()" class="btn btn-outline" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
-        </span>
+          </span>
+        </div>
       </div>
+
+      <div class="col-2">
+        <app-login-modal></app-login-modal>
+      </div>
+
     </div>
+
   </div>
 </nav>
-<div (collapsed)="collapsed($event)"
-     (expanded)="expanded($event)"
-     [collapse]="!isCollapsed"
-     class="card card-block card-header">
-	<app-menu (onMenuItemSelected)="this.isCollapsed = !this.isCollapsed"></app-menu>
+
+<div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="!isCollapsed" class="card card-block card-header">
+  <app-menu (onMenuItemSelected)="this.isCollapsed = !this.isCollapsed"></app-menu>
 </div>

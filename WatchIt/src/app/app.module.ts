@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
+// ngx-bootstrap modules
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RatingModule } from 'ngx-bootstrap';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -31,19 +35,24 @@ import { MenuComponent } from './components/menu/menu.component';
 
 // services
 import { APIService } from './services/api/api.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
 import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BsDropdownModule.forRoot(),
     RatingModule.forRoot(),
     PopoverModule.forRoot(),
     CarouselModule.forRoot(),
-	CollapseModule.forRoot(),
-	AccordionModule.forRoot(),
+    CollapseModule.forRoot(),
+    AccordionModule.forRoot(),
+    ModalModule.forRoot(),
+    TabsModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
@@ -60,9 +69,10 @@ import { DiscoverViewComponent } from './components/discover-view/discover-view.
     MovieDetailsCastComponent,
     MovieDetailsFactsComponent,
     MenuComponent,
-    DiscoverViewComponent
+    DiscoverViewComponent,
+    LoginModalComponent
   ],
-  providers: [APIService],
+  providers: [APIService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
