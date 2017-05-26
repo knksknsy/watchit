@@ -1,10 +1,15 @@
+.user{
+	padding-left: 0;
+	padding-right: 15px;
+}
+
 .menu-button{
 	font-size: 1.5rem;
 	position: relative;
 	top: 1px;
 }
 
-/deep/ .card.card-block.card-header{
+.card.card-block.card-header{
 
 	position: absolute !important;
 	z-index: 100;
@@ -19,7 +24,7 @@
 *  tablet landscape
 */
 @media (min-width: 1024px) and (max-width: 1200px){
-	/deep/ .card.card-block.card-header{
+	.card.card-block.card-header{
 		height: 93vh !important;
 	}
 }
@@ -28,7 +33,7 @@
 *  tablet portrait
 */
 @media (min-width: 768px) and (max-width: 1023px){
-	/deep/ .card.card-block.card-header{
+	.card.card-block.card-header{
 		height: 95vh !important;
 	}
 }
@@ -37,7 +42,7 @@
 *  phone landscape
 */
 @media (min-width: 667px) and (max-width: 767px){
-	/deep/ .card.card-block.card-header{
+	.card.card-block.card-header{
 		height: 76vh !important;
 	}
 }
@@ -46,7 +51,7 @@
 *  phone portrait
 */
 @media (max-width: 375px){
-	/deep/ .card.card-block.card-header{
+	.card.card-block.card-header{
 		height: 86vh !important;
 	}
 }

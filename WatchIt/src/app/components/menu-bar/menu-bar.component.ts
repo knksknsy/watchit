@@ -9,7 +9,7 @@ export class MenuBarComponent implements OnInit {
   query: string;
   @Output()
   search: EventEmitter<any> = new EventEmitter<any>();
-  public isCollapsed: boolean = false;
+  public leftMenuCollapsed: boolean = false;
 
   constructor() { }
 
@@ -17,8 +17,7 @@ export class MenuBarComponent implements OnInit {
     this.search.emit(this.query);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   public collapsed(event:any):void {
     console.log(event);
@@ -31,7 +30,7 @@ export class MenuBarComponent implements OnInit {
 	// make body position fixed (no scrolling) when menu is opened
 	lockBodyScroll(){
 		let body = document.getElementsByTagName('body')[0];
-		if(this.isCollapsed){
+		if(this.leftMenuCollapsed){
 			body.classList.add("stopScrolling");
 		}else{
 			body.classList.remove("stopScrolling");
