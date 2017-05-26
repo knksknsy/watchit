@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-inverse bg-inverse">
   <div class="row">
     <div class="col-md-8">
       <a role="button" (click)="leftMenuCollapsed = !leftMenuCollapsed; lockBodyScroll()" class="menu-button btn-margin-right"><span class="{{!leftMenuCollapsed ? 'fa fa-bars' : 'fa fa-times'}}"></span></a>
@@ -9,12 +9,14 @@
     <div class="col-md-4">
       <div class="row">
         <div class="col">
-          <div class="input-group">
-            <input [(ngModel)]="query" type="search" class="form-control">
-            <span class="input-group-btn">
-              <button (click)="onSearch()" class="btn btn-outline" type="button"><span class="fa fa-search"></span></button>
-            </span>
-          </div>
+          <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+            <div class="input-group">
+              <input formControlName="searchQuery" type="search" placeholder="Search" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-outline" type="submit"><span class="fa fa-search"></span></button>
+              </span>
+            </div>
+          </form>
         </div>
         <app-login-modal class="col-auto user"></app-login-modal>
       </div>

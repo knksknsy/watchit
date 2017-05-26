@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-menu-bar',
@@ -6,15 +7,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./menu-bar.component.scss']
 })
 export class MenuBarComponent implements OnInit {
-  query: string;
-  @Output()
-  search: EventEmitter<any> = new EventEmitter<any>();
+  @Output() search: EventEmitter<any> = new EventEmitter<any>();
   public leftMenuCollapsed: boolean = false;
 
-  constructor() { }
+  public searchForm = this.formBuilder.group({
+    searchQuery: [""]
+  });
+
+  constructor(private formBuilder: FormBuilder) { }
 
   onSearch() {
-    this.search.emit(this.query);
+    this.search.emit(this.searchForm.value);
   }
 
   ngOnInit() { }
