@@ -1,8 +1,16 @@
 .upcoming-movies-carousel{
+	/deep/ div.carousel > ol.carousel-indicators{
+		bottom: 0;
+	}
+
 	// carosuel height
 	/deep/ div.carousel > div.carousel-inner{
 		height: 60vh;
 		border-radius: 0.25rem;
+
+		.carousel-caption{
+			bottom: 0;
+		}
 
 		slide{
 			height: 60vh;
@@ -11,8 +19,17 @@
 			// btn´s
 			.row{
 				position: absolute;
-				right: 25px;
-				top: 10px;
+				right: 15px;
+				top: 0;
+				.btn{
+					border-radius: 0 !important;
+				}
+				.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+					border-color: transparent;
+				}
+				.fav{
+					border-bottom-left-radius: 0.25rem !important;
+				}
 			}
 
 			.item{
@@ -115,6 +132,10 @@
 			height: 35vh;
 			border-radius: 0.25rem;
 
+			.carousel-caption{
+				bottom: 0;
+			}
+
 			slide{
 				height: 35vh;
 			}
@@ -157,6 +178,10 @@
 		/deep/ div.carousel > div.carousel-inner{
 			height: 60vh;
 			border-radius: 0.25rem;
+
+			.carousel-caption{
+				bottom: 0;
+			}
 
 			slide{
 				height: 60vh;
@@ -221,6 +246,10 @@
 			height: 30vh;
 			border-radius: 0.25rem;
 
+			.carousel-caption{
+				bottom: 0;
+			}
+			
 			slide{
 				height: 30vh;
 				

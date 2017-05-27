@@ -3,6 +3,26 @@
 	overflow: hidden;
 	background-color: rgba(0,0,0,0.666);
 
+	.card-img-overlay{
+		.row{
+			position: absolute;
+			top: initial !important;
+			right: 15px !important;
+			bottom: 0px !important;
+			z-index: 9999 !important;
+			.btn{
+				border-radius: 0 !important;
+			}
+			.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+				border-color: transparent;
+			}
+			.fav{
+				border-top-left-radius: 0.25rem !important;
+				border-right: 1px solid;
+			}
+		}
+	}
+
 	img{
 		height: 35vh;
 	}
@@ -55,6 +75,16 @@
 		overflow: hidden;
 		background-color: rgba(0,0,0,0.666);
 
+		.card-img-overlay{
+			.row{
+				position: absolute;
+				top: initial !important;
+				right: 15px !important;
+				bottom: 0px !important;
+				z-index: 9999 !important;
+			}
+		}
+
 		img{
 			height: 18vh;
 		}
@@ -88,6 +118,16 @@
 		overflow: hidden;
 		background-color: rgba(0,0,0,0.666);
 
+		.card-img-overlay{
+			.row{
+				position: absolute;
+				top: initial !important;
+				right: 15px !important;
+				bottom: 0px !important;
+				z-index: 9999 !important;
+			}
+		}
+
 		img{
 			height: 45vh;
 		}
@@ -119,6 +159,16 @@
 	.popular-movie-card{
 		margin-bottom: 15px;
 		background-color: rgba(0,0,0,0.666);
+
+		.card-img-overlay{
+			.row{
+				position: absolute;
+				top: initial !important;
+				right: 15px !important;
+				bottom: 0px !important;
+				z-index: 9999 !important;
+			}
+		}
 
 		img.placeholder{
 			position: absolute;
