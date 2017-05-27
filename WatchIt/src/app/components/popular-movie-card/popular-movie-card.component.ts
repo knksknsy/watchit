@@ -36,4 +36,16 @@ export class PopularMovieCardComponent {
 		this.router.navigate(['/details', id]);
 	}
 
+	toggleFavorite() {
+		// todo: create service for method
+	}
+
+	removeFromList() {
+		// todo: create service for method
+	}
+
+	addToList() {
+		// todo: create service for method
+	}
+
 }

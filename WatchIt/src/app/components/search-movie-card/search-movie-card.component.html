@@ -3,18 +3,18 @@
   <img *ngIf="!data.backdrop_path" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" [alt]="data.title"/>
 	<div class="card-img-overlay">
 		<div *ngIf="!showOverview" class="row">
-			<div class="col-xs-3 btn-margin-right">
-				<button class="btn" (click)="toggleFavorite()">
+			<div class="col-xs-3">
+				<button class="btn btn-outline-primary fav" (click)="toggleFavorite()">
 					<span class="fa fa-heart-o"></span>
 				</button>
 			</div>
 			<div class="col-xs-3">
-				<button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
+				<button type="button" class="btn btn-outline-primary" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
 					<span class="fa fa-list-ul"></span>
 				</button>
 			</div>
 			<div *ngIf="!removable" class="col">
-				<button class="btn" (click)="removeFromList()">
+				<button class="btn btn-outline-primary" (click)="removeFromList()">
 					<span class="fa fa-trash"></span>
 				</button>
 			</div>
@@ -41,7 +41,7 @@
 	<div class="input-group">
 		<input [(ngModel)]="listName" type="text" class="form-control">
 		<span class="input-group-btn">
-			<button (click)="addToList()" class="btn btn-outline" type="button">
+			<button (click)="addToList()" class="btn btn-outline-primary" type="button">
 				<span class="fa fa-plus" aria-hidden="true"></span>
 			</button>
 		</span>
