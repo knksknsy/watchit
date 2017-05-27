@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row cast-facts">
 
     <div class="col-lg-8" [ngClass]="{'flex-last': isMobile}">
         <app-movie-details-cast [cast]="cast" [isMobile]="isMobile"></app-movie-details-cast>
@@ -16,7 +16,7 @@
 
 </div>
 
-<div class="row">
+<div *ngIf="recommendations.length > 0" class="row rec">
     <div class="col-md">
         <h4>Recommended Movies</h4>
         <div class="recommendations">

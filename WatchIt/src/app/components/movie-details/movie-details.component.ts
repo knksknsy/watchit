@@ -14,7 +14,7 @@ import 'rxjs/Rx';
 export class MovieDetailsComponent implements OnInit {
   private _results: IMovieDetails;
   private _cast: Array<ICast>;
-  public recommendations;
+  public recommendations = [];
   public isMobile: boolean;
   public mobileWidth = 768;
 

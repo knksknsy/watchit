@@ -1,40 +1,43 @@
 <h4>Facts</h4>
-<div>
-  <h6>Original Title</h6>
-  <p>{{details.original_title}}</p>
-</div>
-<div>
-  <h6>Status</h6>
-  <p>{{details.status}}</p>
-</div>
-<div>
-  <h6>Release Information</h6>
-  <p>{{details.release_date | date: 'longDate'}}</p>
-</div>
-<div>
-  <h6>Original Language</h6>
-  <p>{{details.original_language ? details.original_language : '-'}}</p>
-</div>
-<div>
-  <h6>Runtime</h6>
-  <p>{{details.runtime}} min</p>
-</div>
-<div>
-  <h6>Budget</h6>
-  <p>{{details.budget !== 0 ? (details.budget | currency: 'USD': true: '1.2-2') : '-'}}</p>
-</div>
-<div>
-  <h6>Revenue</h6>
-  <p>{{details.revenue !== 0 ? (details.revenue | currency: 'USD': true: '1.2-2') : '-'}}</p>
-</div>
-<div>
-  <h6>Homepage</h6>
-  <p><a *ngIf="details.homepage" target="_blank" [href]="details.homepage">{{details.homepage}}</a></p>
-  <p *ngIf="!details.homepage">-</p>
-</div>
-<div>
-  <h6>Genres</h6>
-  <ul class="list-inline">
-    <li class="list-inline-item" *ngFor="let genre of details.genres">{{genre.name}}</li>
-  </ul>
+<div *ngIf="!details">No Facts available</div>
+<div *ngIf="details">
+  <div>
+    <h6>Original Title</h6>
+    <p>{{details.original_title}}</p>
+  </div>
+  <div>
+    <h6>Status</h6>
+    <p>{{details.status}}</p>
+  </div>
+  <div>
+    <h6>Release Information</h6>
+    <p>{{details.release_date | date: 'longDate'}}</p>
+  </div>
+  <div>
+    <h6>Original Language</h6>
+    <p>{{details.original_language ? details.original_language : '-'}}</p>
+  </div>
+  <div>
+    <h6>Runtime</h6>
+    <p>{{details.runtime}} min</p>
+  </div>
+  <div>
+    <h6>Budget</h6>
+    <p>{{details.budget !== 0 ? (details.budget | currency: 'USD': true: '1.2-2') : '-'}}</p>
+  </div>
+  <div>
+    <h6>Revenue</h6>
+    <p>{{details.revenue !== 0 ? (details.revenue | currency: 'USD': true: '1.2-2') : '-'}}</p>
+  </div>
+  <div>
+    <h6>Homepage</h6>
+    <p><a *ngIf="details.homepage" target="_blank" [href]="details.homepage">{{details.homepage}}</a></p>
+    <p *ngIf="!details.homepage">-</p>
+  </div>
+  <div>
+    <h6>Genres</h6>
+    <ul class="list-inline">
+      <li class="list-inline-item" *ngFor="let genre of details.genres">{{genre.name}}</li>
+    </ul>
+  </div>
 </div>

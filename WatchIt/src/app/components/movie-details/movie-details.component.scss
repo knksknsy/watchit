@@ -1,3 +1,24 @@
+.row {
+    margin-right: 0;
+    .col-md-12 {
+        padding-right: 0;
+    }
+}
+
+.cast-facts, .rec {
+    padding: 15px;
+}
+
+.flex-last {
+    padding-right: 0;
+}
+
+.rec {
+    .col-md {
+        padding-right: 0;
+    }
+}
+
 .recommendations {
     display:flex;
     width: auto;
@@ -6,6 +27,7 @@
     white-space: nowrap;
     flex-flow: inherit;
     app-popular-movie-card {
-        width: 100vw;
+        width: 92vw;
+        margin-right: 15px;
     }
 }
