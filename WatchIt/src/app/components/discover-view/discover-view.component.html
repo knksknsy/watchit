@@ -73,18 +73,57 @@
 			</div>
 		</accordion-group>
 		<accordion-group heading="Erscheinungsjahr">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label">Erscheinungsjahr</label>
-					<div class="col-sm-4">
-						<input type="email" class="form-control" placeholder="z.B. 2017">
-					</div>
-				</div>
-			</form>
+			<tabset>
+				<tab heading="Erscheinungsjahr">
+					<form class="form-horizontal show-grid-top">
+						<div class="form-group">
+							<label for="inputErscheinungsjahr" class="col-sm-4 control-label">Erscheinungsjahr:</label>
+							<div class="col-sm-4">
+								<input type="number" class="form-control" placeholder="z.B. 2017" [(ngModel)]="year" name="year">
+							</div>
+						</div>
+					</form>
+				</tab>
+				<tab heading="Erscheinungsjahr (ab)">
+					<form class="form-horizontal show-grid-top">
+						<div class="form-group">
+							<label for="inputErscheinungsjahrAb" class="col-sm-4 control-label">Alle Filme ab dem Erscheinungsjahr:</label>
+							<div class="col-sm-4">
+								<input type="number" class="form-control" placeholder="z.B. 2010" [(ngModel)]="yearFrom" name="yearFrom">
+							</div>
+						</div>
+					</form>
+				</tab>
+				<tab heading="Erscheinungsjahr (bis)">
+					<form class="form-horizontal show-grid-top">
+						<div class="form-group">
+							<label for="inputErscheinungsjahrVor" class="col-sm-4 control-label">Alle Filme vor dem Erscheinungsjahr:</label>
+							<div class="col-sm-4">
+								<input type="number" class="form-control" placeholder="z.B. 2000" [(ngModel)]="yearTill" name="yearTill">
+							</div>
+						</div>
+					</form>
+				</tab>
+			</tabset>
 		</accordion-group>
 		<accordion-group heading="Bewertung">
-			<p>Bewertung</p>
+			<h6>Bitte eine Bewertung für die zu suchenden Filme auswählen:</h6>
+			<p class="show-grid-top"><rating [(ngModel)]="rate" [max]="max" stateOn="fa fa-star" stateOff="fa fa-star-o"></rating>
+				{{rate | number : '1.1-2'}}
+			</p>
 		</accordion-group>
 	</accordion>
+
+	<h6 class="show-grid-top">Sortieren nach:</h6>
+	<select name="sortBy" [(ngModel)]="selectedValue">
+		<option value="release_date.asc" selected>Erscheinungsjahr aufsteigend</option>
+		<option value="release_date.desc">Erscheinungsjahr absteigend</option>
+		<option value="vote_average.asc">Bewertung aufsteigend</option>
+		<option value="vote_average.desc">Bewertung absteigend</option>
+		<option value="original_title.asc">Titel aufsteigend</option>
+		<option value="original_title.desc">Titel absteigend</option>
+	</select>
+	<br>
+	<button type="button" class="btn btn-secondary pull-right show-grid-bottom">Filme suchen</button>
 
 </div>
