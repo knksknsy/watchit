@@ -117,5 +117,15 @@ export class APIService {
         return res.json();
       })
   }
+  
+  
+  getDiscoverMovies(sortBy : string, releaseDateGTE?: string, releaseDateLTE?: string, genres?: string, year?: string): Observable<IMovieResponse>{
+	  //let url = this.url + 'discover/movie?api_key=' + apiKey + '&language' + this.language + '&sort_by' + sortBy + '&release_date.gte=' + releaseDateGTE + '&release_date.lte=' + releaseDateLTE + '&with_genres=' + genres + '&year=' + year;
+	  let url = this.url + 'discover/movie?api_key=' + apiKey + '&language' + this.language + '&sort_by' + sortBy;
+	  return this.http.get(url)
+      .map((res) => {
+        return res.json();
+      })
+  }
 
 }

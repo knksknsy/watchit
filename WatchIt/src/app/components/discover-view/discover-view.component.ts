@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from '../../services/api/api.service';
+import { IMovieResponse } from '../../interfaces/movie-response';
 
 @Component({
 	selector: 'app-discover-view',
@@ -21,11 +23,18 @@ export class DiscoverViewComponent implements OnInit {
 
 	selectedValue: string = "release_date.asc";
 
+	public _response: IMovieResponse;
 
-constructor() { }
 
-ngOnInit() {
-}
+	constructor(private apiService: APIService) { }
+
+	ngOnInit() {
+	    this.apiService.getDiscoverMovies(this.selectedValue)
+      .subscribe((next) => {
+        this._response = next;
+			console.log(this._response);
+      })
+	}
 
 
 updateSelectedGenreArray(id: number, cssId: string){
@@ -49,5 +58,14 @@ updateSelectedGenreArray(id: number, cssId: string){
 
 	console.log("selectedGenreArry: " + this.selectedGenreArry);
 }
+
+get response(): IMovieResponse {
+    return this._response;
+  }
+
+  set response(response: IMovieResponse) {
+    this._response = response;
+  }
+
 
 }
