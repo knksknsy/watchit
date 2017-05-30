@@ -14,6 +14,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +39,7 @@ import { APIService } from './services/api/api.service';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { ListModalComponent } from './components/list-modal/list-modal.component';
 
 @NgModule({
   imports: [
@@ -53,6 +55,7 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
+    TypeaheadModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
@@ -70,7 +73,8 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
     MovieDetailsFactsComponent,
     MenuComponent,
     DiscoverViewComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    ListModalComponent
   ],
   providers: [APIService, AuthenticationService],
   bootstrap: [AppComponent]

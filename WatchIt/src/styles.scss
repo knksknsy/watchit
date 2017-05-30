@@ -1,8 +1,7 @@
-@import 'variables';
+@import '_variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 /* You can add global styles to this file, and also import other style files */
-
 
 .show-grid-top{
 	margin-top: 30px;
@@ -36,4 +35,11 @@
 	color: #000;
 	background-color: #fff;
 	border-color: #000;
+}
+
+.dropdown-menu {
+    width: inherit !important;
+    .dropdown-item.active {
+        background-color: #292b2c !important;
+    }
 }

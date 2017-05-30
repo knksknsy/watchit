@@ -13,7 +13,6 @@ import { PopoverDirective } from 'ngx-bootstrap/popover';
 export class SearchMovieCardComponent {
   private _data: IMovieResult;
   private _removable: boolean;
-  private _listName: string;
   public showOverview: boolean = false;
 
   @ViewChild('pop') pop: PopoverDirective;
@@ -38,28 +37,12 @@ export class SearchMovieCardComponent {
     this._removable = removable;
   }
 
-  get listName(): string {
-    return this._listName;
-  }
-
-  set listName(listName: string) {
-    this._listName = listName;
-  }
-
   openDetails(id: number) {
     this.router.navigate(['/details', id]);
   }
 
-  toggleFavorite() {
+  toggleFavorite() { }
 
-  }
-
-  addToList() {
-    this.pop.hide();
-  }
-
-  removeFromList() {
-
-  }
+  removeFromList() { }
 
 }
