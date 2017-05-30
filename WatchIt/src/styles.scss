@@ -37,9 +37,29 @@
 	border-color: #000;
 }
 
+// adjust dropdown container of list-modals typeahead input element
 .dropdown-menu {
     width: inherit !important;
     .dropdown-item.active {
         background-color: #292b2c !important;
     }
+}
+
+// adjust z-indices for list-modal
+.list-modal-active {
+	.slide {
+		/deep/ .carousel-indicators {
+			z-index: 1045 !important;
+		}
+		/deep/ .carousel-inner {
+			.carousel-item {
+				z-index: 1046 !important;
+				.item {
+					img {
+						filter: brightness(60%) !important;
+					}
+				}
+			}
+		}
+	}
 }

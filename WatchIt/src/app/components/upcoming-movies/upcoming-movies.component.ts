@@ -11,6 +11,7 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 })
 export class UpcomingMoviesComponent implements OnInit {
 	public carouselInterval: number = 7500;
+	public isCarouselPaused: boolean;
 	
 	public _response: IMovieResponse;
 
@@ -36,6 +37,7 @@ export class UpcomingMoviesComponent implements OnInit {
 	}
 
 	pauseCarousel(isOpen) {
+		this.isCarouselPaused = isOpen;
 		if (isOpen) {
 			this.carouselInterval = 0;
 		} else {
