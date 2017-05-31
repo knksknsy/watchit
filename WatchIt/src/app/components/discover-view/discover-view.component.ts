@@ -21,7 +21,7 @@ export class DiscoverViewComponent implements OnInit {
 	public max:number = 10;
 	public rate:number = 7;
 
-	public selectedValue: string = "release_date.asc";
+	public selectedValue: string = "release_date.desc";
 
 	public _response: IMovieResponse;
 
@@ -29,7 +29,6 @@ export class DiscoverViewComponent implements OnInit {
 	public totalMovieItems: number;
 	public movieItemsPerPage = 20;
 	public maxSize = 10;
-	public directionLinks: boolean = true;
 
 	constructor(private apiService: APIService) { }
 
@@ -61,7 +60,6 @@ updateSelectedGenreArray(id: number, cssId: string){
 
 public onPageChanged(event) {
 	this.pageIndex = event.page;
-	this.directionLinks = event.page >= 1000 ? false : true;
 	this.searchDiscoverMovies();
 }
 
@@ -74,7 +72,7 @@ searchDiscoverMovies(){
 	console.log('pageIndex', this.pageIndex);
 	var dTill = new Date();
 	dTill.setFullYear(this.yearTill, 0, 1);
-	var dateTill = dTill.getTime();
+	let dateTill = dTill.getTime();
 	var dFrom = new Date();
 	dFrom.setFullYear(this.yearFrom, 0, 1);
 	let dateFrom = dFrom.getTime();
@@ -85,7 +83,11 @@ searchDiscoverMovies(){
     this.apiService.getDiscoverMovies(this.selectedValue, dateFrom, dateTill, this.rate, genreString, this.year, this.pageIndex === 0 ? 1 : this.pageIndex)
       .subscribe((next) => {
         this._response = next;
-		this.totalMovieItems = next.total_results;
+		if(next.total_results >= 1000){
+			this.totalMovieItems = 1000;
+		}else{
+			this.totalMovieItems = next.total_results;
+		}
 		console.log(this._response);
       })
 }
