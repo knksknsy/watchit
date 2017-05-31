@@ -29,6 +29,7 @@ export class DiscoverViewComponent implements OnInit {
 	public totalMovieItems: number;
 	public movieItemsPerPage = 20;
 	public maxSize = 10;
+	public maxSizeXS = 5;
 
 	constructor(private apiService: APIService) { }
 

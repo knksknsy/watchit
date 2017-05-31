@@ -27,19 +27,127 @@
 
 	.nav-tabs {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-		
+
 		.nav-item .nav-link{
 			color: rgba(0, 0, 0, 0.7);
 		}
-		
+
 		.nav-link.active, .nav-tabs .nav-item.show .nav-link{
 			color: rgba(255, 255, 255, 0.8) !important;
 			background-color: rgba(0, 0, 0, 0.7);
 			border: none;
 		}
 	}
-	
-	select{
-		background-color: rgba(0, 0, 0, 0.1);
+
+	> div{
+		&.dropdown{
+			select{
+				background-color: rgba(0, 0, 0, 0.1);
+				border-radius: 0;
+
+				+ span{
+					display: none;
+					position: absolute;
+					top: 5px;
+					left: 219px;
+				}
+			}
+
+		}
+
+		&.movies{
+			clear: both;
+
+			.card-columns + div {
+				width: 28%;
+				margin: 30px auto 30px;
+			}
+		}
+	}
+}
+
+/* media queries
+*  tablet landscape
+*/
+@media (min-width: 1024px) and (max-width: 1200px){
+	/deep/ .discover-view{
+		> div{
+			&.dropdown{
+				select + span{
+					display: inline-block;
+				}
+			}
+			&.movies{
+				.card-columns + div {
+					width: 48%;
+					margin: 30px auto 30px;
+				}
+			}
+		}
+	}
+}
+/* 
+*  tablet portrait
+*/
+@media (min-width: 768px) and (max-width: 1023px){
+	/deep/ .discover-view{
+		> div{
+			&.dropdown{
+				select + span{
+					display: inline-block;
+				}
+			}
+			&.movies{
+				.card-columns + div {
+					width: 48%;
+					margin: 30px auto 30px;
+				}
+			}
+		}
+	}
+}
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+	/deep/ .discover-view{
+		> div{
+			&.dropdown{
+				select + span{
+					display: inline-block;
+				}
+			}
+			&.movies{
+				.card-columns + div {
+					width: 55%;
+					margin: 30px auto 30px;
+				}
+			}
+		}
+	}
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	/deep/ .discover-view{
+		ul.nav.nav-tabs{
+			display: block;
+		}
+		.last-form{
+			margin-top: 6px;
+		}
+		> div{
+			&.dropdown{
+				select + span{
+					display: inline-block;
+				}
+			}
+			&.movies{
+				.card-columns ~ div {
+					margin: 30px auto 30px;
+				}
+			}
+		}
 	}
 }
