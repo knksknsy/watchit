@@ -29,6 +29,7 @@ export class DiscoverViewComponent implements OnInit {
 	public totalMovieItems: number;
 	public movieItemsPerPage = 20;
 	public maxSize = 10;
+	public directionLinks: boolean = true;
 
 	constructor(private apiService: APIService) { }
 
@@ -60,6 +61,7 @@ updateSelectedGenreArray(id: number, cssId: string){
 
 public onPageChanged(event) {
 	this.pageIndex = event.page;
+	this.directionLinks = event.page >= 1000 ? false : true;
 	this.searchDiscoverMovies();
 }
 
