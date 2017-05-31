@@ -124,6 +124,8 @@
 		<option value="original_title.desc">Titel absteigend</option>
 	</select>
 	<br>
-	<button type="button" class="btn btn-secondary pull-right show-grid-bottom">Filme suchen</button>
+	<pagination *ngIf="_response" [boundaryLinks]="true" [totalItems]="totalMovieItems" [itemsPerPage]="movieItemsPerPage" [maxSize]="maxSize" [rotate]="true" [(ngModel)]="pageIndex" class="pagination-sm"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" (pageChanged)="onPageChanged($event)"></pagination>
+	<button type="button" class="btn btn-secondary pull-right show-grid-bottom" (click)="onDiscover()">Filme suchen</button>
 
 </div>

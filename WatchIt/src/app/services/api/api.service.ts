@@ -119,20 +119,28 @@ export class APIService {
   }
   
   
-  getDiscoverMovies(sortBy : string, releaseDateGTE?: string, releaseDateLTE?: string, genres?: string, year?: string): Observable<IMovieResponse>{
+  getDiscoverMovies(sortBy : string, releaseDateGTE?: number, releaseDateLTE?: number, voteAverageGTE?: number, genres?: string, year?: number, pageIndex?: number): Observable<IMovieResponse>{
 	  //let url = this.url + 'discover/movie?api_key=' + apiKey + '&language' + this.language + '&sort_by' + sortBy + '&release_date.gte=' + releaseDateGTE + '&release_date.lte=' + releaseDateLTE + '&with_genres=' + genres + '&year=' + year;
-	  let url = this.url + 'discover/movie?api_key=' + apiKey + '&language' + this.language + '&sort_by' + sortBy;
+	  let url = this.url + 'discover/movie?api_key=' + apiKey + '&language=' + this.language + '&sort_by=' + sortBy + '&page=' + pageIndex;
 	  if (releaseDateGTE) {
-      	url = this.appendToResponse(url, releaseDateGTE);
+      	//url = this.appendToResponse(url, releaseDateGTE);
+	  	url += '&release_date.gte=' + releaseDateGTE;
       }
 	  if (releaseDateLTE) {
-      	url = this.appendToResponse(url, releaseDateLTE);
+      	//url = this.appendToResponse(url, releaseDateLTE);
+		url += '&release_date.lte=' + releaseDateLTE;
       }
+	  if(voteAverageGTE){
+		//url = this.appendToResponse(url, voteAverageGTE.toString());	
+		  url += '&vote_average.gte=' + voteAverageGTE;
+	  }
 	  if (genres) {
-      	url = this.appendToResponse(url, genres);
+      	//url = this.appendToResponse(url, genres);
+		url += '&with_genres=' + genres;
       }
 	  if (year) {
-      	url = this.appendToResponse(url, year);
+      	//url = this.appendToResponse(url, year.toString());
+		url += '&year=' + year;
       }
 	  return this.http.get(url)
       .map((res) => {

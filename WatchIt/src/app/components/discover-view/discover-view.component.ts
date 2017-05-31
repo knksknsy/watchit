@@ -12,28 +12,27 @@ export class DiscoverViewComponent implements OnInit {
 	public oneAtATime: boolean = true;
 	public isFirstOpen: boolean = true;
 
-	selectedGenreArry = [];
+	public selectedGenreArry = [];
 
-	yearTill: number;
-	yearFrom: number;
-	year: number;
+	public yearTill: number;
+	public yearFrom: number;
+	public year: number;
 
 	public max:number = 10;
 	public rate:number = 7;
 
-	selectedValue: string = "release_date.asc";
+	public selectedValue: string = "release_date.asc";
 
 	public _response: IMovieResponse;
 
+	public pageIndex = 0;
+	public totalMovieItems: number;
+	public movieItemsPerPage = 20;
+	public maxSize = 10;
 
 	constructor(private apiService: APIService) { }
 
 	ngOnInit() {
-	    this.apiService.getDiscoverMovies(this.selectedValue)
-      .subscribe((next) => {
-        this._response = next;
-			console.log(this._response);
-      })
 	}
 
 
@@ -59,6 +58,36 @@ updateSelectedGenreArray(id: number, cssId: string){
 	console.log("selectedGenreArry: " + this.selectedGenreArry);
 }
 
+public onPageChanged(event) {
+	this.pageIndex = event.page;
+	this.searchDiscoverMovies();
+}
+
+public onDiscover() {
+	this.searchDiscoverMovies();
+}
+
+
+searchDiscoverMovies(){
+	console.log('pageIndex', this.pageIndex);
+	var dTill = new Date();
+	dTill.setFullYear(this.yearTill, 0, 1);
+	var dateTill = dTill.getTime();
+	var dFrom = new Date();
+	dFrom.setFullYear(this.yearFrom, 0, 1);
+	let dateFrom = dFrom.getTime();
+	
+	var genreString = this.selectedGenreArry.toString();
+	console.log(genreString);
+		
+    this.apiService.getDiscoverMovies(this.selectedValue, dateFrom, dateTill, this.rate, genreString, this.year, this.pageIndex === 0 ? 1 : this.pageIndex)
+      .subscribe((next) => {
+        this._response = next;
+		this.totalMovieItems = next.total_results;
+		console.log(this._response);
+      })
+}
+
 get response(): IMovieResponse {
     return this._response;
   }
@@ -66,6 +95,5 @@ get response(): IMovieResponse {
   set response(response: IMovieResponse) {
     this._response = response;
   }
-
 
 }

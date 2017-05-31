@@ -14,6 +14,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
@@ -53,6 +54,7 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
+	PaginationModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
