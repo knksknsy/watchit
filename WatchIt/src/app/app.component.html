@@ -1,4 +1,8 @@
 <div class="container-fluid">
-    <app-menu-bar (search)="searchQuery($event)"></app-menu-bar>
-    <router-outlet></router-outlet>
+    <div>
+        <app-menu-bar (search)="searchQuery($event)"></app-menu-bar>
+    </div>
+    <div class="container-router">
+        <router-outlet></router-outlet>
+    </div>
 </div>
