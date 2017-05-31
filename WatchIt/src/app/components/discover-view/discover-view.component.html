@@ -5,60 +5,134 @@
 	<accordion [closeOthers]="oneAtATime">
 		<accordion-group heading="Genre" [isOpen]="isFirstOpen">
 			<div class="row">
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Abenteuer</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=12 #genreAbenteuer id="genreAbenteuer"(click)="updateSelectedGenreArray(genreAbenteuer .getAttribute('data-genre-id'), genreAbenteuer.id)">	
+					<p class="genre-item">Abenteuer</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Action</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=28 #genreAction id="genreAction"(click)="updateSelectedGenreArray(genreAction .getAttribute('data-genre-id'), genreAction.id)">						
+					<p class="genre-item">Action</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Animation</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=16 #genreAnimation id="genreAnimation"(click)="updateSelectedGenreArray(genreAnimation .getAttribute('data-genre-id'), genreAnimation.id)">						
+					<p class="genre-item">Animation</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Dokumentarfilm</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Drama</p>
-				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Familie</p>
-				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Fantasy</p>
-				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Historie</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=99 #genreDokumentarfilm id="genreDokumentarfilm" (click)="updateSelectedGenreArray(genreDokumentarfilm.getAttribute('data-genre-id'), genreDokumentarfilm.id)">						
+					<p class="genre-item">Dokumentarfilm</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Horror</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=18 #genreDrama id="genreDrama"(click)="updateSelectedGenreArray(genreDrama.getAttribute('data-genre-id'), genreDrama.id)">			
+					<p class="genre-item">Drama</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Komödie</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=10751 #genreFamilie id="genreFamilie"(click)="updateSelectedGenreArray(genreFamilie.getAttribute('data-genre-id'), genreFamilie.id)">		
+					<p class="genre-item">Familie</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Kriegsfilm</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=14 #genreFantasy id="genreFantasy"(click)="updateSelectedGenreArray(genreFantasy.getAttribute('data-genre-id'), genreFantasy.id)">		
+					<p class="genre-item">Fantasy</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Krimi</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Liebesfilm</p>
-				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Musik</p>
-				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Mystery</p>
-				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Science Fiction</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=36 #genreHistorie id="genreHistorie" (click)="updateSelectedGenreArray(genreHistorie.getAttribute('data-genre-id'), genreHistorie.id)">	
+					<p class="genre-item">Historie</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">TV-Film</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=27 #genreHorror id="genreHorror"(click)="updateSelectedGenreArray(genreHorror.getAttribute('data-genre-id'), genreHorror.id)">		
+					<p class="genre-item">Horror</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Thriller</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=35 #genreKomoedie id="genreKomoedie"(click)="updateSelectedGenreArray(genreKomoedie.getAttribute('data-genre-id'), genreKomoedie.id)">	
+					<p class="genre-item">Komödie</p>
 				</div>
-				<div class="col-xs-6 col-md-3">						<p class="genre-item">Western</p>
+				<div class="col-xs-6 col-md-3" data-genre-id=10752 #genreKriegsfilm id="genreKriegsfilm"(click)="updateSelectedGenreArray(genreKriegsfilm.getAttribute('data-genre-id'), genreKriegsfilm.id)">
+					<p class="genre-item">Kriegsfilm</p>
+				</div>
+				<div class="col-xs-6 col-md-3" data-genre-id=80 #genreKrimi id="genreKrimi"(click)="updateSelectedGenreArray(genreKrimi.getAttribute('data-genre-id'), genreKrimi.id)">			
+					<p class="genre-item">Krimi</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-3" data-genre-id=10749 #genreLiebesfilm id="genreLiebesfilm"(click)="updateSelectedGenreArray(genreLiebesfilm.getAttribute('data-genre-id'), genreLiebesfilm.id)">
+					<p class="genre-item">Liebesfilm</p>
+				</div>
+				<div class="col-xs-6 col-md-3" data-genre-id=10402 #genreMusik id="genreMusik"(click)="updateSelectedGenreArray(genreMusik.getAttribute('data-genre-id'), genreMusik.id)">			
+					<p class="genre-item">Musik</p>
+				</div>
+				<div class="col-xs-6 col-md-3" data-genre-id=9648 #genreMystery id="genreMystery" (click)="updateSelectedGenreArray(genreMystery.getAttribute('data-genre-id'), genreMystery.id)">		
+					<p class="genre-item">Mystery</p>
+				</div>
+				<div class="col-xs-6 col-md-3" data-genre-id=878 #genreScienceFiction id="genreScienceFiction"(click)="updateSelectedGenreArray(genreScienceFiction.getAttribute('data-genre-id'), genreScienceFiction.id)">				
+					<p class="genre-item">Science Fiction</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-3" data-genre-id=10770 #genreTVFilm id="genreTVFilm" (click)="updateSelectedGenreArray(genreTVFilm.getAttribute('data-genre-id'), genreTVFilm.id)">		
+					<p class="genre-item">TV-Film</p>
+				</div>
+				<div class="col-xs-6 col-md-3" data-genre-id=53 #genreThriller id="genreThriller"(click)="updateSelectedGenreArray(genreThriller.getAttribute('data-genre-id'), genreThriller.id)">	
+					<p class="genre-item">Thriller</p>
+				</div>
+				<div class="col-xs-6 col-md-3" data-genre-id=37 #genreWestern id="genreWestern" (click)="updateSelectedGenreArray(genreWestern.getAttribute('data-genre-id'), genreWestern.id)">						
+					<p class="genre-item">Western</p>
 				</div>
 			</div>
 		</accordion-group>
-		<accordion-group heading="Content 1">
-			<p>Content 1</p>
+		<accordion-group heading="Erscheinungsjahr">
+			<tabset>
+				<tab heading="Erscheinungsjahr">
+					<form class="form-horizontal show-grid-top">
+						<div class="form-group">
+							<label for="inputErscheinungsjahr" class="col-sm-4 control-label">Erscheinungsjahr:</label>
+							<div class="col-sm-4">
+								<input type="number" class="form-control" placeholder="z.B. 2017" [(ngModel)]="year" name="year">
+							</div>
+						</div>
+					</form>
+				</tab>
+				<tab heading="Erscheinungsjahr (ab)">
+					<form class="form-horizontal show-grid-top">
+						<div class="form-group">
+							<label for="inputErscheinungsjahrAb" class="col-sm-4 control-label">Alle Filme ab dem Erscheinungsjahr:</label>
+							<div class="col-sm-4">
+								<input type="number" class="form-control" placeholder="z.B. 2010" [(ngModel)]="yearFrom" name="yearFrom">
+							</div>
+						</div>
+					</form>
+				</tab>
+				<tab heading="Erscheinungsjahr (bis)">
+					<form class="form-horizontal show-grid-top">
+						<div class="form-group">
+							<label for="inputErscheinungsjahrVor" class="col-sm-4 control-label">Alle Filme vor dem Erscheinungsjahr:</label>
+							<div class="col-sm-4">
+								<input type="number" class="form-control" placeholder="z.B. 2000" [(ngModel)]="yearTill" name="yearTill">
+							</div>
+						</div>
+					</form>
+				</tab>
+			</tabset>
 		</accordion-group>
-		<accordion-group heading="Content 2">
-			<p>Content 2</p>
+		<accordion-group heading="Bewertung">
+			<h6>Bitte eine Bewertung für die zu suchenden Filme auswählen:</h6>
+			<p class="show-grid-top"><rating [(ngModel)]="rate" [max]="max" stateOn="fa fa-star" stateOff="fa fa-star-o"></rating>
+				{{rate | number : '1.1-2'}}
+			</p>
 		</accordion-group>
 	</accordion>
+
+	<h6 class="show-grid-top">Sortieren nach:</h6>
+	<select name="sortBy" [(ngModel)]="selectedValue">
+		<option value="release_date.asc" selected>Erscheinungsjahr aufsteigend</option>
+		<option value="release_date.desc">Erscheinungsjahr absteigend</option>
+		<option value="vote_average.asc">Bewertung aufsteigend</option>
+		<option value="vote_average.desc">Bewertung absteigend</option>
+		<option value="original_title.asc">Titel aufsteigend</option>
+		<option value="original_title.desc">Titel absteigend</option>
+	</select>
+	<br>
+	<div *ngIf="_response" class="container-fluid">
+		<div class="card-columns">
+			<app-search-movie-card *ngFor="let movie of _response.results" removable="false" [data]="movie"></app-search-movie-card>
+		</div>
+		<div>
+			<pagination [directionLinks]="directionLinks"[totalItems]="totalMovieItems" [itemsPerPage]="movieItemsPerPage" [maxSize]="maxSize" [rotate]="true" [(ngModel)]="pageIndex" class="pagination-sm"
+						previousText="&lsaquo;" nextText="&rsaquo;" (pageChanged)="onPageChanged($event)"></pagination>
+		</div>
+	</div>
+	<button type="button" class="btn btn-secondary pull-right show-grid-bottom" (click)="onDiscover()">Filme suchen</button>
 
 </div>

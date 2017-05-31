@@ -14,6 +14,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 
 // modules
@@ -55,6 +56,7 @@ import { ListModalComponent } from './components/list-modal/list-modal.component
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
+	  PaginationModule.forRoot(),
     TypeaheadModule.forRoot(),
     AppRoutingModule
   ],
