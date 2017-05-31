@@ -9,9 +9,7 @@
 				</button>
 			</div>
 			<div class="col-xs-3">
-				<button type="button" class="btn btn-outline-primary" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
-					<span class="fa fa-list-ul"></span>
-				</button>
+				<app-list-modal></app-list-modal>
 			</div>
 			<div *ngIf="!removable" class="col">
 				<button class="btn btn-outline-primary" (click)="removeFromList()">
@@ -29,16 +27,3 @@
 		</div>
 	</div>
 </div>
-
-
-<ng-template #listPopover>
-	<!--User registration necessary + DB models for lists-->
-	<div class="input-group">
-		<input [(ngModel)]="listName" type="text" class="form-control">
-		<span class="input-group-btn">
-			<button (click)="addToList()" class="btn btn-outline-primary" type="button">
-				<span class="fa fa-plus" aria-hidden="true"></span>
-			</button>
-		</span>
-	</div>
-</ng-template>

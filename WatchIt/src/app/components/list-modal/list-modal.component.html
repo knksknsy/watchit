@@ -1,0 +1,32 @@
+<button type="button" class="btn btn-outline-primary list" (click)="showModal()">
+  <span class="fa fa-list-ul" aria-hidden="true"></span>
+</button>
+
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade"
+  tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Add movie to list</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="input-group">
+          <input [(ngModel)]="selectedList" [typeahead]="userLists" (typeaheadLoading)="changeTypeaheadLoading($event)" (typeaheadNoResults)="changeTypeaheadNoResults($event)"
+            (typeaheadOnSelect)="typeaheadOnSelect($event)" typeaheadOptionsLimit="5" typeaheadOptionField="listName" placeholder="Search lists"
+            type="text" class="form-control">
+          <span class="input-group-btn">
+            <button (click)="addToList()" class="btn btn-outline-primary" type="button">
+              <span class="fa fa-plus" aria-hidden="true"></span>
+          </button>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

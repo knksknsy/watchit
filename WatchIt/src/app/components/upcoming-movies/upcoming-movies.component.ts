@@ -7,10 +7,12 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 @Component({
 	selector: 'app-upcoming-movies',
 	templateUrl: './upcoming-movies.component.html',
-	styleUrls: ['./upcoming-movies.component.scss'],
-	providers: [{ provide: CarouselConfig, useValue: { interval: 7000, noPause: true } }]
+	styleUrls: ['./upcoming-movies.component.scss']
 })
 export class UpcomingMoviesComponent implements OnInit {
+	public carouselInterval: number = 7500;
+	public isCarouselPaused: boolean;
+	
 	public _response: IMovieResponse;
 
 	constructor(private apiService: APIService, private router: Router) { }
@@ -32,6 +34,15 @@ export class UpcomingMoviesComponent implements OnInit {
 
 	openDetails(id: number) {
 		this.router.navigate(['/details', id]);
+	}
+
+	pauseCarousel(isOpen) {
+		this.isCarouselPaused = isOpen;
+		if (isOpen) {
+			this.carouselInterval = 0;
+		} else {
+			this.carouselInterval = 7500;
+		}
 	}
 
 }

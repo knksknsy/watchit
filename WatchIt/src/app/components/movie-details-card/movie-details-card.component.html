@@ -32,12 +32,10 @@
             </div>
 
             <div class="card-title buttons">
-                <button class="btn" (click)="toggleFavorite()">
-                        <span class="fa fa-heart-o"></span>
-                    </button>
-                <button type="button" class="btn" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
-                        <span class="fa fa-list-ul"></span>
-                    </button>
+                <button class="btn btn-outline-primary fav" (click)="toggleFavorite()">
+                    <span class="fa fa-heart-o"></span>
+                </button>
+                <app-list-modal></app-list-modal>
             </div>
 
             <div class="card-title overview">
@@ -58,15 +56,3 @@
         </div>
     </div>
 </div>
-
-<ng-template #listPopover>
-    <!--User registration necessary + DB models for lists-->
-    <div class="input-group">
-        <input [(ngModel)]="listName" type="text" class="form-control">
-        <span class="input-group-btn">
-      <button (click)="addToList()" class="btn btn-outline-primary" type="button">
-        <span class="fa fa-plus" aria-hidden="true"></span>
-        </button>
-        </span>
-    </div>
-</ng-template>

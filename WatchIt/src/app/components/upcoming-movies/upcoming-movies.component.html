@@ -1,7 +1,7 @@
-<div class="container-fluid show-grid-top-sm show-grid-bottom-sm">
+<div class="container-fluid">
 
 	<h2 class="show-grid-bottom-sm upcoming-movies-heading">Upcoming Movies</h2>
-	<carousel *ngIf="response" class="upcoming-movies-carousel">
+	<carousel *ngIf="response" class="upcoming-movies-carousel" [ngClass]="{ 'list-modal-active': isCarouselPaused }" [interval]="carouselInterval">
 		<slide *ngFor="let movie of response?.results">
 			<div class="row">
 				<div class="col-xs-3">
@@ -10,9 +10,7 @@
 					</button>
 				</div>
 				<div class="col-xs-3">
-					<button type="button" class="btn btn-outline-primary" [popover]="listPopover" popoverTitle="Add to List" container="body" placement="top" #pop="bs-popover">
-						<span class="fa fa-list-ul"></span>
-					</button>
+					<app-list-modal (onModalOpened)="pauseCarousel($event)"></app-list-modal>
 				</div>
 			</div>
 			<img *ngIf="movie.backdrop_path" [src]="apiService.getImgUrlOriginal(movie.backdrop_path)" class="img-responsive" [alt]="movie.title" (click)="openDetails(movie.id)"/>
@@ -24,16 +22,3 @@
 	</carousel>
 
 </div>
-
-
-<ng-template #listPopover>
-	<!--User registration necessary + DB models for lists-->
-	<div class="input-group">
-		<input [(ngModel)]="listName" type="text" class="form-control">
-		<span class="input-group-btn">
-			<button (click)="addToList()" class="btn btn-outline-primary" type="button">
-				<span class="fa fa-plus" aria-hidden="true"></span>
-			</button>
-		</span>
-	</div>
-</ng-template>

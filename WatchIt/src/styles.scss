@@ -1,8 +1,7 @@
-@import 'variables';
+@import '_variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 /* You can add global styles to this file, and also import other style files */
-
 
 .show-grid-top{
 	margin-top: 30px;
@@ -40,4 +39,48 @@
 
 .btn-secondary{
 	border-radius: 0;
+}
+
+// adjust dropdown container of list-modals typeahead input element
+.dropdown-menu {
+    width: inherit !important;
+    .dropdown-item.active {
+        background-color: #292b2c !important;
+    }
+}
+
+// adjust z-indices for list-modal
+.list-modal-active {
+	.slide {
+		/deep/ .carousel-indicators {
+			z-index: 1045 !important;
+		}
+		/deep/ .carousel-inner {
+			.carousel-item {
+				z-index: 1046 !important;
+				.item {
+					img {
+						filter: brightness(60%) !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+// adjust watchlist and favorite buttons
+app-movie-details-card {
+	.card {
+		.row {
+			.buttons {
+				app-list-modal {
+					.list {
+						position: relative;
+						border-bottom-right-radius: 0.2rem !important;
+						right: 5px;
+					}
+				}
+			}
+		}
+	}
 }

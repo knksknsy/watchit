@@ -27,8 +27,6 @@
 			position: absolute;
 			top: initial !important;
 			right: 15px !important;
-			bottom: 0px !important;
-			z-index: 9999 !important;
 			.btn{
 				border-radius: 0 !important;
 			}
@@ -36,7 +34,7 @@
 				border-color: transparent;
 			}
 			.fav{
-				border-top-left-radius: 0.25rem !important;
+				border-bottom-left-radius: 0.25rem !important;
 				border-right: 1px solid;
 			}
 		}
@@ -100,8 +98,6 @@
 				position: absolute;
 				top: initial !important;
 				right: 15px !important;
-				bottom: 0px !important;
-				z-index: 9999 !important;
 				.btn{
 					border-radius: 0 !important;
 				}
@@ -109,7 +105,7 @@
 					border-color: transparent;
 				}
 				.fav{
-					border-top-left-radius: 0.25rem !important;
+					border-bottom-left-radius: 0.25rem !important;
 					border-right: 1px solid;
 				}
 			}
@@ -164,8 +160,6 @@
 				position: absolute;
 				top: initial !important;
 				right: 15px !important;
-				bottom: 0px !important;
-				z-index: 9999 !important;
 				.btn{
 					border-radius: 0 !important;
 				}
@@ -173,7 +167,7 @@
 					border-color: transparent;
 				}
 				.fav{
-					border-top-left-radius: 0.25rem !important;
+					border-bottom-left-radius: 0.25rem !important;
 					border-right: 1px solid;
 				}
 			}
@@ -223,8 +217,6 @@
 				position: absolute;
 				top: initial !important;
 				right: 15px !important;
-				bottom: 0px !important;
-				z-index: 9999 !important;
 				.btn{
 					border-radius: 0 !important;
 				}
@@ -232,7 +224,7 @@
 					border-color: transparent;
 				}
 				.fav{
-					border-top-left-radius: 0.25rem !important;
+					border-bottom-left-radius: 0.25rem !important;
 					border-right: 1px solid;
 				}
 			}
