@@ -92,6 +92,10 @@
     .row.tagline {
         max-width: 300px;
         margin: auto;
+        margin-top: 5px;
+        .card-text {
+            line-height: 70%;
+        }
     }
 
 }
