@@ -13,13 +13,13 @@
 					<span class="fa fa-bookmark-o"></span>
 				</button>
 			</div>
-			<div class="col-xs-3">
-				<app-list-modal></app-list-modal>
-			</div>
-			<div *ngIf="!removable" class="col">
+			<div *ngIf="removable === true" class="col-xs-3">
 				<button class="btn btn-outline-primary" (click)="removeFromList()">
 					<span class="fa fa-trash"></span>
 				</button>
+			</div>
+			<div class="col-xs-3">
+				<app-list-modal></app-list-modal>
 			</div>
 		</div>
 		<div class="bg-blur" [ngClass]="{'overview-blur': showOverview}">
