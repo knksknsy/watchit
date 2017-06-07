@@ -10,6 +10,11 @@
 					</button>
 				</div>
 				<div class="col-xs-3">
+					<button class="btn btn-outline-primary watchlist" (click)="toggleWatchlist()">
+						<span class="fa fa-bookmark-o"></span>
+					</button>
+				</div>
+				<div class="col-xs-3">
 					<app-list-modal (onModalOpened)="pauseCarousel($event)"></app-list-modal>
 				</div>
 			</div>

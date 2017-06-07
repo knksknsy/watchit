@@ -1,6 +1,6 @@
-<h4>Top Billed Cast</h4>
-<div *ngIf="!cast">No cast available</div>
-<div *ngIf="cast" class="card-group">
+<h4 *ngIf="cast.length">Top Billed Cast</h4>
+<div *ngIf="!cast.length">No cast available</div>
+<div *ngIf="cast.length" class="card-group">
   <div class="card" *ngFor="let member of cast">
     <div class="profile-image" [ngClass]="{'placeholder': !member.profile_path}">
       <img *ngIf="member.profile_path" class="card-img-top img-fluid" [src]="apiService.getImgUrlOriginal(member.profile_path)" [alt]="member.name" height="200px"/>

@@ -32,6 +32,10 @@ export class UpcomingMoviesComponent implements OnInit {
 		this._response = response;
 	}
 
+	toggleFavorite() { }
+
+	toggleWatchlist() { }
+
 	openDetails(id: number) {
 		this.router.navigate(['/details', id]);
 	}

@@ -66,7 +66,7 @@ export class MovieDetailsCardComponent implements OnInit {
     return result;
   }
 
-  toggleFavorite() {
+  toggleFavorite() { }
 
-  }
+  toggleWatchlist() { }
 }

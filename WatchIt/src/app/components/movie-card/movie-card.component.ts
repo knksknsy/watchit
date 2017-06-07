@@ -4,11 +4,11 @@ import { IMovieResult } from '../../interfaces/movie-response';
 import { APIService } from '../../services/api/api.service';
 
 @Component({
-  selector: 'app-search-movie-card',
-  templateUrl: './search-movie-card.component.html',
-  styleUrls: ['./search-movie-card.component.scss']
+  selector: 'app-movie-card',
+  templateUrl: './movie-card.component.html',
+  styleUrls: ['./movie-card.component.scss']
 })
-export class SearchMovieCardComponent {
+export class MovieCardComponent {
   private _data: IMovieResult;
   private _removable: boolean;
   public showOverview: boolean = false;
@@ -38,6 +38,8 @@ export class SearchMovieCardComponent {
   }
 
   toggleFavorite() { }
+
+  toggleWatchlist() { }
 
   removeFromList() { }
 

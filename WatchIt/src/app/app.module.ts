@@ -24,10 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
-import { SearchMovieCardComponent } from './components/search-movie-card/search-movie-card.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { HomeViewComponent } from './components/home-view/home-view.component';
-import { PopularMovieCardComponent } from './components/popular-movie-card/popular-movie-card.component';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { PopularMoviesViewComponent } from './components/popular-movies-view/popular-movies-view.component';
 import { MovieDetailsCardComponent } from './components/movie-details-card/movie-details-card.component';
@@ -64,10 +63,9 @@ import { ListModalComponent } from './components/list-modal/list-modal.component
     AppComponent,
     MenuBarComponent,
     SearchMoviesViewComponent,
-    SearchMovieCardComponent,
+    MovieCardComponent,
     MovieDetailsComponent,
     HomeViewComponent,
-    PopularMovieCardComponent,
     UpcomingMoviesComponent,
     PopularMoviesViewComponent,
     MovieDetailsCardComponent,

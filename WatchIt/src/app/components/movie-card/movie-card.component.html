@@ -1,4 +1,4 @@
-<div class="card card-inverse search-movie-card">
+<div class="card card-inverse movie-card">
 	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title"/>
   <img *ngIf="!data.backdrop_path" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" [alt]="data.title"/>
 	<div class="card-img-overlay">
@@ -6,6 +6,11 @@
 			<div class="col-xs-3">
 				<button class="btn btn-outline-primary fav" (click)="toggleFavorite()">
 					<span class="fa fa-heart-o"></span>
+				</button>
+			</div>
+			<div class="col-xs-3">
+				<button class="btn btn-outline-primary watchlist" (click)="toggleWatchlist()">
+					<span class="fa fa-bookmark-o"></span>
 				</button>
 			</div>
 			<div class="col-xs-3">
