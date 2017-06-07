@@ -18,6 +18,7 @@ export class MenuBarComponent implements OnInit {
 
   onSearch() {
     this.search.emit(this.searchForm.value);
+    this.leftMenuCollapsed = false;
   }
 
   ngOnInit() { }

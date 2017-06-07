@@ -3,7 +3,6 @@ import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { APIService } from '../../services/api/api.service';
 import { IMovieDetails } from '../../interfaces/movie-details';
 import { ICrew } from '../../interfaces/credit';
-import { PopoverDirective } from 'ngx-bootstrap/popover/popover.directive';
 import 'rxjs/Rx';
 
 @Component({
@@ -15,7 +14,6 @@ export class MovieDetailsCardComponent implements OnInit {
   private _details: IMovieDetails;
   private _crew: Array<ICrew>;
   private _isMobile: boolean;
-  @ViewChild('pop') pop: PopoverDirective;
 
   constructor(private apiService: APIService, private el: ElementRef) { }
 
@@ -70,9 +68,5 @@ export class MovieDetailsCardComponent implements OnInit {
 
   toggleFavorite() {
 
-  }
-
-  addToList() {
-    this.pop.hide();
   }
 }

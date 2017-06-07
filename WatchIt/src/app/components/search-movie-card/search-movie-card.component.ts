@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { IMovieResult } from '../../interfaces/movie-response';
 import { APIService } from '../../services/api/api.service';
 
-import { PopoverDirective } from 'ngx-bootstrap/popover';
-
 @Component({
   selector: 'app-search-movie-card',
   templateUrl: './search-movie-card.component.html',
@@ -14,8 +12,6 @@ export class SearchMovieCardComponent {
   private _data: IMovieResult;
   private _removable: boolean;
   public showOverview: boolean = false;
-
-  @ViewChild('pop') pop: PopoverDirective;
 
   constructor(private apiService: APIService, private router: Router) { }
 

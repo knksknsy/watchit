@@ -20,6 +20,7 @@ export class SearchMoviesViewComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach(params => {
       this.response = this.route.snapshot.data['response'];
+      window.scrollTo(0,0);
     });
   }
 
