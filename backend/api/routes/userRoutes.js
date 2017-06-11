@@ -1,13 +1,15 @@
 /**
  * Created by Douglas on 05.05.2017.
  */
+var userController = require('../controllers/userController');
+
 module.exports = function(app){
 
     var basePath = '/user';
 
     //Enpoint to create change and delete users
     app.route(basePath)
-        .post()
+        .post(userController.createNewUser)
         .put()
         .delete();
 
