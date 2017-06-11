@@ -15,7 +15,7 @@ module.exports = function(app){
 
     //Endpoint to log in with username and password
     app.route(basePath + '/login')
-        .post();
+        .post(userController.login);
 
     //Endpoint to invalidate user token
     app.route(basePath + '/logout')

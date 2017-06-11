@@ -27,6 +27,38 @@ module.exports = {
 
     deleteUser: function(req, res){
 
-    }
+    },
 
+    login: function(req, res){
+        var suppliedUser = req.body.user;
+        User.findByMail(suppliedUser.email, function(err, foundUser){
+            if(err){
+                res.send(err);
+                return;
+            }
+            if(!foundUser){
+                res.send({message: "User not found"});
+                return;
+            }
+            foundUser.comparePassword(suppliedUser.password, function(err, isMatch){
+                if(err){
+                    res.send(err);
+                    return;
+                }
+                if(isMatch){
+                    req.mySession.user = foundUser.data.email;
+                    res.send("logged in");
+                } else {
+                    res.send({message: "invalid password"});
+                }
+            })
+        });
+    },
+
+    logout: function(req, res){
+        if(req.mySession && req.mySession.user){
+            req.mySession.reset();
+        }
+        res.send({message: "your are logged out"});
+    }
 };
