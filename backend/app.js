@@ -1,6 +1,7 @@
 var express = require('express');
 var log = require('./api/controllers/loggingController');
 var bodyParser = require('body-parser');
+var sessions = require("client-sessions");
 var databasehandler = require('./api/controllers/dbController');
 app = express();
 
@@ -22,7 +23,18 @@ app = express();
    }
 
 });*/
-//app.use(bodyParser.urlencoded);
+
+//Setting up sessions
+app.use(sessions({
+    cookieName: 'mySession',
+    secret: 'pqnfislghqlxcdnwalxemcnqfdfdq',
+    duration: 24 * 60 * 60 * 1000, //24 h
+    activeDuration: 10 * 60 * 1000, //10 min
+    cookie: {
+        httpOnly: true
+    }
+}));
+
 app.use(bodyParser.json());
 
 var userRoutes = require('./api/routes/userRoutes');

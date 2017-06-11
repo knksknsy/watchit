@@ -4,6 +4,7 @@
 // user shlould have following fields: email, password
 
 var dbController = require('../controllers/dbController');
+var bcrypt = require('bcryptjs');
 var log = require('../controllers/loggingController');
 
 var User = function (data) {
@@ -59,7 +60,8 @@ User.findByMail = function (mail, callback) {
         }
 
         log.info('DB access successful, result: ' + JSON.stringify(result));
-        callback(null, result);
+        var foundUser = new User(result);
+        callback(null, foundUser);
         return;
     });
 };
@@ -89,21 +91,44 @@ User.prototype.save = function (callback) {
             callback(error, null);
             return;
         }
-        //saving in db
-        var collection = dbController.userCollection();
-        collection.insert(userData, function(err, result){
-            if(err){
-                log.error("Couldn't persist new user: " + JSON.stringify(userData)); //TODO sensitive data in logs
+
+        //hashing password
+        bcrypt.genSalt(10, function (err, salt) {
+            if (err) {
                 callback(err);
                 return;
             }
+            bcrypt.hash(userData.password, salt, function (err, hash) {
+                if (err) {
+                    callback(err);
+                    return;
+                }
+                userData.password = hash;
 
-            callback(null, result);
-            log.info("saved user " + JSON.stringify(result)); //TODO sensitive data in logs
-            return;
+                //saving in db
+                var collection = dbController.userCollection();
+                collection.insert(userData, function(err, result){
+                    if(err){
+                        log.error("Couldn't persist new user: " + JSON.stringify(userData)); //TODO sensitive data in logs
+                        callback(err);
+                        return;
+                    }
+
+                    callback(null, result);
+                    log.info("saved user " + JSON.stringify(result)); //TODO sensitive data in logs
+                    return;
+                });
+            });
         });
     })
-
 };
 
+User.prototype.comparePassword = function(password, callback){
+    bcrypt.compare(password, this.data.password, function (err, isMatch) {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, isMatch);
+    });
+}
 module.exports = User;
