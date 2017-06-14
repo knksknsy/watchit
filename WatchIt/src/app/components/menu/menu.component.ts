@@ -16,10 +16,10 @@ export class MenuComponent implements OnInit {
   }
 
   openDiscoverView() {
-	let body = document.getElementsByTagName('body')[0];
-	body.classList.remove("stopScrolling");
+    let body = document.getElementsByTagName('body')[0];
+    body.classList.remove("stopScrolling");
     this.onMenuItemSelected.emit();
-		this.router.navigate(['/discover-view']);
+    this.router.navigate(['/discover-view']);
   }
 
 }

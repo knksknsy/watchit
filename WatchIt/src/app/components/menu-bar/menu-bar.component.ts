@@ -8,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class MenuBarComponent implements OnInit {
   @Output() search: EventEmitter<any> = new EventEmitter<any>();
-  public leftMenuCollapsed: boolean = false;
+  public menuCollapsed: boolean = false;
 
   public searchForm = this.formBuilder.group({
     searchQuery: [""]
@@ -18,7 +18,7 @@ export class MenuBarComponent implements OnInit {
 
   onSearch() {
     this.search.emit(this.searchForm.value);
-    this.leftMenuCollapsed = false;
+    this.menuCollapsed = false;
   }
 
   ngOnInit() { }
@@ -34,7 +34,7 @@ export class MenuBarComponent implements OnInit {
 	// make body position fixed (no scrolling) when menu is opened
 	lockBodyScroll(){
 		let body = document.getElementsByTagName('body')[0];
-		if(this.leftMenuCollapsed){
+		if(this.menuCollapsed){
 			body.classList.add("stopScrolling");
 		}else{
 			body.classList.remove("stopScrolling");

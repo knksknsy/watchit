@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
 import { IMovieResponse } from '../../interfaces/movie-response';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
 
 @Component({
 	selector: 'app-upcoming-movies',

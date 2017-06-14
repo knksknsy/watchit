@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
-import { APIService } from '../../services/api/api.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -15,7 +14,7 @@ import { IMovieResponse, IMovieResult } from '../../interfaces/movie-response';
 export class SearchMoviesViewComponent implements OnInit {
   private _response: IMovieResponse;
 
-  constructor(private apiService: APIService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.forEach(params => {

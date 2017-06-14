@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-inverse bg-inverse">
   <div class="row">
     <div class="col-md-8">
-      <a role="button" (click)="leftMenuCollapsed = !leftMenuCollapsed; lockBodyScroll()" class="menu-button btn-margin-right"><span class="{{!leftMenuCollapsed ? 'fa fa-bars' : 'fa fa-times'}}"></span></a>
+      <a role="button" (click)="menuCollapsed = !menuCollapsed; lockBodyScroll()" class="menu-button btn-margin-right"><span class="{{!menuCollapsed ? 'fa fa-bars' : 'fa fa-times'}}"></span></a>
       <a class="navbar-brand" routerLink="/">
         <img src="/assets/icons/movie.png" width="30" height="30" class="d-inline-block align-top" /> WatchIt
       </a>
@@ -24,6 +24,6 @@
   </div>
 </nav>
 
-<div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="!leftMenuCollapsed" class="card card-block card-header">
-  <app-menu (onMenuItemSelected)="leftMenuCollapsed = !leftMenuCollapsed"></app-menu>
+<div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="!menuCollapsed" class="card card-block card-header">
+  <app-menu (onMenuItemSelected)="menuCollapsed = !menuCollapsed"></app-menu>
 </div>
