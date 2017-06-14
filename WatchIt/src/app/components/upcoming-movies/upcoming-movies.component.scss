@@ -1,3 +1,6 @@
+.upcoming-movies-container{
+	padding-top: 2%;
+} 
 .upcoming-movies-carousel{
 
 	/deep/ div.carousel > ol.carousel-indicators{
@@ -121,10 +124,22 @@
 		}
 	}
 }
-/* 
+/* media queries
+*  tablet landscape
+*/
+@media (min-width: 1024px) and (max-width: 1200px){
+	.upcoming-movies-container{
+		padding-top: 3%;
+	} 
+}
+/*
 *  tablet portrait
 */
 @media (min-width: 768px) and (max-width: 1023px){
+
+	.upcoming-movies-container{
+		padding-top: 4%;
+	}
 
 	.upcoming-movies-carousel{
 		// carosuel height
@@ -169,6 +184,10 @@
 */
 @media (min-width: 667px) and (max-width: 767px){
 
+	.upcoming-movies-container{
+		padding-top: 8%;
+	}
+
 	h2.upcoming-movies-heading{
 		font-size: 1rem;
 	}
@@ -185,7 +204,7 @@
 
 			slide{
 				height: 60vh;
-				
+
 				//.btn-sm styles
 				button{
 					padding: 0.25rem 0.5rem;
@@ -213,14 +232,14 @@
 			position: absolute;
 			bottom: 55px;
 		}
-		
+
 		// carousel control height
 		/deep/ a.right.carousel-control.carousel-control-next{
 			height: 84%;
 			position: absolute;
 			top: 16%;
 		}
-		
+
 		/deep/ span.icon-next.carousel-control-next-icon{
 			position: absolute;
 			bottom: 55px;
@@ -236,6 +255,10 @@
 */
 @media (max-width: 375px){
 
+	.upcoming-movies-container{
+		padding-top: 17%;
+	}
+
 	h2.upcoming-movies-heading{
 		font-size: 1rem;
 	}
@@ -249,10 +272,10 @@
 			.carousel-caption{
 				bottom: 0;
 			}
-			
+
 			slide{
 				height: 30vh;
-				
+
 				//.btn-sm styles
 				button{
 					padding: 0.25rem 0.5rem;
@@ -281,14 +304,14 @@
 			position: absolute;
 			bottom: 55px;
 		}
-		
+
 		// carousel control height
 		/deep/ a.right.carousel-control.carousel-control-next{
 			height: 82%;
 			position: absolute;
 			top: 18%;
 		}
-		
+
 		/deep/ span.icon-next.carousel-control-next-icon{
 			position: absolute;
 			bottom: 55px;
@@ -296,7 +319,7 @@
 			// carousel control height
 			margin-bottom: 0px;
 		}
-		
+
 	}
 
 }
