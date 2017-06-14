@@ -23,23 +23,34 @@ import { AppRoutingModule } from './app-routing.module';
 // components
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
-import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
-import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { LoginModalComponent } from './components/login-modal/login-modal.component';
+
 import { HomeViewComponent } from './components/home-view/home-view.component';
 import { UpcomingMoviesComponent } from './components/upcoming-movies/upcoming-movies.component';
 import { PopularMoviesViewComponent } from './components/popular-movies-view/popular-movies-view.component';
+
+import { MenuComponent } from './components/menu/menu.component';
+import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
+import { FavoritesViewComponent } from './components/favorites-view/favorites-view.component';
+import { WatchListViewComponent } from './components/watch-list-view/watch-list-view.component';
+import { MovieListsViewComponent } from './components/movie-lists-view/movie-lists-view.component';
+import { MovieListViewComponent } from './components/movie-list-view/movie-list-view.component';
+
+import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
+
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { ListModalComponent } from './components/list-modal/list-modal.component';
 import { MovieDetailsCardComponent } from './components/movie-details-card/movie-details-card.component';
 import { MovieDetailsCastComponent } from './components/movie-details-cast/movie-details-cast.component';
 import { MovieDetailsFactsComponent } from './components/movie-details-facts/movie-details-facts.component';
-import { MenuComponent } from './components/menu/menu.component';
 
 // services
-import { APIService } from './services/api/api.service';
 import { AuthenticationService } from './services/authentication/authentication.service';
-import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
-import { LoginModalComponent } from './components/login-modal/login-modal.component';
-import { ListModalComponent } from './components/list-modal/list-modal.component';
+import { APIService } from './services/api/api.service';
+import { MovieListService } from './services/movie-list.service';
+import { WatchListService } from './services/watch-list.service';
+import { FavoritesService } from './services/favorites.service';
 
 @NgModule({
   imports: [
@@ -55,7 +66,7 @@ import { ListModalComponent } from './components/list-modal/list-modal.component
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     TabsModule.forRoot(),
-	  PaginationModule.forRoot(),
+    PaginationModule.forRoot(),
     TypeaheadModule.forRoot(),
     AppRoutingModule
   ],
@@ -74,9 +85,13 @@ import { ListModalComponent } from './components/list-modal/list-modal.component
     MenuComponent,
     DiscoverViewComponent,
     LoginModalComponent,
-    ListModalComponent
+    ListModalComponent,
+    FavoritesViewComponent,
+    WatchListViewComponent,
+    MovieListsViewComponent,
+    MovieListViewComponent
   ],
-  providers: [APIService, AuthenticationService],
+  providers: [APIService, FavoritesService, WatchListService, MovieListService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

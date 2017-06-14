@@ -2,15 +2,15 @@
 	<div class="col-sm-6" (click)="openDiscoverView()">
 		<h3 class="left"><span class="fa fa-search"></span>DISCOVER</h3>
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6" (click)="openFavoritesView()">
 		<h3 class="right"><span class="fa fa-heart"></span>FAVOURITES</h3>
 	</div>
 </div>
 <div class="row menu-content below">
-	<div class="col-sm-6">
-		<h3 class="left"><span class="fa fa-list-ul"></span>MY WATCHLIST</h3>
+	<div class="col-sm-6" (click)="openWatchListView()">
+		<h3 class="left"><span class="fa fa-bookmark"></span>WATCHLIST</h3>
 	</div>
-	<div class="col-sm-6">
-		<h3 class="right"><span class="fa fa-th"></span>MY LISTS</h3>
+	<div class="col-sm-6" (click)="openMovieListsView()">
+		<h3 class="right"><span class="fa fa-list"></span>MY LISTS</h3>
 	</div>
 </div>
