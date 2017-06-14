@@ -115,6 +115,10 @@
 @media (min-width: 667px) and (max-width: 767px){
 	.container-fluid {
 		padding-top: 50px;
+		
+		h2{
+			font-size: 1rem;
+		}
 	}
 	/deep/ .discover-view{
 		> div{
@@ -138,6 +142,10 @@
 @media (max-width: 375px){
 	.container-fluid {
 		padding-top: 50px;
+		
+		h2{
+			font-size: 1rem;
+		}
 	}
 	/deep/ .discover-view{
 		ul.nav.nav-tabs{
