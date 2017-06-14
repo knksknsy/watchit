@@ -7,6 +7,9 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { MovieDetailsResolverService } from './services/resolver/movie-details-resolver.service';
 import { SearchMoviesResolverService } from './services/resolver/search-movies-resolver.service';
 import { DiscoverViewComponent } from './components/discover-view/discover-view.component';
+import { MovieListsViewComponent } from './components/movie-lists-view/movie-lists-view.component';
+import { WatchListViewComponent } from './components/watch-list-view/watch-list-view.component';
+import { FavoritesViewComponent } from './components/favorites-view/favorites-view.component';
 
 const appRoutes: Routes = [
     {
@@ -27,10 +30,22 @@ const appRoutes: Routes = [
             details: MovieDetailsResolverService
         }
     },
-	{
-		path: 'discover-view',
-		component: DiscoverViewComponent
-	}
+    {
+        path: 'discover-view',
+        component: DiscoverViewComponent
+    },
+    {
+        path: 'favorites-view',
+        component: FavoritesViewComponent
+    },
+    {
+        path: 'watch-list-view',
+        component: WatchListViewComponent
+    },
+    {
+        path: 'movie-lists-view',
+        component: MovieListsViewComponent
+    }
     // { 
     //   path: '',
     //   redirectTo: '/component_name',

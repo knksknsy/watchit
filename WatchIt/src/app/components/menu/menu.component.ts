@@ -18,8 +18,33 @@ export class MenuComponent implements OnInit {
   openDiscoverView() {
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
-    this.onMenuItemSelected.emit();
+    this.closeMenu();
     this.router.navigate(['/discover-view']);
+  }
+
+  openFavoritesView() {
+    let body = document.getElementsByTagName('body')[0];
+    body.classList.remove("stopScrolling");
+    this.closeMenu();
+    this.router.navigate(['/favorites-view']);
+  }
+
+  openWatchListView() {
+    let body = document.getElementsByTagName('body')[0];
+    body.classList.remove("stopScrolling");
+    this.closeMenu();
+    this.router.navigate(['/watch-list-view']);
+  }
+
+  openMovieListsView() {
+    let body = document.getElementsByTagName('body')[0];
+    body.classList.remove("stopScrolling");
+    this.closeMenu();
+    this.router.navigate(['/movie-lists-view']);
+  }
+
+  closeMenu() {
+    this.onMenuItemSelected.emit();
   }
 
 }
