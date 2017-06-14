@@ -1,3 +1,6 @@
+.container-fluid {
+	padding-top: 15px;
+}
 /deep/ .discover-view{
 	.panel.card.panel-default{
 		border: none;
@@ -110,6 +113,9 @@
 *  phone landscape
 */
 @media (min-width: 667px) and (max-width: 767px){
+	.container-fluid {
+		padding-top: 50px;
+	}
 	/deep/ .discover-view{
 		> div{
 			&.dropdown{
@@ -130,6 +136,9 @@
 *  phone portrait
 */
 @media (max-width: 375px){
+	.container-fluid {
+		padding-top: 50px;
+	}
 	/deep/ .discover-view{
 		ul.nav.nav-tabs{
 			display: block;
