@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { APIService } from '../../services/api/api.service';
+import { ActivatedRoute } from '@angular/router';
+import { IMovieResponse } from '../../interfaces/movie-response';
 
 @Component({
   selector: 'app-home-view',
@@ -7,9 +8,15 @@ import { APIService } from '../../services/api/api.service';
   styleUrls: ['./home-view.component.scss']
 })
 export class HomeViewComponent implements OnInit {
+  public upcomingMovies: IMovieResponse;
+  public popularMovies: IMovieResponse;
 
-  constructor(private apiService: APIService) { }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.upcomingMovies = this.route.snapshot.data['upcomings'];
+    this.popularMovies = this.route.snapshot.data['populars'];
+    window.scrollTo(0, 0);
+  }
 
 }

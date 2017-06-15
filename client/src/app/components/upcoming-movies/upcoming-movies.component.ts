@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
 import { IMovieResponse } from '../../interfaces/movie-response';
@@ -8,28 +8,22 @@ import { IMovieResponse } from '../../interfaces/movie-response';
 	templateUrl: './upcoming-movies.component.html',
 	styleUrls: ['./upcoming-movies.component.scss']
 })
-export class UpcomingMoviesComponent implements OnInit {
+export class UpcomingMoviesComponent {
 	public carouselInterval: number = 7500;
 	public isCarouselPaused: boolean;
-	
-	public _response: IMovieResponse;
+
+	private _data: IMovieResponse;
+
+	get data(): IMovieResponse {
+		return this._data;
+	}
+
+	@Input()
+	set data(data: IMovieResponse) {
+		this._data = data;
+	}
 
 	constructor(private apiService: APIService, private router: Router) { }
-
-	ngOnInit() {
-		this.apiService.getUpcomingMovies()
-			.subscribe((next) => {
-				this._response = next;
-			})
-	}
-
-	get response(): IMovieResponse {
-		return this._response;
-	}
-
-	set response(response: IMovieResponse) {
-		this._response = response;
-	}
 
 	toggleFavorite() { }
 

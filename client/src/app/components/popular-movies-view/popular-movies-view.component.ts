@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../../services/api/api.service';
+import { Component, Input } from '@angular/core';
 import { IMovieResponse } from '../../interfaces/movie-response';
 
 @Component({
@@ -7,24 +6,18 @@ import { IMovieResponse } from '../../interfaces/movie-response';
   templateUrl: './popular-movies-view.component.html',
   styleUrls: ['./popular-movies-view.component.scss']
 })
-export class PopularMoviesViewComponent implements OnInit {
-  public _response: IMovieResponse;
+export class PopularMoviesViewComponent {
+  private _data: IMovieResponse;
 
-  constructor(private apiService: APIService) { }
-
-  ngOnInit() {
-    this.apiService.getPopularMovies()
-      .subscribe((next) => {
-        this._response = next;
-      })
+  get data(): IMovieResponse {
+    return this._data;
   }
 
-  get response(): IMovieResponse {
-    return this._response;
+  @Input()
+  set data(data: IMovieResponse) {
+    this._data = data;
   }
 
-  set response(response: IMovieResponse) {
-    this._response = response;
-  }
+  constructor() { }
 
 }

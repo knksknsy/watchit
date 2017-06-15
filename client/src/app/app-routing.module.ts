@@ -16,11 +16,17 @@ import { SearchMoviesResolverService } from './services/resolver/search-movies-r
 import { FavoritesResolverService } from './services/resolver/favorites-resolver.service';
 import { MovieListsResolverService } from './services/resolver/movie-lists-resolver.service';
 import { WatchListResolverService } from './services/resolver/watch-list-resolver.service';
+import { PopularMoviesResolverService } from './services/resolver/popular-movies-resolver.service';
+import { UpcomingMoviesResolverService } from './services/resolver/upcoming-movies-resolver.service';
 
 const appRoutes: Routes = [
     {
         path: '',
-        component: HomeViewComponent
+        component: HomeViewComponent,
+        resolve: {
+            upcomings: UpcomingMoviesResolverService,
+            populars: PopularMoviesResolverService
+        }
     },
     {
         path: 'search/:query',
@@ -81,8 +87,13 @@ const appRoutes: Routes = [
         RouterModule
     ],
     providers: [
+        UpcomingMoviesResolverService,
+        PopularMoviesResolverService,
+        SearchMoviesResolverService,
         MovieDetailsResolverService,
-        SearchMoviesResolverService
+        FavoritesResolverService,
+        WatchListResolverService,
+        MovieListsResolverService
     ]
 })
 export class AppRoutingModule { }
