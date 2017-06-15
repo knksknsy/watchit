@@ -13,9 +13,9 @@ var User = function (data) {
 
 User.prototype.data = {};
 
-User.prototype.changeEmail = function (email) {
-    this.data.email = email;
-};
+// User.prototype.changeEmail = function (email) {  Can't be used, otherwise lists which are identified by email will be lost
+//     this.data.email = email;
+// };
 
 User.prototype.changePassword = function (password) {
     this.data.password = password;

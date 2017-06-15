@@ -10,8 +10,8 @@ module.exports = function(app){
     //Enpoint to create change and delete users
     app.route(basePath)
         .post(userController.createNewUser)
-        .put()
-        .delete();
+        .put()//TODO
+        .delete();//TODO
 
     //Endpoint to log in with username and password
     app.route(basePath + '/login')
@@ -19,6 +19,6 @@ module.exports = function(app){
 
     //Endpoint to invalidate user token
     app.route(basePath + '/logout')
-        .post();
+        .post(userController.logout);
 
 };
