@@ -47,7 +47,8 @@ export class LoginModalComponent implements OnInit {
   }
 
   onLogin(event) {
-    this.authenticationService.login({ email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword })
+    let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
+    this.authenticationService.login(body)
       .subscribe((next) => {
         console.log(next);
         this.hideModal();
@@ -55,10 +56,15 @@ export class LoginModalComponent implements OnInit {
   }
 
   onRegister(event) {
-    this.authenticationService.register({ email: this.registerForm.value.registerEmail, password: this.registerForm.value.registerPassword })
+    let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
+    this.authenticationService.register(body)
       .subscribe((next) => {
         console.log(next);
-        this.hideModal();
+        this.authenticationService.login(body)
+          .subscribe((next) => {
+            console.log(next);
+            this.hideModal();
+          });
       });
   }
 

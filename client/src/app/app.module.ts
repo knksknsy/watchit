@@ -91,7 +91,13 @@ import { FavoritesService } from './services/favorites.service';
     MovieListsViewComponent,
     MovieListViewComponent
   ],
-  providers: [APIService, FavoritesService, WatchListService, MovieListService, AuthenticationService],
+  providers: [
+    APIService,
+    FavoritesService,
+    WatchListService,
+    MovieListService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

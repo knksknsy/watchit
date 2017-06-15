@@ -37,6 +37,13 @@ app.use(sessions({
 
 app.use(bodyParser.json());
 
+// Cross Origin middleware
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 var userRoutes = require('./api/routes/userRoutes');
 userRoutes(app);
 
