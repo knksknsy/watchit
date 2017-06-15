@@ -1,0 +1,6 @@
+<div class="container-fluid">
+  <h2 class="show-grid-bottom-sm">Favorites</h2>
+  <div class="card-columns">
+    <app-movie-card *ngFor="let movie of favorites" [data]="movie" [removable]="true"></app-movie-card>
+  </div>
+</div>

@@ -10,7 +10,7 @@ export class FavoritesService {
 
   constructor(private http: Http) { }
 
-  getFavorites(): Observable<IMovieResult> {
+  getFavorites(): Observable<Array<IMovieResult>> {
     return this.http.get('http://localhost:3000/favorites')
       .map((res) => {
         return res.json();
