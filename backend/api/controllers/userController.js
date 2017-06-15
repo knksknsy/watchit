@@ -51,7 +51,7 @@ module.exports = {
                 }
                 if(isMatch){
                     req.mySession.user = foundUser.data.email;
-                    res.send("logged in");
+                    res.send({status: "ok"});
                 } else {
                     res.send({message: "invalid password"});
                 }
