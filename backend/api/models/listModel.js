@@ -60,6 +60,7 @@ List.prototype.remove = function(movieId){
     } else {
         this.data.entries.splice(index, 1);
         log.info('Deleted Movie[' + movieId + '] from List[' + this.data.owner + '|' + this.data.name + ']');
+        return true;
     }
 };
 //save
@@ -173,7 +174,14 @@ List.getListByName = function(name, userMail, callback){
 //find by id -> List
 List.getListById = function(id, callback){
     var listCollection = dbController.listCollection();
-    listCollection.findOne({_id: new ObjectId(id)}, function(err, result){
+    var objectID;
+    try{
+        objectID = new ObjectId(id);
+    } catch (err) {
+        callback({message: "Invalid id"}, null);
+        return;
+    }
+    listCollection.findOne({_id: objectID}, function(err, result){
         if(err){
             log.error(err.message);
             callback(err, null);
