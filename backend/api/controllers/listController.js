@@ -6,14 +6,6 @@ var dbController = require('./dbController');
 var log = require('./loggingController');
 var List = require('../models/listModel');
 
-// list = {
-//      owner= <email>,
-//       name= <ListName>,
-//       entries = {
-//
-//       }
-// }
-
 module.exports = {
 
     createList: function(req, res){
@@ -57,14 +49,91 @@ module.exports = {
                     if(list === null){
                         res.send("list with id[" + id +"] does not exist");
                     } else {
-                        list.delete(function(err, result){
+                        if(list.data.owner !== userMail){
+                            log.warning("User tried to delete other users list");
+                            res.send({message: "list doesn't exist"})
+                        } else {
+                            list.delete(function (err, result) {
+                                if (err) {
+                                    log.error(err.message);
+                                    res.send(err);
+                                } else {
+                                    res.send({status: "ok"});
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        }
+    },
+
+    getList: function(req, res){
+        var userMail = authenticate(req,res);
+        if(userMail){
+            var id = req.params.listID;
+            getListByIdAndConfirmUser(id, userMail, function(err, list){
+                if(err){
+                    res.send(err);
+                } else {
+                    res.send(list.getEntries());
+                }
+            });
+        }
+    },
+
+    addToList: function(req, res){
+        var userMail = authenticate(req,res);
+        if(userMail){
+            var id = req.params.listID;
+            var movie = req.body.movie;
+            if(!movie){
+                res.send({message: "No movie provided"});
+                return;
+            }
+            getListByIdAndConfirmUser(id, userMail, function(err, list){
+                if(err){
+                    res.send(err);
+                } else {
+                    if(list.add(movie)){
+                        list.update(function(err, result){
                             if(err){
-                                log.error(err.message);
                                 res.send(err);
                             } else {
-                                res.send({status: "ok"});
+                                res.send(list.getEntries());
                             }
                         });
+                    } else {
+                        res.send({message: "Movie allready on list"});
+                    }
+                }
+            });
+        }
+    },
+
+    removeFromList: function(req, res){
+        var userMail = authenticate(req,res);
+        if(userMail){
+            var id = req.params.listID;
+            var movieId = req.body.id;
+            if(!movieId){
+                res.send({message: "No movieId provided"});
+                return;
+            }
+            getListByIdAndConfirmUser(id, userMail, function(err, list){
+                if(err){
+                    res.send(err);
+                } else {
+                    if(list.remove(movieId)){
+                        list.update(function(err, result){
+                            if(err){
+                                res.send(err);
+                            } else {
+                                res.send(list.getEntries());
+                            }
+                        });
+                    } else {
+                        res.send({message: "Movie wasn't on list"});
                     }
                 }
             });
@@ -252,10 +321,6 @@ module.exports = {
     removeFromWatchlist: function(req,res){
         removeFromDefaultList(List.WATCHLIST, req, res);
     }
-
-    // getList: function(req,res) {
-    //
-    // }
 };
 
 function removeFromDefaultList(name, req, res){
@@ -308,6 +373,25 @@ function getList(name, email, callback){  //TODO replace with list model functio
 
         callback(null, result);
     });
+}
+
+function getListByIdAndConfirmUser(id, userMail, callback){
+    List.getListById(id, function(err, list){
+        if(err){
+            log.error(err.message);
+            callback(err, null);
+        } else {
+            if(list !== null){
+                if(list.getOwner() === userMail){
+                    callback(null, list);
+                } else {
+                    callback({message: "List not found"}, null);
+                }
+            } else {
+               callback({message: "List not found"}, null);
+            }
+        }
+    })
 }
 
 function authenticate(req, res){
