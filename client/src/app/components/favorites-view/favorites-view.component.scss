@@ -1,0 +1,19 @@
+.container-fluid {
+	padding-top: 15px;
+}
+/* 
+*  phone landscape
+*/
+@media (min-width: 667px) and (max-width: 767px){
+	.container-fluid {
+		padding-top: 50px;
+	}
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	.container-fluid {
+		padding-top: 50px;
+	}
+}

@@ -37,20 +37,20 @@
 			top: 50vh;
 
 			&.left{
-				right: 20px;
+				right: 45px;
 			}
 			&.right{
-				left: 65px;
+				left: 86px;
 			}
 
 			span{
 				position: relative;
 
 				&.fa-bookmark{
-					left: 65px;
+					left: 50px;
 				}
 				&.fa-list{
-					left: 45px;
+					left: 26px;
 				}
 			}
 		}
@@ -65,6 +65,16 @@
 	.menu-content{
 		h3{
 			top: 7vh;
+			
+			&.left{
+				right: auto;
+				left: 110px;
+			}
+
+			&.right{
+				left: auto !important;
+				right: 110px;
+			}
 
 			span{
 				font-size: 2rem;
@@ -81,14 +91,22 @@
 		&.below{
 			h3{
 				top: 37vh;
+				
+				&.left{
+					left: 101px;
+				}
+				&.right{
+					right: 130px;
+				}
+
 
 				span{
 
 					&.fa-bookmark{
-						left: 75px;
+						left: 60px;
 					}
 					&.fa-list{
-						left: 55px;
+						left: 38px;
 					}
 				}
 			}
@@ -108,12 +126,12 @@
 
 			&.left{
 				right: auto;
-				left: 65px;
+				left: 55px;
 			}
 
 			&.right{
 				left: auto !important;
-				right: 45px;
+				right: 55px;
 			}
 
 			span{
@@ -133,20 +151,20 @@
 				top: 37vh;
 
 				&.left{
-					left: 45px;
+					left: 52px;
 				}
 				&.right{
-					right: 45px;
+					right: 67px;
 				}
 
 
 				span{
 
 					&.fa-bookmark{
-						left: 45px;
+						left: 35px;
 					}
 					&.fa-list{
-						left: 35px;
+						left: 20px;
 					}
 				}
 			}
