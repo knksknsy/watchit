@@ -2,6 +2,7 @@
  * Created by Douglas on 15.06.2017.
  */
 var dbController = require('../controllers/dbController');
+var ObjectId = require('mongodb').ObjectID;
 var log = require('../controllers/loggingController');
 
 const FAVOURITES = "favourites";
@@ -115,9 +116,29 @@ List.prototype.update = function(callback){
                 }
             });
         }
-},
+};
 
 //delete
+List.prototype.delete = function(callback){
+    var id = this.data._id;
+    if(!id){
+        var err = {message: "List without id can't be deleted"};
+        log.error(err.message);
+        callback(err, false);
+    } else {
+        var listController = dbController.listCollection();
+        listController.remove({_id: id}, function(err, result){
+            if(err){
+                log.error(err.message);
+                callback(err, false);
+            } else {
+                log.info("List[" + id + "] deleted successfully");
+                callback(null, true);
+            }
+        });
+    }
+};
+
 //validate
 List.prototype.isValid = function (){
     if('string' !== typeof this.data.owner){
@@ -152,7 +173,7 @@ List.getListByName = function(name, userMail, callback){
 //find by id -> List
 List.getListById = function(id, callback){
     var listCollection = dbController.listCollection();
-    listCollection.findOne({_id: id}, function(err, result){
+    listCollection.findOne({_id: new ObjectId(id)}, function(err, result){
         if(err){
             log.error(err.message);
             callback(err, null);
@@ -163,7 +184,7 @@ List.getListById = function(id, callback){
             callback(null, null);
             return;
         }
-        return new List(result);
+        callback(null, new List(result));
     });
 };
 
