@@ -11,7 +11,8 @@ module.exports = function(app){
     //Endpoint to get meta data of all lists and create new Lists
     app.route(basePath)
         .get(listController.getCustomListsOfUser)
-        .post(listController.createList);
+        .post(listController.createList)
+        .delete(listController.deleteList);
 
     //Endpoint to get change or delete specific list
     app.route(basePath + '/:listID')
