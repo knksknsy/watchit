@@ -41,6 +41,36 @@ module.exports = {
         }
     },
 
+    deleteList: function(req,res){
+        var userMail = authenticate(req,res);
+        if(userMail){
+            var id = req.body.id;
+            if(!id){
+                res.send({message: "Id required to delete List"});
+                return;
+            }
+            List.getListById(id, function(err, list){
+                if(err){
+                    log.error(err.message);
+                    res.send(err);
+                } else {
+                    if(list === null){
+                        res.send("list with id[" + id +"] does not exist");
+                    } else {
+                        list.delete(function(err, result){
+                            if(err){
+                                log.error(err.message);
+                                res.send(err);
+                            } else {
+                                res.send({status: "ok"});
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    },
+
     getCustomListsOfUser: function(req, res){
         var userMail = authenticate(req, res);
         if(userMail){
