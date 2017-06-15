@@ -4,7 +4,8 @@
 
 var userCollection = require('./dbController').userCollection;
 var User = require('../models/userModel');
-var log = require('../controllers/loggingController');
+var listController = require('./listController');
+var log = require('./loggingController');
 
 module.exports = {
 
@@ -16,7 +17,10 @@ module.exports = {
                 res.send(err.message);
                 return;
             }
-            res.send('saved successfully') //TODO meaningful response
+            res.send({message: 'Successfully created User'});
+
+            //setting Up user
+            listController.setupDefaultLists(usr.get('email'));
         });
     },
 

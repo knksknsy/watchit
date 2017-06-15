@@ -22,6 +22,13 @@ var db = mongoClient.connect(connectionUrl, function(err, db){
            } else {
                log.info("Created user collection");
            }
+       });
+       db.createCollection('list', function(err, results) {
+           if (err) {
+               log.error(err.message);
+           } else {
+               log.info("Created list collection");
+           }
        })
    }
 });
@@ -31,6 +38,14 @@ module.exports = {
     userCollection: function (){
         if(connected){
             return database.collection('user');
+        } else {
+            log.warning("Database not connected");
+        }
+    },
+
+    listCollection: function (){
+        if(connected){
+            return database.collection('list');
         } else {
             log.warning("Database not connected");
         }
