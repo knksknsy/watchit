@@ -35,15 +35,15 @@ export class AuthenticationService {
 
   logout() {
     return this.http.post(`${apiUrl}/user/logout`, { withCredentials: true })
-      .subscribe(res => {
-        console.log(res);
+      .map((res: Response) => {
+        return res.json();
       });
   }
 
   isLoggedIn() {
     return this.http.get(`${apiUrl}/user/isLoggedIn`, { withCredentials: true })
-      .subscribe(res => {
-        console.log(res);
+      .map((res) => {
+        return res.json().loggedIn;
       });
   }
 

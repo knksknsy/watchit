@@ -19,28 +19,28 @@ export class MenuComponent implements OnInit {
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
-    this.router.navigate(['/discover-view']);
+    this.router.navigate(['/discover']);
   }
 
   openFavoritesView() {
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
-    this.router.navigate(['/favorites-view']);
+    this.router.navigate(['/favorites']);
   }
 
   openWatchListView() {
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
-    this.router.navigate(['/watch-list-view']);
+    this.router.navigate(['/watchlist']);
   }
 
   openMovieListsView() {
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
-    this.router.navigate(['/movie-lists-view']);
+    this.router.navigate(['/lists']);
   }
 
   closeMenu() {

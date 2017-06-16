@@ -51,6 +51,7 @@ import { APIService } from './services/api/api.service';
 import { MovieListService } from './services/movie-list.service';
 import { WatchListService } from './services/watch-list.service';
 import { FavoritesService } from './services/favorites.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [
@@ -89,7 +90,8 @@ import { FavoritesService } from './services/favorites.service';
     FavoritesViewComponent,
     WatchListViewComponent,
     MovieListsViewComponent,
-    MovieListViewComponent
+    MovieListViewComponent,
+    LoginComponent
   ],
   providers: [
     APIService,

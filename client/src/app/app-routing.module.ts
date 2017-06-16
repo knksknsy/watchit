@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // components
+import { LoginComponent } from './components/login/login.component';
 import { HomeViewComponent } from './components/home-view/home-view.component';
 import { SearchMoviesViewComponent } from './components/search-movies-view/search-movies-view.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
@@ -9,6 +10,9 @@ import { DiscoverViewComponent } from './components/discover-view/discover-view.
 import { MovieListsViewComponent } from './components/movie-lists-view/movie-lists-view.component';
 import { WatchListViewComponent } from './components/watch-list-view/watch-list-view.component';
 import { FavoritesViewComponent } from './components/favorites-view/favorites-view.component';
+
+// guards
+import { AuthGuard } from './guards/auth.guard';
 
 // resolvers
 import { MovieDetailsResolverService } from './services/resolver/movie-details-resolver.service';
@@ -29,6 +33,13 @@ const appRoutes: Routes = [
         }
     },
     {
+        path: 'login',
+        component: LoginComponent,
+        resolve: {
+            populars: PopularMoviesResolverService
+        }
+    },
+    {
         path: 'search/:query',
         component: SearchMoviesViewComponent,
         resolve: {
@@ -43,25 +54,26 @@ const appRoutes: Routes = [
         }
     },
     {
-        path: 'discover-view',
+        path: 'discover',
         component: DiscoverViewComponent
     },
     {
-        path: 'favorites-view',
+        path: 'favorites',
         component: FavoritesViewComponent,
+        canActivate: [AuthGuard],
         resolve: {
             favorites: FavoritesResolverService
         }
     },
     {
-        path: 'watch-list-view',
+        path: 'watchlist',
         component: WatchListViewComponent,
         resolve: {
             favorites: WatchListResolverService
         }
     },
     {
-        path: 'movie-lists-view',
+        path: 'lists',
         component: MovieListsViewComponent,
         resolve: {
             favorites: MovieListsResolverService
@@ -93,7 +105,8 @@ const appRoutes: Routes = [
         MovieDetailsResolverService,
         FavoritesResolverService,
         WatchListResolverService,
-        MovieListsResolverService
+        MovieListsResolverService,
+        AuthGuard
     ]
 })
 export class AppRoutingModule { }

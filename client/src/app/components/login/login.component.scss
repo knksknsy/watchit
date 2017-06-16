@@ -1,4 +1,9 @@
+.container-fluid {
+    height: 100vh;
+}
+
 .modal {
+    z-index: 1044 !important;
     text-align: center;
     padding: 0!important;
 }
