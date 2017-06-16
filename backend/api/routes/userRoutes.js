@@ -21,4 +21,6 @@ module.exports = function(app){
     app.route(basePath + '/logout')
         .post(userController.logout);
 
+    app.route(basePath + '/isLoggedIn')
+        .get(userController.isLoggedIn);
 };
