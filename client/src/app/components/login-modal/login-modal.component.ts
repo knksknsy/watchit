@@ -50,8 +50,10 @@ export class LoginModalComponent implements OnInit {
     let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
     this.authenticationService.login(body)
       .subscribe((next) => {
-        console.log(next);
         this.hideModal();
+      },
+      (error) => {
+        // todo: show info: invalid credentials
       });
   }
 
@@ -62,7 +64,6 @@ export class LoginModalComponent implements OnInit {
         console.log(next);
         this.authenticationService.login(body)
           .subscribe((next) => {
-            console.log(next);
             this.hideModal();
           });
       });

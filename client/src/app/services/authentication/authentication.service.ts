@@ -1,5 +1,6 @@
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 const apiUrl = 'http://localhost:3000';
@@ -17,20 +18,33 @@ export class AuthenticationService {
   }
 
   login(user) {
-    return this.http.post(`${apiUrl}/user/login`, user)
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.post(`${apiUrl}/user/login`, user, options)
       .map((res: Response) => {
-        debugger;
-        // todo: check if cookie is passed
-        let user = res.json();
-        if (user && user.token) {
-          // save token in session
+        return res.json();
+      })
+      .flatMap((res) => {
+        if (res.status && res.status === 'ok') {
+          return Observable.of(res);
         }
+        throw Observable.throw(res);
       });
   }
 
-  logout(session) {
-    return this.http.post(`${apiUrl}/user/logout`, session)
-      .map((res: Response) => { });
+  logout() {
+    return this.http.post(`${apiUrl}/user/logout`, { withCredentials: true })
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
+
+  isLoggedIn() {
+    return this.http.get(`${apiUrl}/user/isLoggedIn`, { withCredentials: true })
+      .subscribe(res => {
+        console.log(res);
+      });
   }
 
 }

@@ -31,4 +31,33 @@ export class FavoritesService {
       });
   }
 
+  // getFavs() {
+  //   this.http.get(`${apiUrl}/favourites`, { withCredentials: true })
+  //     .subscribe((res) => {
+  //       console.log(res);
+  //     })
+  // }
+
+  // addFav() {
+  //   let body = `{ "movie": { "id": 3456754323, "title": "A Test Case" } }`;
+  //   let headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   let options = new RequestOptions({ headers: headers, withCredentials: true });
+  //   this.http.put(`${apiUrl}/favourites`, body, options)
+  //     .subscribe(res => {
+  //       console.log(res);
+  //     });
+  // }
+
+  // delFav() {
+  //   let body = `{ "id": 3456754323 }`;
+  //   let headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   let options = new RequestOptions({ headers: headers, body: body, withCredentials: true });
+  //   this.http.delete(`${apiUrl}/favourites`, options)
+  //     .subscribe(res => {
+  //       console.log(res);
+  //     });
+  // }
+
 }
