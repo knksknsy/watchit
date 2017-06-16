@@ -52,6 +52,9 @@ import { MovieListService } from './services/movie-list.service';
 import { WatchListService } from './services/watch-list.service';
 import { FavoritesService } from './services/favorites.service';
 import { LoginComponent } from './components/login/login.component';
+import { FavoriteButtonComponent } from './components/favorite-button/favorite-button.component';
+import { WatchListButtonComponent } from './components/watch-list-button/watch-list-button.component';
+import { MovieListRemoveButtonComponent } from './components/movie-list-remove-button/movie-list-remove-button.component';
 
 @NgModule({
   imports: [
@@ -91,7 +94,10 @@ import { LoginComponent } from './components/login/login.component';
     WatchListViewComponent,
     MovieListsViewComponent,
     MovieListViewComponent,
-    LoginComponent
+    LoginComponent,
+    FavoriteButtonComponent,
+    WatchListButtonComponent,
+    MovieListRemoveButtonComponent
   ],
   providers: [
     APIService,

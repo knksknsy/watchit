@@ -5,20 +5,17 @@
 		<slide *ngFor="let movie of data.results">
 			<div class="row">
 				<div class="col-xs-3">
-					<button class="btn btn-outline-primary fav" (click)="toggleFavorite()">
-						<span class="fa fa-heart-o"></span>
-					</button>
+					<app-favorite-button [data]="data"></app-favorite-button>
 				</div>
 				<div class="col-xs-3">
-					<button class="btn btn-outline-primary watchlist" (click)="toggleWatchlist()">
-						<span class="fa fa-bookmark-o"></span>
-					</button>
+					<app-watch-list-button [data]="data"></app-watch-list-button>
 				</div>
 				<div class="col-xs-3">
 					<app-list-modal (onModalOpened)="pauseCarousel($event)"></app-list-modal>
 				</div>
 			</div>
-			<img *ngIf="movie.backdrop_path" [src]="apiService.getImgUrlOriginal(movie.backdrop_path)" class="img-responsive" [alt]="movie.title" (click)="openDetails(movie.id)"/>
+			<img *ngIf="movie.backdrop_path" [src]="apiService.getImgUrlOriginal(movie.backdrop_path)" class="img-responsive" [alt]="movie.title"
+			 (click)="openDetails(movie.id)" />
 			<div class="carousel-caption" (click)="openDetails(movie.id)">
 				<h3>{{movie.title}}</h3>
 				<small>{{movie.release_date | date: 'y'}}</small>

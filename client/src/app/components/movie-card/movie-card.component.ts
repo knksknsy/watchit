@@ -37,10 +37,4 @@ export class MovieCardComponent {
     this.router.navigate(['/details', id]);
   }
 
-  toggleFavorite() { }
-
-  toggleWatchlist() { }
-
-  removeFromList() { }
-
 }

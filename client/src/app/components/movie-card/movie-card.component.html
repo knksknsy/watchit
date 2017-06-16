@@ -1,22 +1,18 @@
 <div class="card card-inverse movie-card">
-	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)" [alt]="data.title"/>
-  <img *ngIf="!data.backdrop_path" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" [alt]="data.title"/>
+	<img *ngIf="data.backdrop_path" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop_path)"
+	 [alt]="data.title" />
+	<img *ngIf="!data.backdrop_path" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" [alt]="data.title"
+	/>
 	<div class="card-img-overlay">
 		<div *ngIf="!showOverview" class="row">
 			<div class="col-xs-3">
-				<button class="btn btn-outline-primary fav" (click)="toggleFavorite()">
-					<span class="fa fa-heart-o"></span>
-				</button>
+				<app-favorite-button [data]="data"></app-favorite-button>
 			</div>
 			<div class="col-xs-3">
-				<button class="btn btn-outline-primary watchlist" (click)="toggleWatchlist()">
-					<span class="fa fa-bookmark-o"></span>
-				</button>
+				<app-watch-list-button [data]="data"></app-watch-list-button>
 			</div>
 			<div *ngIf="removable === true" class="col-xs-3">
-				<button class="btn btn-outline-primary" (click)="removeFromList()">
-					<span class="fa fa-trash"></span>
-				</button>
+				<app-movie-list-remove-button [data]="data"></app-movie-list-remove-button>
 			</div>
 			<div class="col-xs-3">
 				<app-list-modal></app-list-modal>

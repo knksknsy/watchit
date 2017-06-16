@@ -71,20 +71,3 @@
 		}
 	}
 }
-
-// adjust watchlist and favorite buttons
-app-movie-details-card {
-	.card {
-		.row {
-			.buttons {
-				app-list-modal {
-					.list {
-						position: relative;
-						border-bottom-right-radius: 0.2rem !important;
-						right: 5px;
-					}
-				}
-			}
-		}
-	}
-}
