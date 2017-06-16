@@ -59,6 +59,14 @@ module.exports = {
         });
     },
 
+    isLoggedIn: function(req, res){
+        if(req.mySession && req.mySession.user){
+            res.send({loggedIn: true});
+        } else {
+            res.send({loggedIn: false});
+        }
+    },
+
     logout: function(req, res){
         if(req.mySession && req.mySession.user){
             req.mySession.reset();
