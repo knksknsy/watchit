@@ -16,8 +16,8 @@ module.exports = function(app){
 
     //Endpoint to get change or delete specific list
     app.route(basePath + '/:listID')
-        .get()
-        .put()
-        .delete();
+        .get(listController.getList)
+        .put(listController.addToList)
+        .delete(listController.removeFromList);
 
 };
