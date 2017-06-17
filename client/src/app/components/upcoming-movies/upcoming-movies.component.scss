@@ -10,7 +10,7 @@
 	// carosuel height
 	/deep/ div.carousel > div.carousel-inner{
 		height: 60vh;
-		border-radius: 0.25rem;
+		border-radius: 0;
 
 		.carousel-caption{
 			bottom: 0;
@@ -25,7 +25,7 @@
 				right: 15px;
 				top: initial;
 				.btn{
-					border-radius: 0 !important;
+					border-radius: 0;
 				}
 				.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
 					border-color: transparent;

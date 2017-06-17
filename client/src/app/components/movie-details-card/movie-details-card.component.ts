@@ -65,8 +65,4 @@ export class MovieDetailsCardComponent implements OnInit {
     }
     return result;
   }
-
-  toggleFavorite() { }
-
-  toggleWatchlist() { }
 }

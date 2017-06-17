@@ -1,3 +1,6 @@
 <div class="container-fluid">
   <h2 class="show-grid-bottom-sm">Watchlist</h2>
+  <div class="card-columns">
+    <app-movie-card *ngFor="let movie of watchlist" [data]="movie"></app-movie-card>
+  </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="card card-inverse movie-list-card">
+  <img *ngIf="data.backdrop" class="card-img img-responsive" [src]="apiService.getImgUrlOriginal(data.backdrop)" />
+  <img *ngIf="!data.backdrop" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" />
+  <div class="card-img-overlay">
+    <div class="row">
+      <div *ngIf="removable === true" class="col-xs-3">
+        <button class="btn fa btn-outline-danger" (click)="removeMovieList(data.id)">
+          <span class="fa fa-trash"></span>
+        </button>
+      </div>
+    </div>
+    <div class="bg-blur">
+      <h4 class="card-title" (click)="openMovieList(data.id)">{{data.name}}</h4>
+    </div>
+  </div>
+</div>

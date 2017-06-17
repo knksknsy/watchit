@@ -4,18 +4,24 @@
 	<img *ngIf="!data.backdrop_path" class="card-img img-responsive placeholder" src="/assets/images/movie_placeholder.png" [alt]="data.title"
 	/>
 	<div class="card-img-overlay">
-		<div *ngIf="!showOverview" class="row">
-			<div class="col-xs-3">
-				<app-favorite-button [data]="data"></app-favorite-button>
-			</div>
-			<div class="col-xs-3">
-				<app-watch-list-button [data]="data"></app-watch-list-button>
-			</div>
-			<div *ngIf="removable === true" class="col-xs-3">
-				<app-movie-list-remove-button [data]="data"></app-movie-list-remove-button>
-			</div>
-			<div class="col-xs-3">
-				<app-list-modal></app-list-modal>
+		<div *ngIf="!showOverview" class="row option-buttons">
+			<div class="col">
+				<div class="row list-buttons">
+					<div class="col-xs-3">
+						<app-favorite-button [data]="data" dataType="IMovieResult"></app-favorite-button>
+					</div>
+					<div class="col-xs-3">
+						<app-watch-list-button [data]="data" dataType="IMovieResult"></app-watch-list-button>
+					</div>
+					<div class="col-xs-3">
+						<app-list-modal [data]="data" dataType="IMovieResult"></app-list-modal>
+					</div>
+				</div>
+				<div class="row remove-button">
+					<div *ngIf="list && list.id && list.name" class="col-xs-3">
+						<app-movie-list-remove-button [data]="data" [listId]="list.id" (onRemove)="onRemovePressed()"></app-movie-list-remove-button>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="bg-blur" [ngClass]="{'overview-blur': showOverview}">

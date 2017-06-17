@@ -62,7 +62,6 @@ export class LoginModalComponent implements OnInit {
     let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
     this.authenticationService.register(body)
       .subscribe((next) => {
-        console.log(next);
         this.authenticationService.login(body)
           .subscribe((next) => {
             this.hideModal();

@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-outline-primary" (click)="showModal()">
+<button type="button" class="btn btn-outline-primary" (click)="checkAuth()">
   <span class="fa fa-list-ul" aria-hidden="true"></span>
 </button>
 
@@ -16,11 +16,10 @@
 
       <div class="modal-body">
         <div class="input-group">
-          <input [(ngModel)]="selectedList" [typeahead]="userLists" (typeaheadLoading)="changeTypeaheadLoading($event)" (typeaheadNoResults)="changeTypeaheadNoResults($event)"
-            (typeaheadOnSelect)="typeaheadOnSelect($event)" typeaheadOptionsLimit="5" typeaheadOptionField="listName" placeholder="Search lists"
-            type="text" class="form-control">
+          <input [(ngModel)]="selectedList" [typeahead]="userLists" typeaheadOptionField="name" placeholder="Search lists" type="text"
+            class="form-control">
           <span class="input-group-btn">
-            <button (click)="addToList()" class="btn btn-outline-primary" type="button">
+            <button (click)="addToList()" [disabled]="!selectedList || selectedList.length === 0" class="btn btn-outline-primary" type="button">
               <span class="fa fa-plus" aria-hidden="true"></span>
           </button>
           </span>

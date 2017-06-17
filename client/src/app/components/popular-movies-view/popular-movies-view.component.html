@@ -1,6 +1,6 @@
 <div class="container-fluid">
  <h2 class="show-grid-top show-grid-bottom-sm">Recent Movies</h2>
-  <div class="card-deck">
-    <app-movie-card *ngFor="let movie of data.results" [data]="movie" [removable]="false"></app-movie-card>
+  <div class="card-columns">
+    <app-movie-card *ngFor="let movie of data.results" [data]="movie"></app-movie-card>
   </div>
 </div>

@@ -24,6 +24,8 @@ export class MovieDetailsComponent implements OnInit {
     this.isMobile = window.document.body.offsetWidth <= this.mobileWidth;
     this.route.params.forEach(params => {
       this.results = this.route.snapshot.data['details'];
+      let movie = { movie: this.results };
+      console.log(JSON.stringify(movie, null, 2));
       if (this.results.credits.cast) {
         this.cast = this.results.credits.cast.slice(0, 5);
       }

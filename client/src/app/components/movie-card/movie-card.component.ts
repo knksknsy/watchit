@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMovieResult } from '../../interfaces/movie-response';
+import { IMovieList } from '../../interfaces/movie-list';
 import { APIService } from '../../services/api/api.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { APIService } from '../../services/api/api.service';
 })
 export class MovieCardComponent {
   private _data: IMovieResult;
-  private _removable: boolean;
+  private _list: IMovieList;
   public showOverview: boolean = false;
+  @Output() onRemove: EventEmitter<any> = new EventEmitter();
 
   constructor(private apiService: APIService, private router: Router) { }
 
@@ -24,17 +26,21 @@ export class MovieCardComponent {
     this._data = data;
   }
 
-  get removable(): boolean {
-    return this._removable;
+  get list(): IMovieList {
+    return this._list;
   }
 
   @Input()
-  set removable(removable: boolean) {
-    this._removable = removable;
+  set list(list: IMovieList) {
+    this._list = list;
   }
 
   openDetails(id: number) {
     this.router.navigate(['/details', id]);
+  }
+
+  onRemovePressed() {
+    this.onRemove.emit({ id: this.data.id });
   }
 
 }

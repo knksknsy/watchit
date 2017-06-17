@@ -5,13 +5,13 @@
 		<slide *ngFor="let movie of data.results">
 			<div class="row">
 				<div class="col-xs-3">
-					<app-favorite-button [data]="data"></app-favorite-button>
+					<app-favorite-button [data]="movie" dataType="IMovieResult"></app-favorite-button>
 				</div>
 				<div class="col-xs-3">
-					<app-watch-list-button [data]="data"></app-watch-list-button>
+					<app-watch-list-button [data]="movie" dataType="IMovieResult"></app-watch-list-button>
 				</div>
 				<div class="col-xs-3">
-					<app-list-modal (onModalOpened)="pauseCarousel($event)"></app-list-modal>
+					<app-list-modal [data]="movie" dataType="IMovieResult" (onModalOpened)="pauseCarousel($event)"></app-list-modal>
 				</div>
 			</div>
 			<img *ngIf="movie.backdrop_path" [src]="apiService.getImgUrlOriginal(movie.backdrop_path)" class="img-responsive" [alt]="movie.title"
