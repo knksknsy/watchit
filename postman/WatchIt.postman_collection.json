@@ -1,0 +1,293 @@
+{
+	"variables": [],
+	"info": {
+		"name": "WatchIt",
+		"_postman_id": "85108573-e811-612b-1907-e25d3c71564f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create User",
+			"request": {
+				"url": "localhost:3000/user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"email\": \"ab@de.fe\",\n\t\t\"password\": \"test123\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "login User",
+			"request": {
+				"url": "localhost:3000/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"email\": \"ab@de.fe\",\n\t\t\"password\": \"test123\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "logout User",
+			"request": {
+				"url": "localhost:3000/user/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "mySession",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get favourites",
+			"request": {
+				"url": "localhost:3000/favourites",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add to favourites",
+			"request": {
+				"url": "localhost:3000/favourites",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"movie\": {\n\t\t\"id\": 3456754323,\n\t\t\"title\": \"A Test Case\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete from favourites",
+			"request": {
+				"url": "localhost:3000/favourites",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"id\": 3456754323\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get watchlist",
+			"request": {
+				"url": "localhost:3000/watchlist",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add to watchlist",
+			"request": {
+				"url": "localhost:3000/watchlist",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"movie\": {\n\t\t\"id\": 372884,\n\t\t\"title\": \"another one\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete from watchlist",
+			"request": {
+				"url": "localhost:3000/watchlist",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t \"id\": 372884\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create list",
+			"request": {
+				"url": "localhost:3000/lists",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"newList\": {\n\t\t\"name\": \"MyNewList\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get lists",
+			"request": {
+				"url": "localhost:3000/lists",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"newList\": {\n\t\t\"name\": \"MyNewList\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "remove list",
+			"request": {
+				"url": "localhost:3000/lists",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"594282b971547b473ca48f58\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get specific list",
+			"request": {
+				"url": "localhost:3000/lists/5942e23ca3b78956fcbe11cc",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"newList\": {\n\t\t\"name\": \"MyNewList\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add to specific list",
+			"request": {
+				"url": "localhost:3000/lists/5942e23ca3b78956fcbe11cc",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"movie\": {\n\t\t\"id\": 343255,\n\t\t\"title\": \"film 2\"\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "remove from specific list",
+			"request": {
+				"url": "localhost:3000/lists/5942e23ca3b78956fcbe11cc",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 434787654\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

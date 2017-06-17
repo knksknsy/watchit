@@ -25,10 +25,6 @@ export class UpcomingMoviesComponent {
 
 	constructor(private apiService: APIService, private router: Router) { }
 
-	toggleFavorite() { }
-
-	toggleWatchlist() { }
-
 	openDetails(id: number) {
 		this.router.navigate(['/details', id]);
 	}

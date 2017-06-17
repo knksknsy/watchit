@@ -1,7 +1,6 @@
 .btn{
-    border-radius: 0 !important;
+    border-radius: 0;
 }
-
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
     border-color: transparent;
 }
@@ -37,6 +36,11 @@
         }
     }
     .modal-body {
-
+        .input-group-btn {
+            .btn-outline-primary {
+                border-top-right-radius: 0.25rem !important;
+                border-bottom-right-radius: 0.25rem !important;
+            }
+        }
     }
 }

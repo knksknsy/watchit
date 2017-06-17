@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MovieListService } from '../../services/movie-list.service';
 import { APIService } from '../../services/api/api.service';
 import { IMovieResult } from '../../interfaces/movie-response';
@@ -10,6 +10,8 @@ import { IMovieResult } from '../../interfaces/movie-response';
 })
 export class MovieListRemoveButtonComponent implements OnInit {
   private _data: IMovieResult;
+  private _listId: string;
+  @Output() onRemove: EventEmitter<any> = new EventEmitter();
 
   get data(): IMovieResult {
     return this._data;
@@ -20,13 +22,25 @@ export class MovieListRemoveButtonComponent implements OnInit {
     this._data = data;
   }
 
-  constructor(private movieListService: MovieListService, private apiService: APIService) { }
-
-  ngOnInit() {
-    console.log(this.data);
+   get listId(): string {
+    return this._listId;
   }
 
+  @Input()
+  set listId(listId: string) {
+    this._listId = listId;
+  }
+
+  constructor(private movieListService: MovieListService, private apiService: APIService) { }
+
+  ngOnInit() { }
+
   removeFromList() {
-    console.log('remove from list');
+    this.movieListService.removeMovieFromList(this.listId, this.data.id)
+      .subscribe((res) => {
+        if (!res.message) {
+          this.onRemove.emit();
+        }
+      });
   }
 }

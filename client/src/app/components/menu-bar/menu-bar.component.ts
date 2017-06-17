@@ -23,13 +23,9 @@ export class MenuBarComponent implements OnInit {
 
   ngOnInit() { }
 
-  public collapsed(event:any):void {
-    console.log(event);
-  }
+  public collapsed(event:any):void { }
  
-  public expanded(event:any):void {
-    console.log(event);
-  }
+  public expanded(event:any):void { }
 
 	// make body position fixed (no scrolling) when menu is opened
 	lockBodyScroll(){

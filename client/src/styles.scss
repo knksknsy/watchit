@@ -36,12 +36,16 @@
 	border-color: #fff;
 }
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
-	color: #000;
+	color: #292b2c;
 	background-color: #fff;
-	border-color: #000;
+	border-color: #292b2c;
 }
 
 .btn-secondary{
+	border-radius: 0;
+}
+
+.card.card-inverse {
 	border-radius: 0;
 }
 

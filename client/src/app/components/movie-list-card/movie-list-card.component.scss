@@ -1,9 +1,4 @@
-// .container.footer {
-//     display: flex;
-//     justify-content: flex-end;
-// }
-
-.movie-card{
+.movie-list-card{
 	height: 35vh;
 	overflow: hidden;
 	background-color: rgba(0,0,0,0.666);
@@ -23,21 +18,20 @@
 
 	.card-img-overlay{
 		padding: 0;
-		.option-buttons{
-			width: 100%;
+		.row{
 			position: absolute;
 			top: initial !important;
-			right: 15px !important;
-			.row {
-				position: absolute;
-				top: initial !important;
-				&.list-buttons {
-				right: 15px !important;
-				}
-				&.remove-button {
-					left: 15px !important;
-				}
+			left: 15px !important;
+            .btn{
+                border-radius: 0 !important;
+            }
+			.btn-outline-danger {
+				color: #fff;
+				border-color: #fff;
 			}
+            .btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
+                border-color: transparent;
+            }
 		}
 	}
 
@@ -61,12 +55,6 @@
 	.overview-blur{
 		height: 100%;
 	}
-
-    .scroll {
-		height: 100%;
-		overflow-y: auto;
-		padding: 0 5px 50px 5px;
-	}
 }
 
 
@@ -75,7 +63,7 @@
 */
 @media (min-width: 768px) and (max-width: 1023px){
 
-	.movie-card{
+	.movie-list-card{
 		height: 18vh;
 		overflow: hidden;
 		background-color: rgba(0,0,0,0.666);
@@ -95,20 +83,19 @@
 
 		.card-img-overlay{
 			padding: 0;
-			.option-buttons{
-				width: 100%;
+			.row{
 				position: absolute;
 				top: initial !important;
-				right: 15px !important;
-				.row {
-					position: absolute;
-					top: initial !important;
-					&.list-buttons {
-					right: 15px !important;
-					}
-					&.remove-button {
-						left: 15px !important;
-					}
+				left: 15px !important;
+                .btn{
+                    border-radius: 0 !important;
+                }
+				.btn-outline-danger {
+					color: #fff;
+					border-color: #fff;
+				}
+				.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
+					border-color: transparent;
 				}
 			}
 		}
@@ -124,21 +111,14 @@
 		.overview-blur{
 			height: 100%;
 		}
-
-		.scroll {
-			height: 100%;
-			overflow-y: auto;
-			padding: 0 5px 50px 5px;
-		}
 	}
-
 }
 /* 
 *  phone landscape
 */
 @media (min-width: 667px) and (max-width: 767px){
 
-	.movie-card{
+	.movie-list-card{
 		height: 45vh;
 		overflow: hidden;
 		background-color: rgba(0,0,0,0.666);
@@ -158,20 +138,19 @@
 
 		.card-img-overlay{
 			padding: 0;
-			.option-buttons{
-				width: 100%;
+			.row{
 				position: absolute;
 				top: initial !important;
-				right: 15px !important;
-				.row {
-					position: absolute;
-					top: initial !important;
-					&.list-buttons {
-					right: 15px !important;
-					}
-					&.remove-button {
-						left: 15px !important;
-					}
+				left: 15px !important;
+                .btn{
+                    border-radius: 0 !important;
+                }
+				.btn-outline-danger {
+					color: #fff;
+					border-color: #fff;
+				}
+				.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
+					border-color: transparent;
 				}
 			}
 		}
@@ -187,21 +166,14 @@
 		.overview-blur{
 			height: 100%;
 		}
-
-		.scroll {
-			height: 100%;
-			overflow-y: auto;
-			padding: 0 5px 50px 5px;
-		}
 	}
-
 }
 /* 
 *  phone portrait
 */
 @media (max-width: 375px){
 
-	.movie-card{
+	.movie-list-card{
 		margin-bottom: 15px;
 		background-color: rgba(0,0,0,0.666);
 
@@ -216,20 +188,19 @@
 
 		.card-img-overlay{
 			padding: 0;
-			.option-buttons{
-				width: 100%;
+			.row{
 				position: absolute;
 				top: initial !important;
-				right: 15px !important;
-				.row {
-					position: absolute;
-					top: initial !important;
-					&.list-buttons {
-					right: 15px !important;
-					}
-					&.remove-button {
-						left: 15px !important;
-					}
+				left: 15px !important;
+                .btn{
+                    border-radius: 0 !important;
+                }
+				.btn-outline-danger {
+					color: #fff;
+					border-color: #fff;
+				}
+				.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
+					border-color: transparent;
 				}
 			}
 		}
@@ -245,12 +216,5 @@
 		.overview-blur{
 			height: 100%;
 		}
-
-		.scroll {
-			height: 100%;
-			overflow-y: auto;
-			padding: 0 5px 50px 5px;
-		}
 	}
-
 }

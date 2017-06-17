@@ -1,5 +1,11 @@
 .container-fluid {
 	padding-top: 15px;
+
+	app-movie-card {
+		.movie-card {
+			height: 20vh !important;
+		}
+	}
 }
 /* 
 *  phone landscape

@@ -1,31 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IMovieDetails } from '../interfaces/movie-details';
 import { IMovieResult } from '../interfaces/movie-response';
 import 'rxjs/Rx';
+
+const apiUrl = 'http://localhost:3000';
 
 @Injectable()
 export class WatchListService {
 
   constructor(private http: Http) { }
 
-  getWatchList(): Observable<IMovieResult> {
-    return this.http.get('http://localhost:3000/watchlist')
+  getWatchList(): Observable<Array<IMovieDetails>> {
+    return this.http.get(`${apiUrl}/watchlist`, { withCredentials: true })
       .map((res) => {
         return res.json();
       });
   }
 
-  addToWatchList(movie: IMovieDetails): Observable<Response> {
-    return this.http.post('http://localhost:3000/watchlist', movie)
+  addToWatchList(movie: IMovieDetails | IMovieResult): Observable<any> {
+    let movieBody = { movie: movie };
+    let body = JSON.stringify(movieBody);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.put(`${apiUrl}/watchlist`, body, options)
       .map((res) => {
         return res.json();
-      })
+      });
   }
 
-  removeFromWatchList(movieId: number): Observable<Response> {
-    return this.http.delete(`http://localhost:3000/watchlist/${movieId}`)
+  removeFromWatchList(movieId: string): Observable<any> {
+    let idBody = { id: movieId };
+    let body = JSON.stringify(idBody);
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, body: body, withCredentials: true });
+    return this.http.delete(`${apiUrl}/watchlist`, options)
       .map((res) => {
         return res.json();
       });

@@ -43,10 +43,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.popularMovies = this.route.snapshot.data['populars'];
-    this.backDropImage = this.popularMovies.results[this.randomIndex(this.popularMovies.results.length)].backdrop_path;
+    this.backDropImage = this.popularMovies.results[this.randomIndex(this.popularMovies.results.length - 1)].backdrop_path;
   }
 
   public randomIndex(max: number): number {
+    if (max === 1) {
+      return 0;
+    }
     return Math.floor(Math.random() * max) + 1;
   }
 
@@ -83,7 +86,6 @@ export class LoginComponent implements OnInit {
     let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
     this.authenticationService.register(body)
       .subscribe((next) => {
-        console.log(next);
         this.authenticationService.login(body)
           .subscribe((next) => {
             this.hideModal();

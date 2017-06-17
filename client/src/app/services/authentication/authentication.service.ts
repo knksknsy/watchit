@@ -11,7 +11,10 @@ export class AuthenticationService {
   constructor(private http: Http) { }
 
   register(user) {
-    return this.http.post(`${apiUrl}/user`, user)
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.post(`${apiUrl}/user`, user, options)
       .map((res: Response) => {
         res.json();
       });

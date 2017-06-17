@@ -37,9 +37,9 @@
             </div>
 
             <div class="card-title buttons">
-                <app-favorite-button [data]="details"></app-favorite-button>
-                <app-watch-list-button [data]="details"></app-watch-list-button>
-                <app-list-modal></app-list-modal>
+                <app-favorite-button [data]="details" dataType="IMovieDetails"></app-favorite-button>
+                <app-watch-list-button [data]="details" dataType="IMovieDetails"></app-watch-list-button>
+                <app-list-modal [data]="details" dataType="IMovieDetails"></app-list-modal>
             </div>
 
             <div class="card-title overview">

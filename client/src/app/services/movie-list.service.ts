@@ -1,53 +1,70 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IMovieList } from '../interfaces/movie-list';
 import { IMovieDetails } from '../interfaces/movie-details';
-import { IMovieResult } from '../interfaces/movie-response';
 import 'rxjs/Rx';
+
+const apiUrl = 'http://localhost:3000';
 
 @Injectable()
 export class MovieListService {
 
   constructor(private http: Http) { }
 
-  getMovieLists(): Observable<IMovieList> {
-    return this.http.get('http://localhost:3000/lists')
+  createMovieList(listName: string): Observable<any> {
+    let body = { newList: { name: listName } }
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.post(`${apiUrl}/list`, body, options)
       .map((res) => {
         return res.json();
       });
   }
 
-  addMovieList(list: IMovieList): Observable<Response> {
-    return this.http.put('http://localhost:3000/list', list)
+  getMovieLists(): Observable<Array<IMovieList>> {
+    return this.http.get(`${apiUrl}/lists`, { withCredentials: true })
       .map((res) => {
         return res.json();
       });
   }
 
-  removeMovieList(listId: number): Observable<Response> {
-    return this.http.delete(`http://localhost:3000/list/${listId}`)
+  removeMovieList(listId: string): Observable<any> {
+    let body = { id: listId };
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, body: body, withCredentials: true });
+    return this.http.delete(`${apiUrl}/lists`, options)
       .map((res) => {
         return res.json();
       });
   }
 
-  getMoviesFromList(listId: number): Observable<IMovieDetails> {
-    return this.http.get(`http://localhost:3000/list/${listId}`)
+  getMoviesFromList(listId: string): Observable<Array<IMovieDetails>> {
+    return this.http.get(`${apiUrl}/lists/${listId}`, { withCredentials: true })
       .map((res) => {
         return res.json();
       });
   }
 
-  addMovieToList(listId: number, movie: IMovieDetails): Observable<Response> {
-    return this.http.post(`http://localhost:3000/list/${listId}`, movie)
+  addMovieToList(listId: string, movie: IMovieDetails): Observable<any> {
+    let body = { movie: movie };
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.put(`${apiUrl}/lists/${listId}`, body, options)
       .map((res) => {
         return res.json();
       });
   }
 
-  removeMovieFromList(listId: number, movieId): Observable<IMovieDetails> {
-    return this.http.delete(`http://localhost:3000/list/${listId}/${movieId}`)
+  removeMovieFromList(listId: string, movieId): Observable<IMovieDetails | any> {
+    let body = { id: movieId };
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, body: body, withCredentials: true });
+    return this.http.delete(`${apiUrl}/lists/${listId}`, options)
       .map((res) => {
         return res.json();
       });
