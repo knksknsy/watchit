@@ -1,7 +1,33 @@
+app-movie-card{
+	padding: 0 15px 15px 0;
+	width: 32.5vw;
+}
+app-movie-card:nth-child(3n){
+	padding-right: 0;
+}
+/* media queries
+*  tablet landscape
+*/
+@media (min-width: 1024px) and (max-width: 1200px){
+	app-movie-card{
+		width: 32.3vw;
+	}
+}
+/* 
+*  tablet portrait
+*/
+@media (min-width: 768px) and (max-width: 1023px){
+	app-movie-card{
+		width: 32vw;
+	}
+}
 /* 
 *  phone landscape
 */
 @media (min-width: 667px) and (max-width: 767px){
+	app-movie-card{
+		width: 31.8vw;
+	}
 	h2.show-grid-top.show-grid-bottom-sm{
 		font-size: 1rem;
 	}
