@@ -38,7 +38,6 @@ export class DiscoverViewComponent implements OnInit {
 
 
 updateSelectedGenreArray(id: number, cssId: string){
-	console.log("inside updateSelectedGenreArray -> " + this.selectedGenreArry.length);
 	var isFound: boolean = false;
 	let element = document.getElementById(cssId);
 
@@ -47,16 +46,12 @@ updateSelectedGenreArray(id: number, cssId: string){
 			this.selectedGenreArry.splice(i, 1);
 			isFound = true;
 			element.classList.remove("selectedGenre");
-			console.log("Id: " + id + " wurde entfernt.");
 		}
 	}
 	if(!isFound){
 		this.selectedGenreArry.push(id);
 		element.classList.add("selectedGenre");
-		console.log("Id: " + id + " wurde hinzugefügt.");
 	}
-
-	console.log("selectedGenreArry: " + this.selectedGenreArry);
 }
 
 public onPageChanged(event) {
@@ -70,7 +65,6 @@ public onDiscover() {
 
 
 searchDiscoverMovies(){
-	console.log('pageIndex', this.pageIndex);
 	var dTill = new Date();
 	dTill.setFullYear(this.yearTill, 0, 1);
 	let dateTill = dTill.getTime();
@@ -79,7 +73,6 @@ searchDiscoverMovies(){
 	let dateFrom = dFrom.getTime();
 	
 	var genreString = this.selectedGenreArry.toString();
-	console.log(genreString);
 		
     this.apiService.getDiscoverMovies(this.selectedValue, dateFrom, dateTill, this.rate, genreString, this.year, this.pageIndex === 0 ? 1 : this.pageIndex)
       .subscribe((next) => {
@@ -89,7 +82,6 @@ searchDiscoverMovies(){
 		}else{
 			this.totalMovieItems = next.total_results;
 		}
-		console.log(this._response);
       })
 }
 
