@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },
       (error) => {
+		console.log(error);
         // todo: show info: invalid credentials
       });
   }
