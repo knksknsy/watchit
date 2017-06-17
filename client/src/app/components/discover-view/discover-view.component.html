@@ -128,7 +128,7 @@
 	<br>
 	<button type="button" class="btn btn-secondary pull-right show-grid-bottom" (click)="onDiscover()">Filme suchen</button>
 	<div *ngIf="_response" class="movies show-grid-top">
-		<div class="card-columns">
+		<div class="card-deck">
 			<app-movie-card *ngFor="let movie of _response.results" [removable]="false" [data]="movie"></app-movie-card>
 		</div>
 		<div class="hidden-xs-down">

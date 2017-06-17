@@ -25,11 +25,11 @@ app-movie-card:nth-child(3n){
 *  phone landscape
 */
 @media (min-width: 667px) and (max-width: 767px){
-	h2.show-grid-top.show-grid-bottom-sm{
-		font-size: 1rem;
-	}
 	app-movie-card{
 		width: 31.8vw;
+	}
+	h2.show-grid-top.show-grid-bottom-sm{
+		font-size: 1rem;
 	}
 }
 /* 
