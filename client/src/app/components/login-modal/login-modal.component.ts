@@ -53,6 +53,7 @@ export class LoginModalComponent implements OnInit {
         this.hideModal();
       },
       (error) => {
+		console.log(error);
         // todo: show info: invalid credentials
       });
   }
