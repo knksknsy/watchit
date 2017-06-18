@@ -63,6 +63,7 @@ export class MovieListsViewComponent implements OnInit {
         this.movieListService.getMovieLists()
           .subscribe((movieList) => {
             this.movieLists = movieList;
+            this.getBackDropImages();
           });
       });
   }
