@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8">
       <a role="button" (click)="menuCollapsed = !menuCollapsed; lockBodyScroll()" class="menu-button btn-margin-right"><span class="{{!menuCollapsed ? 'fa fa-bars' : 'fa fa-times'}}"></span></a>
-      <a class="navbar-brand" routerLink="/" (click)="menuCollapsed = !menuCollapsed">
+      <a class="navbar-brand" routerLink="/" (click)="menuCollapsed = false; lockBodyScroll()">
         <img src="/assets/icons/movie.png" width="30" height="30" class="d-inline-block align-top" /> WatchIt
       </a>
     </div>
