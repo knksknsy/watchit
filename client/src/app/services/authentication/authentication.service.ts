@@ -37,7 +37,10 @@ export class AuthenticationService {
   }
 
   logout() {
-    return this.http.post(`${apiUrl}/user/logout`, { withCredentials: true })
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.post(`${apiUrl}/user/logout`, options)
       .map((res: Response) => {
         return res.json();
       });
