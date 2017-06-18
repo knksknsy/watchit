@@ -62,28 +62,41 @@ export class LoginModalComponent implements OnInit {
     this.router.navigate(['/lists']);
   }
 
+  resetLoginInputFields() {
+    this.loginForm.value.loginEmail = '';
+    this.loginForm.value.loginPassword = '';
+  }
+
+  resetRegisterInputFields() {
+    this.registerForm.value.registerEmail = '';
+    this.registerForm.value.registerPassword = '';
+  }
+
   onLogin(event) {
     let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
     this.authenticationService.login(body)
       .subscribe((next) => {
+        this.resetLoginInputFields();
         this.hideModal();
-		this.isValid = true;
-        window.location.reload();
+        this.isValid = true;
         this.routeToLinks();
       },
       (error) => {
-        if(error.error.message == "invalid password" || error.error.message == "User not found"){
-			this.isValid = false;
-		}
+        if (error.error.message == "invalid password" || error.error.message == "User not found") {
+          this.isValid = false;
+        }
       });
   }
 
   onRegister(event) {
-    let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
+    let body = { user: { email: this.registerForm.value.registerEmail, password: this.registerForm.value.registerPassword } };
     this.authenticationService.register(body)
       .subscribe((next) => {
+        this.resetRegisterInputFields();
         this.authenticationService.login(body)
           .subscribe((next) => {
+            this.resetLoginInputFields();
+            this.hideModal();
             this.routeToLinks();
           });
       });
