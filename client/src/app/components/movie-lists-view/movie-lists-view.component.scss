@@ -13,6 +13,21 @@ app-movie-list-card:nth-child(3n){
 			height: 20vh !important;
 		}
 	}
+	
+	.btn-outline-primary{
+		color: #fff;
+		border-color: #fff;
+		background-color: #292b2c;
+	}
+	.btn-outline-primary:hover, 
+	.btn-outline-primary:focus, 
+	.btn-outline-primary:active, 
+	.btn-outline-primary.active, 
+	.open > .dropdown-toggle.btn-outline-primary{
+		color: #292b2c;
+		border-color: #292b2c;
+		background-color: #fff;
+	}
 }
 /* media queries
 *  tablet landscape
