@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   public routeDestination: string;
   public popularMovies: IMovieResponse;
   public backDropImage: string;
+  public isValid: boolean = true;
 
   public loginForm = this.formBuilder.group({
     loginEmail: ["", Validators.required],
@@ -76,10 +77,13 @@ export class LoginComponent implements OnInit {
       .subscribe((next) => {
         this.hideModal();
         this.router.navigate(['/']);
+		this.isValid = true;
       },
       (error) => {
 		console.log(error);
-        // todo: show info: invalid credentials
+        if(error.error.message == "invalid password" || error.error.message == "User not found"){
+			this.isValid = false;
+		}
       });
   }
 

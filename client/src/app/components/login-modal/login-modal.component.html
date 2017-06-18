@@ -32,6 +32,7 @@
               </div>
               <div class="row">
                 <div class="col">
+                  <p *ngIf="!isValid" class="login-feedback">Email oder Passwort ist falsch.</p>
                   <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="!loginForm.valid">Sign in</button>
                 </div>
               </div>

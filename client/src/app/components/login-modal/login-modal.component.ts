@@ -14,6 +14,7 @@ export class LoginModalComponent implements OnInit {
   @ViewChild('staticTabs') staticTabs: TabsetComponent;
 
   public isModalShown: boolean = false;
+  public isValid: boolean = true;
 
   public loginForm = this.formBuilder.group({
     loginEmail: ["", Validators.required],
@@ -51,10 +52,12 @@ export class LoginModalComponent implements OnInit {
     this.authenticationService.login(body)
       .subscribe((next) => {
         this.hideModal();
+		this.isValid = true;
       },
       (error) => {
-		console.log(error);
-        // todo: show info: invalid credentials
+		if(error.error.message == "invalid password" || error.error.message == "User not found"){
+			this.isValid = false;
+		}
       });
   }
 
