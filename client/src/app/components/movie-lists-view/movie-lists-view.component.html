@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <h2 class="show-grid-bottom-sm">My Lists</h2>
-  <div class="card-columns">
+  <div class="card-deck">
     <app-movie-list-card *ngFor="let list of movieLists" [data]="list" [removable]="true" (onRemove)="refreshView($event)"></app-movie-list-card>
   </div>
 </div>
