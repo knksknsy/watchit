@@ -17,7 +17,7 @@ export class MovieListService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers, withCredentials: true });
-    return this.http.post(`${apiUrl}/list`, body, options)
+    return this.http.post(`${apiUrl}/lists`, body, options)
       .map((res) => {
         return res.json();
       });

@@ -22,7 +22,7 @@ module.exports = {
                         res.send(err)
                     } else {
                         log.info("new List saved successfully");
-                        res.send({status: "ok"});
+                        res.send({status: "ok", id: result.insertedIds[0]});
                     }
                 });
             } else {

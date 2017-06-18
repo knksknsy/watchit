@@ -94,7 +94,11 @@ export class ListModalComponent {
     if (this.isNewListName()) {
       this.movieListService.createMovieList(this.selectedList)
         .subscribe((res) => {
-          this.hideModal();
+          console.log(res);
+          this.movieListService.addMovieToList(res.id, this.data)
+            .subscribe((res) => {
+              this.hideModal();
+            });
         });
     } else if (this.dataType === 'IMovieDetails') {
       this.movieListService.addMovieToList(this.selectedListId, this.data)
@@ -116,8 +120,8 @@ export class ListModalComponent {
     let index = this.movieLists.findIndex((list) => {
       return list.name === this.selectedList;
     });
-    this.selectedListId = this.movieLists[index].id;
     if (index > -1) {
+      this.selectedListId = this.movieLists[index].id;
       return false;
     }
     return true;
