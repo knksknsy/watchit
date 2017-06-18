@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MovieListService } from '../../services/movie-list.service';
 import { IMovieList } from '../../interfaces/movie-list';
 
@@ -11,7 +12,11 @@ import { IMovieList } from '../../interfaces/movie-list';
 export class MovieListsViewComponent implements OnInit {
   public movieLists: Array<IMovieList>;
 
-  constructor(private route: ActivatedRoute, private movieListService: MovieListService) { }
+  public listForm = this.formBuilder.group({
+    listName: [""]
+  });
+
+  constructor(private route: ActivatedRoute, private movieListService: MovieListService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.movieLists = this.route.snapshot.data['movielists'];
@@ -50,6 +55,16 @@ export class MovieListsViewComponent implements OnInit {
     this.movieLists = this.movieLists.filter((list) => {
       return list.id !== ev.id;
     });
+  }
+
+  createList() {
+    this.movieListService.createMovieList(this.listForm.value.listName)
+      .subscribe((res) => {
+        this.movieListService.getMovieLists()
+          .subscribe((movieList) => {
+            this.movieLists = movieList;
+          });
+      });
   }
 
 }

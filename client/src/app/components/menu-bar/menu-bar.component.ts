@@ -11,7 +11,7 @@ export class MenuBarComponent implements OnInit {
   public menuCollapsed: boolean = false;
 
   public searchForm = this.formBuilder.group({
-    searchQuery: [""]
+    searchQuery: ["", Validators.minLength(1)]
   });
 
   constructor(private formBuilder: FormBuilder) { }

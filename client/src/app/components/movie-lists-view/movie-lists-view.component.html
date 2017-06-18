@@ -1,5 +1,19 @@
 <div class="container-fluid">
-  <h2 class="show-grid-bottom-sm">My Lists</h2>
+  <div class="row">
+    <div class="col-8">
+      <h2 class="show-grid-bottom-sm">My Lists</h2>
+    </div>
+    <div class="col-4">
+      <form [formGroup]="listForm" (ngSubmit)="createList()">
+        <div class="input-group">
+          <input formControlName="listName" type="text" placeholder="Create List" class="form-control">
+          <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit"><span class="fa fa-plus"></span></button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
   <div class="card-deck">
     <app-movie-list-card *ngFor="let list of movieLists" [data]="list" [removable]="true" (onRemove)="refreshView($event)"></app-movie-list-card>
   </div>
