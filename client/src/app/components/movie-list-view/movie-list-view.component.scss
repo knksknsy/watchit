@@ -5,6 +5,9 @@ app-movie-card{
 app-movie-card:nth-child(3n){
 	padding-right: 0;
 }
+.container-fluid {
+	padding-top: 15px;
+}
 /* media queries
 *  tablet landscape
 */
@@ -27,5 +30,16 @@ app-movie-card:nth-child(3n){
 @media (min-width: 667px) and (max-width: 767px){
 	app-movie-card{
 		width: 31.8vw;
+	}
+	.container-fluid {
+		padding-top: 50px;
+	}
+}
+/* 
+*  phone portrait
+*/
+@media (max-width: 375px){
+	.container-fluid {
+		padding-top: 50px;
 	}
 }
