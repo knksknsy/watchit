@@ -1,0 +1,13 @@
+version: '2'
+services:
+  mongodb:
+    image: "mongo:latest"
+    ports:
+      - "27017:27017"
+
+  backend:
+    build: ./backend
+    ports:
+      - "49161:3000"
+    volumes:
+      - ./backend:/backend
