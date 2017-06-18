@@ -10,7 +10,13 @@ export class FavoritesResolverService {
   constructor(private favoritesService: FavoritesService) { }
 
   resolve(state: RouterStateSnapshot): Observable<Array<IMovieDetails>> {
-    return this.favoritesService.getFavorites();
+    return this.favoritesService.getFavorites()
+      .map((details) => {
+        details.forEach((detail) => {
+          detail.fav = true;
+        });
+        return details;
+      });
   }
 
 }

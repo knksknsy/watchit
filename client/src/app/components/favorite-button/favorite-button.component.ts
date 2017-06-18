@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { FavoritesService } from '../../services/favorites.service';
 import { AuthGuard } from '../../guards/auth.guard';
 import { APIService } from '../../services/api/api.service';
@@ -10,10 +11,9 @@ import { IMovieResult } from '../../interfaces/movie-response';
   templateUrl: './favorite-button.component.html',
   styleUrls: ['./favorite-button.component.scss']
 })
-export class FavoriteButtonComponent implements OnInit {
+export class FavoriteButtonComponent {
   private _data: any;
   private _dataType: string;
-  public isFav: boolean = false;
 
   get data(): any {
     return this._data;
@@ -33,34 +33,16 @@ export class FavoriteButtonComponent implements OnInit {
     this._dataType = dataType;
   }
 
-  constructor(private favoritesService: FavoritesService, private apiService: APIService, private authGuard: AuthGuard) { }
-
-  ngOnInit() {
-    this.setIsFav();
-  }
-
-  setIsFav() {
-    this.favoritesService.getFavorites()
-      .subscribe((favs) => {
-        let index = favs.findIndex((fav) => {
-          return fav.id === this.data.id;
-        });
-        if (index > -1) {
-          this.isFav = true
-        } else {
-          this.isFav = false;
-        }
-      });
-  }
+  constructor(private favoritesService: FavoritesService, private apiService: APIService, private authGuard: AuthGuard, private router: Router) { }
 
   toggleFavorite() {
-    this.authGuard.canActivate()
+    this.authGuard.canActivateWithoutRedirecting()
       .subscribe((loggedIn) => {
-        if (loggedIn && !this.isFav) {
+        if (loggedIn && !this.data.fav) {
           if (this.dataType === 'IMovieDetails') {
             this.favoritesService.addToFavorites(this.data)
               .subscribe((res) => {
-                this.setIsFav();
+                this.data.fav = true;
               });
           }
           if (this.dataType === 'IMovieResult') {
@@ -68,15 +50,17 @@ export class FavoriteButtonComponent implements OnInit {
               .subscribe((details) => {
                 this.favoritesService.addToFavorites(details)
                   .subscribe((res) => {
-                    this.setIsFav();
+                    this.data.fav = true;
                   });
               });
           }
-        } else if (loggedIn && this.isFav) {
+        } else if (loggedIn && this.data.fav) {
           this.favoritesService.removeFromFavorites(this.data.id)
             .subscribe((res) => {
-              this.setIsFav();
+              this.data.fav = false;
             });
+        } else if (!loggedIn) {
+          this.router.navigate(['/login']);
         }
       });
   }

@@ -24,6 +24,7 @@ import { MovieListResolverService } from './services/resolver/movie-list-resolve
 import { WatchListResolverService } from './services/resolver/watch-list-resolver.service';
 import { PopularMoviesResolverService } from './services/resolver/popular-movies-resolver.service';
 import { UpcomingMoviesResolverService } from './services/resolver/upcoming-movies-resolver.service';
+import { RecommendationsResolverService } from './services/resolver/recommendations-resolver.service';
 
 const appRoutes: Routes = [
     {
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
         path: 'details/:id',
         component: MovieDetailsComponent,
         resolve: {
-            details: MovieDetailsResolverService
+            details: MovieDetailsResolverService,
+            recommendations: RecommendationsResolverService
         }
     },
     {
@@ -120,6 +122,7 @@ const appRoutes: Routes = [
         WatchListResolverService,
         MovieListsResolverService,
         MovieListResolverService,
+        RecommendationsResolverService,
         AuthGuard
     ]
 })

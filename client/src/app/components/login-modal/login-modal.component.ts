@@ -51,8 +51,10 @@ export class LoginModalComponent implements OnInit {
     this.authenticationService.login(body)
       .subscribe((next) => {
         this.hideModal();
+        window.location.reload();
       },
       (error) => {
+        console.log(error);
         // todo: show info: invalid credentials
       });
   }
@@ -64,6 +66,7 @@ export class LoginModalComponent implements OnInit {
         this.authenticationService.login(body)
           .subscribe((next) => {
             this.hideModal();
+            window.location.reload();
           });
       });
   }

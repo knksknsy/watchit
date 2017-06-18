@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ViewComponentService } from '../../services/view-component.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -14,12 +14,12 @@ import { IMovieResponse, IMovieResult } from '../../interfaces/movie-response';
 export class SearchMoviesViewComponent implements OnInit {
   private _response: IMovieResponse;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private viewComponentService: ViewComponentService) { }
 
   ngOnInit() {
     this.route.params.forEach(params => {
       this.response = this.route.snapshot.data['response'];
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     });
   }
 

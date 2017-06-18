@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
 import { MovieListService } from '../../services/movie-list.service';
 import { APIService } from '../../services/api/api.service';
@@ -12,7 +13,7 @@ import 'rxjs/add/observable/of';
   templateUrl: './list-modal.component.html',
   styleUrls: ['./list-modal.component.scss']
 })
-export class ListModalComponent implements OnInit {
+export class ListModalComponent {
   @ViewChild('autoShownModal') public autoShownModal: ModalDirective;
   public isModalShown: boolean = false;
   public selectedList: string;
@@ -42,19 +43,12 @@ export class ListModalComponent implements OnInit {
     this._dataType = dataType;
   }
 
-  constructor(private movieListService: MovieListService, private authGuard: AuthGuard, private apiService: APIService) {
+  constructor(private movieListService: MovieListService, private authGuard: AuthGuard, private apiService: APIService, private router: Router) {
     this.userLists = Observable
       .create((observer: any) => {
         observer.next(this.selectedList);
       })
       .mergeMap((token: string) => this.getListsAsObservable(token));
-  }
-
-  ngOnInit() {
-    this.movieListService.getMovieLists()
-      .subscribe((lists) => {
-        this.movieLists = lists;
-      });
   }
 
   public getListsAsObservable(token: string): Observable<any> {
@@ -68,10 +62,16 @@ export class ListModalComponent implements OnInit {
   }
 
   public checkAuth() {
-    this.authGuard.canActivate()
+    this.authGuard.canActivateWithoutRedirecting()
       .subscribe((loggedIn) => {
         if (loggedIn) {
+          this.movieListService.getMovieLists()
+            .subscribe((lists) => {
+              this.movieLists = lists;
+            });
           this.showModal();
+        } else {
+          this.router.navigate(['/login']);
         }
       });
   }

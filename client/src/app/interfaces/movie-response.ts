@@ -20,4 +20,6 @@ export interface IMovieResult {
     vote_count: number;
     video: boolean;
     vote_average: number;
+    fav?: boolean;
+    watch?: boolean;
 }
