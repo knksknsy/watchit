@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs/tabset.component';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
@@ -12,9 +13,9 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 export class LoginModalComponent implements OnInit {
   @ViewChild('autoShownModal') public autoShownModal: ModalDirective;
   @ViewChild('staticTabs') staticTabs: TabsetComponent;
-
   public isModalShown: boolean = false;
   public isValid: boolean = true;
+  public isLoggedIn: boolean = false;
 
   public loginForm = this.formBuilder.group({
     loginEmail: ["", Validators.required],
@@ -26,9 +27,17 @@ export class LoginModalComponent implements OnInit {
     registerPassword: ["", Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.authenticationService.isLoggedIn()
+      .subscribe((loggedIn) => {
+        this.isLoggedIn = loggedIn
+      });
   }
 
   public showModal(): void {
@@ -47,6 +56,12 @@ export class LoginModalComponent implements OnInit {
     this.staticTabs.tabs[tab_id].active = true;
   }
 
+  routeToLinks() {
+    this.isLoggedIn = true;
+    this.hideModal();
+    this.router.navigate(['/lists']);
+  }
+
   onLogin(event) {
     let body = { user: { email: this.loginForm.value.loginEmail, password: this.loginForm.value.loginPassword } };
     this.authenticationService.login(body)
@@ -54,6 +69,7 @@ export class LoginModalComponent implements OnInit {
         this.hideModal();
 		this.isValid = true;
         window.location.reload();
+        this.routeToLinks();
       },
       (error) => {
         if(error.error.message == "invalid password" || error.error.message == "User not found"){
@@ -68,9 +84,21 @@ export class LoginModalComponent implements OnInit {
       .subscribe((next) => {
         this.authenticationService.login(body)
           .subscribe((next) => {
-            this.hideModal();
-            window.location.reload();
+            this.routeToLinks();
           });
+      });
+  }
+
+  onLogout() {
+    this.authenticationService.logout()
+      .subscribe((res) => {
+        console.log(res);
+        this.isLoggedIn = false;
+        if (this.router.url === '/') {
+          window.location.reload();
+        } else {
+          this.router.navigate(['/']);
+        }
       });
   }
 

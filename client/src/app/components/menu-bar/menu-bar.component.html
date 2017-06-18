@@ -24,6 +24,6 @@
   </div>
 </nav>
 
-<div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="!menuCollapsed" class="card card-block card-header">
+<div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="!menuCollapsed" class="card card-block card-header menu">
   <app-menu (onMenuItemSelected)="menuCollapsed = !menuCollapsed"></app-menu>
 </div>

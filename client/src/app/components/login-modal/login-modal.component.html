@@ -1,5 +1,9 @@
-<button type="button" class="btn btn-outline-primary" (click)="showModal()">
+<button *ngIf="!isLoggedIn" type="button" class="btn btn-outline-primary" (click)="showModal()">
   <span class="fa fa-user" aria-hidden="true"></span>
+</button>
+
+<button *ngIf="isLoggedIn" type="button" class="btn btn-outline-primary" (click)="onLogout()">
+  <span class="fa fa-sign-out" aria-hidden="true"></span>
 </button>
 
 <div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #autoShownModal="bs-modal" class="modal fade"

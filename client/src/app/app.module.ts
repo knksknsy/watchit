@@ -53,7 +53,6 @@ import { MovieListService } from './services/movie-list.service';
 import { WatchListService } from './services/watch-list.service';
 import { FavoritesService } from './services/favorites.service';
 import { ViewComponentService } from './services/view-component.service';
-import { RecommendationViewComponent } from './components/recommendation-view/recommendation-view.component';
 
 @NgModule({
   imports: [
@@ -97,8 +96,7 @@ import { RecommendationViewComponent } from './components/recommendation-view/re
     FavoriteButtonComponent,
     WatchListButtonComponent,
     MovieListRemoveButtonComponent,
-    MovieListCardComponent,
-    RecommendationViewComponent
+    MovieListCardComponent
   ],
   providers: [
     APIService,
