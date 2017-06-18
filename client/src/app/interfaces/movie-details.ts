@@ -26,6 +26,8 @@ export interface IMovieDetails {
     vote_average: number;
     vote_count: number;
     credits?: ICredit;
+    fav?: boolean;
+    watch?: boolean;
 }
 
 export interface ICollection {

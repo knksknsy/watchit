@@ -2,7 +2,10 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { APIService } from '../../services/api/api.service';
+import { ViewComponentService } from '../../services/view-component.service';
 import { IMovieDetails } from '../../interfaces/movie-details';
+import { IMovieResponse } from '../../interfaces/movie-response';
+import { IMovieResult } from '../../interfaces/movie-response';
 import { ICredit, ICast } from '../../interfaces/credit';
 import 'rxjs/Rx';
 
@@ -14,26 +17,21 @@ import 'rxjs/Rx';
 export class MovieDetailsComponent implements OnInit {
   private _results: IMovieDetails;
   private _cast: Array<ICast>;
-  public recommendations = [];
+  public recommendations: IMovieResponse;
   public isMobile: boolean;
   public mobileWidth = 768;
 
-  constructor(private apiService: APIService, private route: ActivatedRoute, private el: ElementRef) { }
+  constructor(private apiService: APIService, private route: ActivatedRoute, private el: ElementRef, private viewComponentService: ViewComponentService) { }
 
   ngOnInit() {
     this.isMobile = window.document.body.offsetWidth <= this.mobileWidth;
     this.route.params.forEach(params => {
       this.results = this.route.snapshot.data['details'];
-      let movie = { movie: this.results };
-      console.log(JSON.stringify(movie, null, 2));
+      this.recommendations = this.route.snapshot.data['recommendations'];
       if (this.results.credits.cast) {
         this.cast = this.results.credits.cast.slice(0, 5);
       }
-      this.apiService.getRecommendedMovies(this.results.id)
-        .subscribe((next) => {
-          this.recommendations = next.results;
-        });
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     });
   }
 

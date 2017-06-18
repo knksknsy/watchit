@@ -18,4 +18,14 @@ export class AuthGuard implements CanActivate {
         return loggedIn;
       });
   }
+
+  canActivateWithoutRedirecting(): Observable<boolean> {
+    return this.authService.isLoggedIn()
+      .map((loggedIn) => {
+        if (loggedIn) {
+          return loggedIn;
+        }
+        return loggedIn;
+      })
+  }
 }

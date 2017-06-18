@@ -16,11 +16,11 @@
 
 </div>
 
-<div *ngIf="recommendations.length > 0" class="row rec">
+<div *ngIf="recommendations?.results.length > 0" class="row rec">
     <div class="col-md">
         <h4>Recommended Movies</h4>
         <div class="recommendations">
-            <app-movie-card *ngFor="let movie of recommendations" [data]="movie"></app-movie-card>
+            <app-movie-card *ngFor="let movie of recommendations?.results" [data]="movie"></app-movie-card>
         </div>
     </div>
 </div>

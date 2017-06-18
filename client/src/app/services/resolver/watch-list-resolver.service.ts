@@ -10,6 +10,12 @@ export class WatchListResolverService {
   constructor(private watchListService: WatchListService) { }
 
   resolve(state: RouterStateSnapshot): Observable<Array<IMovieDetails>> {
-    return this.watchListService.getWatchList();
+    return this.watchListService.getWatchList()
+      .map((details) => {
+        details.forEach((detail) => {
+          detail.watch = true;
+        });
+        return details;
+      });
   }
 }
