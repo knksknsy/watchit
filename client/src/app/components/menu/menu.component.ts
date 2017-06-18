@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
   }
 
   openDiscoverView() {
+	// remove class .stopScrolling to enable scrolling
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
@@ -23,6 +24,7 @@ export class MenuComponent implements OnInit {
   }
 
   openFavoritesView() {
+	// remove class .stopScrolling to enable scrolling
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
@@ -30,6 +32,7 @@ export class MenuComponent implements OnInit {
   }
 
   openWatchListView() {
+	// remove class .stopScrolling to enable scrolling
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();
@@ -37,6 +40,7 @@ export class MenuComponent implements OnInit {
   }
 
   openMovieListsView() {
+	// remove class .stopScrolling to enable scrolling
     let body = document.getElementsByTagName('body')[0];
     body.classList.remove("stopScrolling");
     this.closeMenu();

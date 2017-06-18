@@ -2,6 +2,7 @@ app-movie-card{
 	padding: 0 15px 15px 0;
 	width: 32.5vw;
 }
+// remove padding on the right
 app-movie-card:nth-child(3n){
 	padding-right: 0;
 }
@@ -9,6 +10,7 @@ app-movie-card:nth-child(3n){
 	padding-top: 15px;
 }
 /deep/ .discover-view{
+	// accordion style
 	.panel.card.panel-default{
 		border: none;
 
@@ -23,6 +25,7 @@ app-movie-card:nth-child(3n){
 		background-color: rgba(0, 0, 0, 0.2);
 	}
 
+	// genre tile style
 	.genre-item{
 		text-align: center;
 		background-color: rgba(0,0,0,0.2);
@@ -31,10 +34,12 @@ app-movie-card:nth-child(3n){
 		cursor: pointer;
 	}
 
+	// seleced genre tile style
 	.selectedGenre > p{
 		background-color: rgba(0, 0, 0, 0.6);
 	}
 
+	// nav tabs style
 	.nav-tabs {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -49,6 +54,7 @@ app-movie-card:nth-child(3n){
 		}
 	}
 
+	// dropdown style
 	> div{
 		&.dropdown{
 			select{

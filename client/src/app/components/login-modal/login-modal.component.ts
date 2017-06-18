@@ -72,6 +72,7 @@ export class LoginModalComponent implements OnInit {
         this.routeToLinks();
       },
       (error) => {
+		// display error message if invalid email or password
         if(error.error.message == "invalid password" || error.error.message == "User not found"){
 			this.isValid = false;
 		}

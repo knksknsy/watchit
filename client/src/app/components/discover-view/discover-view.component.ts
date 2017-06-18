@@ -36,11 +36,15 @@ export class DiscoverViewComponent implements OnInit {
 	ngOnInit() {
 	}
 
-
+/*
+*	add (first click) and remove (second click)
+*	genre id´s to/from array
+*/
 updateSelectedGenreArray(id: number, cssId: string){
 	var isFound: boolean = false;
 	let element = document.getElementById(cssId);
 
+	// add
 	for(var i = this.selectedGenreArry.length - 1; i >= 0; i--) {
 		if(this.selectedGenreArry[i] === id) {
 			this.selectedGenreArry.splice(i, 1);
@@ -48,6 +52,7 @@ updateSelectedGenreArray(id: number, cssId: string){
 			element.classList.remove("selectedGenre");
 		}
 	}
+	// remove
 	if(!isFound){
 		this.selectedGenreArry.push(id);
 		element.classList.add("selectedGenre");
@@ -63,7 +68,9 @@ public onDiscover() {
 	this.searchDiscoverMovies();
 }
 
-
+/*
+*	search movies with selected parameters
+*/
 searchDiscoverMovies(){
 	var dTill = new Date();
 	dTill.setFullYear(this.yearTill, 0, 1);
