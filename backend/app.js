@@ -1,6 +1,7 @@
 var express = require('express');
 var log = require('./api/controllers/loggingController');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 var sessions = require("client-sessions");
 var databasehandler = require('./api/controllers/dbController');
 app = express();
@@ -35,6 +36,7 @@ app.use(sessions({
     }
 }));
 
+app.use(cors());
 app.use(bodyParser.json());
 
 // Cross Origin middleware

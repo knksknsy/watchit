@@ -47,23 +47,29 @@ User.prototype.sanitize = function () {
 
 User.findByMail = function (mail, callback) {
     var collection = dbController.userCollection();
-    collection.findOne({email: mail}, function(err, result){
-        if(err){
-            log.error(err.message);
-            callback(err , null);
-            return;
-        }
+    if(collection) {
+        collection.findOne({email: mail}, function (err, result) {
+            if (err) {
+                log.error(err.message);
+                callback(err, null);
+                return;
+            }
 
-        if (!result){
-            callback(null, null);
-            return;
-        }
+            if (!result) {
+                callback(null, null);
+                return;
+            }
 
-        log.info('DB access successful, result: ' + JSON.stringify(result));
-        var foundUser = new User(result);
-        callback(null, foundUser);
-        return;
-    });
+            log.info('DB access successful, result: ' + JSON.stringify(result));
+            var foundUser = new User(result);
+            callback(null, foundUser);
+            return;
+        });
+    } else {
+        var err = {message: "Database not connected"};
+        log.error(err.message);
+        callback(err, null);
+    }
 };
 
 User.prototype.save = function (callback) {
@@ -106,7 +112,7 @@ User.prototype.save = function (callback) {
                 userData.password = hash;
 
                 //saving in db
-                var collection = dbController.userCollection();
+                var collection = dbController.userCollection(); //TODO making sure error is thrown if db not available
                 collection.insert(userData, function(err, result){
                     if(err){
                         log.error("Couldn't persist new user: " + JSON.stringify(userData)); //TODO sensitive data in logs
