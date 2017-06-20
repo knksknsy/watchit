@@ -8,6 +8,11 @@ services:
   backend:
     build: ./backend
     ports:
-      - "49161:3000"
+      - "3000:3000"
     volumes:
       - ./backend:/backend
+
+  app:
+    build: ./client
+    ports: 
+        - "80:4200"
