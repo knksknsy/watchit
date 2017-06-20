@@ -27,7 +27,9 @@ export class MenuBarComponent implements OnInit {
  
   public expanded(event:any):void { }
 
-	// make body position fixed (no scrolling) when menu is opened
+	/* make body position fixed (no scrolling) when menu is opened
+   	* add class .stopScrolling to prevent body from scrolling while menu is open
+	*/
 	lockBodyScroll(){
 		let body = document.getElementsByTagName('body')[0];
 		if(this.menuCollapsed){

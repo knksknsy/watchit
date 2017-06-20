@@ -2,6 +2,7 @@ app-movie-list-card{
 	padding: 0 15px 15px 0;
 	width: 32.5vw;
 }
+// remove padding on the right
 app-movie-list-card:nth-child(3n){
 	padding-right: 0;
 }
@@ -14,6 +15,7 @@ app-movie-list-card:nth-child(3n){
 		}
 	}
 	
+	// add-list-button style
 	.btn-outline-primary{
 		color: #fff;
 		border-color: #fff;

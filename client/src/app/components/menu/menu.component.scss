@@ -3,19 +3,25 @@
 		cursor: pointer;
 	}
 	
+	/* 
+	*  menu item style
+	*  first row
+	*/
 	h3{
 		color: rgba(255,255,255,.7);
 		position: absolute;
 		top: 20vh;
 
+		// menu item on the left
 		&.left{
 			right: 60px;
 		}
-
+		// menu item on the right
 		&.right{
 			left: 60px;
 		}
 
+		// menu item icon style
 		span{
 			position: relative;
 			display: block;
@@ -23,32 +29,42 @@
 			margin-bottom: 20px;
 			text-shadow: 2px 2px 7px grey;
 
+			// icon on the left
 			&.fa-search{
 				left: 30px;
 			}
+			// icon on the right
 			&.fa-heart{
 				left: 45px;
 			}
 		}
 	}
-
+	/* 
+	*  menu item style
+	*  second row
+	*/
 	&.below{
 		h3{
 			top: 50vh;
 
+			// menu item on the left
 			&.left{
 				right: 45px;
 			}
+			// menu item on the right
 			&.right{
 				left: 86px;
 			}
 
+			// menu item icon style
 			span{
 				position: relative;
 
+				// icon on the left
 				&.fa-bookmark{
 					left: 50px;
 				}
+				// icon on the right
 				&.fa-list{
 					left: 26px;
 				}
@@ -63,48 +79,63 @@
 */
 @media (min-width: 667px) and (max-width: 767px){
 	.menu-content{
+		/* 
+		*  menu item style
+		*  first row
+		*/
 		h3{
 			top: 7vh;
 			
+			// menu item on the left
 			&.left{
 				right: auto;
 				left: 110px;
 			}
-
+			// menu item on the right
 			&.right{
 				left: auto !important;
 				right: 110px;
 			}
 
+			// menu item icon style
 			span{
 				font-size: 2rem;
 
+				// icon on the left
 				&.fa-search{
 					left: 45px;
 				}
+				// icon on the right
 				&.fa-heart{
 					left: 60px;
 				}
 			}
 		}
-
+		/* 
+		*  menu item style
+		*  second row
+		*/
 		&.below{
 			h3{
 				top: 37vh;
 				
+				// menu item on the left
 				&.left{
 					left: 101px;
 				}
+				// menu item on the right
 				&.right{
 					right: 130px;
 				}
 
-
+				// menu item icon style
 				span{
 
+					// icon on the left
 					&.fa-bookmark{
 						left: 60px;
 					}
+					// icon on the right
 					&.fa-list{
 						left: 38px;
 					}
@@ -119,40 +150,52 @@
 */
 @media (max-width: 375px){
 	.menu-content{
+		/* 
+		*  menu item style
+		*  first row
+		*/
 		h3{
 			top: 15vh;
 			font-size: 1rem;
 
-
+			// menu item on the left
 			&.left{
 				right: auto;
 				left: 55px;
 			}
-
+			// menu item on the right
 			&.right{
 				left: auto !important;
 				right: 55px;
 			}
 
+			// menu item icon style
 			span{
 				font-size: 2rem;
 
+				// icon on the left
 				&.fa-search{
 					left: 23px;
 				}
+				// icon on the right
 				&.fa-heart{
 					left: 33px;
 				}
 			}
 		}
-
+		/* 
+		*  menu item style
+		*  second row
+		*/
 		&.below{
 			h3{
 				top: 37vh;
 
+				// menu item on the left
 				&.left{
 					left: 52px;
 				}
+				// menu item on the right
 				&.right{
 					right: 67px;
 				}
@@ -160,9 +203,11 @@
 
 				span{
 
+					// icon on the left
 					&.fa-bookmark{
 						left: 35px;
 					}
+					// icon on the right
 					&.fa-list{
 						left: 20px;
 					}

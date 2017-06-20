@@ -2,6 +2,7 @@ app-movie-card{
 	padding: 0 15px 15px 0;
 	width: 32.5vw;
 }
+// remove padding on the right
 app-movie-card:nth-child(3n){
 	padding-right: 0;
 }
