@@ -8,30 +8,34 @@ var connected = false;
 
 var dbConfig = require('../../config/dbConfig');
 var connectionUrl = dbConfig.dbUrl + '/' + dbConfig.dbName;
-var db = mongoClient.connect(connectionUrl, function(err, db){
-   if(err){
-        log.error(err.message);
-   } else {
-       database = db;
-       connected = true;
-       log.info('MongoDB connected');
-       log.info('Checking Collections:');
-       db.createCollection('user', function(err, results) {
-           if (err) {
-               log.error(err.message);
-           } else {
-               log.info("Created user collection");
-           }
-       });
-       db.createCollection('list', function(err, results) {
-           if (err) {
-               log.error(err.message);
-           } else {
-               log.info("Created list collection");
-           }
-       })
-   }
-});
+var db = connect();
+
+function connect(){
+    return mongoClient.connect(connectionUrl, function(err, db){
+        if(err){
+            log.error(err.message);
+        } else {
+            database = db;
+            connected = true;
+            log.info('MongoDB connected');
+            log.info('Checking Collections:');
+            db.createCollection('user', function(err, results) {
+                if (err) {
+                    log.error(err.message);
+                } else {
+                    log.info("Created user collection");
+                }
+            });
+            db.createCollection('list', function(err, results) {
+                if (err) {
+                    log.error(err.message);
+                } else {
+                    log.info("Created list collection");
+                }
+            })
+        }
+    });
+}
 
 module.exports = {
     database: database,
@@ -40,6 +44,8 @@ module.exports = {
             return database.collection('user');
         } else {
             log.warning("Database not connected");
+            database = connect();
+            return null;
         }
     },
 
@@ -48,6 +54,8 @@ module.exports = {
             return database.collection('list');
         } else {
             log.warning("Database not connected");
+            database = connect();
+            return null;
         }
     }
 };

@@ -2,7 +2,6 @@
  * Created by Douglas on 10.05.2017.
  */
 
-var userCollection = require('./dbController').userCollection;
 var User = require('../models/userModel');
 var listController = require('./listController');
 var log = require('./loggingController');
