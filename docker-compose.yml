@@ -1,18 +1,21 @@
-version: '2'
+version: "3"
 services:
-  mongodb:
+  mongodbwi:
     image: "mongo:latest"
     ports:
       - "27017:27017"
+    container_name: mongodbwi
 
-  backend:
+  backendwi:
     build: ./backend
     ports:
       - "3000:3000"
-    volumes:
-      - ./backend:/backend
+    links:
+      - mongodbwi
+    container_name: backendwi
 
-  app:
+  clientwi:
     build: ./client
     ports: 
         - "80:4200"
+    container_name: clientwi

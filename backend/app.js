@@ -36,20 +36,25 @@ app.use(sessions({
     }
 }));
 
-var corsOptions = {
-    origin: 'http://127.0.0.1:4200',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-app.use(cors(corsOptions));
+// var corsOptions = {
+//     origin: 'http://localhost:4200',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+// app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // Cross Origin middleware
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    const origin = req.get('origin')
+  res.header("Access-Control-Allow-Origin", origin);
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  next();
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  if (req.method === 'OPTIONS') {
+      res.sendStatus(204);
+  } else {
+      next();
+  }
 });
 
 var userRoutes = require('./api/routes/userRoutes');
