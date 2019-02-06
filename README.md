@@ -1,8 +1,8 @@
 Project Name: Watchit
 Members: 
-* Kaan Keskinsoy, kk104 , 29052
-* Marcella Voﬂ, mv047, 28735
-* Douglas Sondheim, ds145, 28737
+* Kaan K.
+* Marcella V.
+* Douglas S.
 
 Introduction:
 Watchit is an app to organize your favourite movies in lists and discover new movies. 
