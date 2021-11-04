@@ -46,15 +46,15 @@ app.use(bodyParser.json());
 // Cross Origin middleware
 app.use(function (req, res, next) {
     const origin = req.get('origin')
-  res.header("Access-Control-Allow-Origin", origin);
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  if (req.method === 'OPTIONS') {
-      res.sendStatus(204);
-  } else {
-      next();
-  }
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    if (req.method === 'OPTIONS') {
+        res.sendStatus(204);
+    } else {
+        next();
+    }
 });
 
 var userRoutes = require('./api/routes/userRoutes');
@@ -69,6 +69,6 @@ favouritesRoutes(app);
 var watchListRoutes = require('./api/routes/watchlistRoute');
 watchListRoutes(app);
 
-app.listen(3000, function(){
+app.listen(3000, function () {
     log.info('backend listening on port 3000');
 });

@@ -11,10 +11,11 @@
 	// carosuel height
 	/deep/ div.carousel > div.carousel-inner{
 		height: 60vh;
-		border-radius: 0;
+		border-radius: 4px;
 
 		.carousel-caption{
 			bottom: 0;
+			height: 88px;
 		}
 
 		slide{
@@ -59,7 +60,7 @@
 	// carosuel control bg´s
 	/deep/ span.icon-prev.carousel-control-prev-icon:after{
 		content: '';
-		background-color: rgba(0,0,0,.2);
+		background-color: rgba(0,0,0,0.0);
 		display: inline-block;
 		width: 60px;
 		height: 60px;
@@ -70,7 +71,7 @@
 	}
 	/deep/ span.icon-next.carousel-control-next-icon:after{
 		content: '';
-		background-color: rgba(0,0,0,.2);
+		background-color: rgba(0,0,0,0.0);
 		display: inline-block;
 		width: 60px;
 		height: 60px;
